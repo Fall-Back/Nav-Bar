@@ -1,0 +1,20 @@
+{
+    "name": "Fallback-Search-Form",
+    "version": "0.1.0",
+    "homepage": "https://github.com/Fall-Back/Search-Form",
+    "authors": [
+        "Andy Kirk <andy.kirk@gridlight-design.co.uk>"
+    ],
+    "description": "A simple pattern for an expanding search form.",
+    "main": "_search-form.scss",
+    "ignore":[],
+    "keywords": [
+        "fallback",
+        "css",
+        "search"
+    ],
+    "license": "Apache",
+    "dependencies": {
+        "Fallback-Base": "https://github.com/Fall-Back/Fallback-Base"
+    }
+}

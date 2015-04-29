@@ -1,0 +1,432 @@
+/*------------------------------------------------------------------------------------------------*\
+    Fallback Nav Bar Pattern v0.1
+\*------------------------------------------------------------------------------------------------*/
+
+// Colours:
+
+$fallback--nav-bar--bg-color:      #f00 !default;
+$fallback--nav-bar--bg-color-alt:  #999 !default;
+$fallback--nav-bar--link-color:    #fff !default;
+
+$fallback--sub-nav--bg-color:      #666 !default;
+$fallback--sub-nav--bg-color-alt:  #999 !default;
+$fallback--sub-nav--link-bg-color: #666 !default;
+$fallback--sub-nav--link-color:    $fallback--nav-bar--link-color !default;
+
+
+// Sizes:
+
+$fallback--nav-bar--height:        40px !default;
+$fallback--nav-bar--spacing:       5px !default;
+
+
+// SVG's
+
+$fallback--nav-bar__open--svg:    "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTUuODMzIDguMzMzbDQuMTY3IDQuMTY3IDQuMTY3LTQuMTY3eiI+PC9wYXRoPjwvc3ZnPg==" !default;  
+      
+$fallback--nav-bar__cancel--svg:  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTE1LjgzMyA1LjM0NmwtMS4xNzktMS4xNzktNC42NTQgNC42NTQtNC42NTQtNC42NTQtMS4xNzkgMS4xNzkgNC42NTQgNC42NTQtNC42NTQgNC42NTQgMS4xNzkgMS4xNzkgNC42NTQtNC42NTQgNC42NTQgNC42NTQgMS4xNzktMS4xNzktNC42NTQtNC42NTR6Ij48L3BhdGg+PC9zdmc+" !default;        
+
+
+// Fallback PNG's:
+
+$fallback--nav-bar__open--png:    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAcH+PMsL1QgAAACBJREFUeAFjYGKBAiYGIBvGArIhLDBgZmFhBFIQNpgFAA5pAGWVT5gDAAAAAElFTkSuQmCC" !default;
+
+$fallback--nav-bar__cancel--png:  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxxpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgSWxsdXN0cmF0b3IgQ1M1LjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUNCODlFNUVBQkJEMTFFNDkzM0NCQkU0NzUxRjIyMzEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUNCODlFNUZBQkJEMTFFNDkzM0NCQkU0NzUxRjIyMzEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFQ0I4OUU1Q0FCQkQxMUU0OTMzQ0JCRTQ3NTFGMjIzMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFQ0I4OUU1REFCQkQxMUU0OTMzQ0JCRTQ3NTFGMjIzMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PiyHcWkAAACQSURBVHjafFKBDYAgDBvEAziBE3xhPOwH+MJO8ARPELSYOcAmDZq2bAxcSikQ0U4POOd8kkLRV+hH1T1+VnDHBtYcmr7QFy3EZY3K/KJWqKLYUOFmzNXDDqWDam0Eaedzqt9ZSPQwvBIi+As3mMZ/SxOzoFp3aD8xM3ja6XncYFe6UAahzz2IfRomdH9fAgwAwq5CDR+vop8AAAAASUVORK5CYII=" !default;
+
+// Transitions:
+
+$fallback--sub-nav---transition:  top 0.5s ease !default;
+
+/* -- Basic/fallback layout --------------------------------------------------------------------- */
+    
+
+    /* -- .nav-bar -------------------------------------------------------------------------------*/
+
+    .nav-bar {
+        position: relative;
+        background-color: $fallback--nav-bar--bg-color;
+    }
+    
+    .nav-bar:before,
+    .nav-bar:after,
+    .nav-bar__inner:before,
+    .nav-bar__inner:after {
+        content: " ";
+        display: table;
+    }
+
+    .nav-bar:after,
+    .nav-bar__inner:after {
+        clear: both;
+    }
+    
+    /* IE7- hacks (can't use MQ or IE8 Respond applies it): */
+    .nav-bar {
+        *zoom: 1;
+    }
+
+    /* -------------------------------------------------------------------------------------------*/
+
+    
+    /* -- .nav-bar__inner ------------------------------------------------------------------------*/
+
+    /*
+        1. Duplicating parent background-color here. There HAS to be a colour here for the pattern
+           to work, the parent background-color is there to allow things to be NOT BROKEN on
+           browsers that don't support HTML semantic elements.
+    */
+    .nav-bar__inner {
+        background-color: $fallback--nav-bar--bg-color;
+        overflow: hidden;
+    }
+    
+    
+    
+    /* IE7- hacks (can't use MQ or IE8 Respond applies it): */
+    .nav-bar__inner {
+        *zoom: 1;
+    }
+
+    /* -------------------------------------------------------------------------------------------*/
+
+    
+    /* -- .nav-bar__button -----------------------------------------------------------------------*/
+    /* Unused? */
+    /*.nav-bar__button {
+        -webkit-appearance: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        background: #ddd;
+        border: none;
+        @include fallback-rem(height, $fallback--nav-bar--height);
+    }
+
+    .nav-bar__button:hover,
+    .nav-bar__button:active,
+    .nav-bar__button:focus {
+        background-color: #ccc;  /* @var *
+    }
+    */
+    /* -------------------------------------------------------------------------------------------*/
+
+
+    /* -- .nav-bar__items -------------------------------------------------------------------------*/
+    .nav-bar__items {          
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        float: left;
+        
+        -webkit-box-flex: 0;
+            -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                    flex: 0 1 auto;
+    }
+
+    /* -------------------------------------------------------------------------------------------*/
+
+    /* -- .subnav --------------------------------------------------------------------------------*/
+
+    .subnav {
+        list-style-type: none;
+        padding: 0;
+        @include fallback-rem(margin, 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2));
+        background-color: $fallback--sub-nav--bg-color;
+    }
+
+    .subnav:before,
+    .subnav:after {
+        content: " ";
+        display: table;
+    }
+
+    .subnav:after {
+        clear: both;
+    }
+
+    .subnav__item {
+        float: left;
+    }
+    
+    /* IE7- hacks (can't use MQ or IE8 Respond applies it): */
+    .subnav__item {    
+        *float: none;
+        *display: inline;
+        *zoom: 1;
+    }
+        
+
+    /* -------------------------------------------------------------------------------------------*/
+
+
+    /* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
+
+    .nav-bar__link,
+    .subnav__link,
+    .subnav__heading {
+        display: block;
+        margin: 0;
+        @include fallback-rem(padding, 0 ($fallback--nav-bar--spacing * 2));
+        @include fallback-rem(height, $fallback--nav-bar--height);
+        @include fallback-rem(line-height, $fallback--nav-bar--height);  
+    }
+
+    .nav-bar__link {
+        color: $fallback--nav-bar--link-color;
+        background-color: transparent; /* @var */
+    }
+    
+    .nav-bar__link svg {
+        display: none;
+    }
+    
+    .subnav__heading {
+        color: $fallback--nav-bar--link-color;
+    }
+    
+    .subnav__link {
+        display: inline-block;
+        background-color: $fallback--sub-nav--link-bg-color;
+        color: $fallback--sub-nav--link-color;
+    }
+
+
+    /*
+        Don't allow the usual interaction effects on ALL nav-bar links:
+        (this is to allow submenu heading links to appear as a non-link)
+    */
+    .nav-bar__link:hover,
+    .nav-bar__link:focus,
+    .nav-bar__link:active,
+    .subnav__link:hover,
+    .subnav__link:focus,
+    .subnav__link:active {
+        text-decoration: none;
+        outline: 0;
+    }
+
+    /*
+        Provide interaction effects for nav-bar links that ARE links:
+        (this excludes submenu heading links - note that submenu links should never also be
+        submenu heading links)
+    */
+    .nav-bar__link:hover,
+    .nav-bar__link:focus,
+    .nav-bar__link:active {
+        background-color: $fallback--nav-bar--bg-color-alt;
+    }
+    
+    .subnav__link:hover,
+    .subnav__link:focus,
+    .subnav__link:active {
+        background-color: $fallback--sub-nav--bg-color-alt;
+    }
+    
+    
+    [href$="#"].nav-bar__link {
+        background-color: transparent;
+        cursor: default;
+    }
+
+
+    .subnav__heading {
+        display: none;
+    }
+    
+    .subnav__open:before {
+        content: attr(data-content);
+        
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        
+        line-height: 0;
+        vertical-align: middle;
+    }
+
+
+    .subnav__cancel,
+    .subnav__open--icon-only {
+        display: none;
+    }
+    
+    
+    /* IE7- hacks (can't use MQ or IE8 Respond applies it): */
+    .subnav__heading {
+        *display: block;
+    }
+    
+    .subnav__open--fake {
+        *display: none;
+    }
+
+    /* -------------------------------------------------------------------------------------------*/
+    
+    
+    
+    
+    
+    
+
+    /* -- Enhanced layout ----------------------------------------------------------------------- */
+    
+    @media only screen and (min-width: 600px) {
+    
+        .nav-bar {
+            z-index: 1000; /* @var */
+        }
+        
+        
+        .nav-bar__inner {
+            @include fallback-rem(min-height, $fallback--nav-bar--height);
+        }
+        
+
+        .nav-bar__items {
+            width: auto;
+        }
+       
+        
+        .nav-bar__item {
+            float: left;
+        }
+        
+        
+        .nav-bar__link svg {
+            display: inline;
+        }
+
+        .has-subnav > .nav-bar__link {
+            float: left;
+        }
+        
+        /*
+            Allow interaction effects for ALL nav-bar links now we're wide enough to show the nav-bar
+            enhanced version.
+        */
+        .nav-bar__link:hover,
+        .nav-bar__link:focus,
+        .nav-bar__link:active {
+            background-color: #999;
+            cursor: pointer;
+        }
+        
+        
+    
+        .subnav {
+            position: absolute;
+            left: 0;
+            @include fallback-rem(right, $fallback--nav-bar--height);
+            top: 0;
+            z-index: -1;
+            padding: 0;
+            margin: 0;
+            padding: 0;
+            
+            // background-color: #666;
+        }
+        
+        .subnav__link {
+            white-space: nowrap;
+        
+            -webkit-transition: margin-top 0.5s ease;
+               -moz-transition: margin-top 0.5s ease;
+                 -o-transition: margin-top 0.5s ease;
+                    transition: margin-top 0.5s ease;
+        }  
+        
+        .subnav__open:after {
+        
+            @include fallback-rem(width, ($fallback--nav-bar--height / 2));
+            content: url($fallback--nav-bar__open--svg);
+            
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            
+            line-height: 0;
+            vertical-align: middle;
+            
+        }
+    
+        .subnav__cancel:after {
+            content: url($fallback--nav-bar__cancel--svg);
+            
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            
+            line-height: 0;
+            vertical-align: middle;
+        }
+    
+    
+        .subnav__open--icon-only {
+            display: block;
+        }
+        
+        .subnav__open:focus + .subnav .subnav__link,
+        .subnav__link:focus {
+            @include fallback-rem(margin-top, $fallback--nav-bar--height);
+        }
+        
+        .subnav__item {
+            float: none;
+            display: table-cell;
+        }
+        
+        .subnav__cancel {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            @include fallback-rem(width, $fallback--nav-bar--height);
+            z-index: -1;
+            
+            -webkit-transition: $fallback--sub-nav---transition;
+               -moz-transition: $fallback--sub-nav---transition;
+                 -o-transition: $fallback--sub-nav---transition;
+                    transition: $fallback--sub-nav---transition;
+        }
+        
+        .subnav__cancel:focus {
+            margin-top: 0;
+        }
+        
+        .subnav__open:focus ~ .subnav__cancel {
+            @include fallback-rem(top, $fallback--nav-bar--height);
+        }
+        
+        .subnav__open svg,
+        .subnav__cancel svg {
+            vertical-align: text-bottom;
+        }
+
+    }
+    
+    
+    /* IE8 hacks: */
+    /*
+        min-width in place for Respond-friendliness
+    */
+    @media \0screen and (min-width: 600px) {
+        .subnav {
+            width: 100%;
+        }
+        
+        .subnav__open:after  {
+            content: url($fallback--nav-bar__open--png);
+        }
+        
+        .subnav__cancel:after  {
+            content: url($fallback--nav-bar__cancel--png);
+        }
+    }
+    
+
+    /* -------------------------------------------------------------------------------------------*/
+
+
+/* ---------------------------------------------------------------------------------------------- */
