@@ -350,18 +350,7 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
             vertical-align: middle;
             
         }
-    
-        .subnav__cancel:after {
-            content: url($fallback--nav-bar__cancel--svg);
-            
-            display: -webkit-inline-flex;
-            display: -ms-inline-flexbox;
-            display: inline-flex;
-            
-            line-height: 0;
-            vertical-align: middle;
-        }
-    
+
     
         .subnav__open--icon-only {
             display: block;
@@ -389,6 +378,17 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
                -moz-transition: $fallback--sub-nav---transition;
                  -o-transition: $fallback--sub-nav---transition;
                     transition: $fallback--sub-nav---transition;
+        }
+        
+        .subnav__cancel:after {
+            content: url($fallback--nav-bar__cancel--svg);
+            
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            
+            line-height: 0;
+            vertical-align: middle;
         }
         
         .subnav__cancel:focus {
