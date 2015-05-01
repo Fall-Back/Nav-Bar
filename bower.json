@@ -1,17 +1,17 @@
 {
-    "name": "Fallback-Search-Form",
+    "name": "Fallback-Nav-Bar",
     "version": "0.1.0",
-    "homepage": "https://github.com/Fall-Back/Search-Form",
+    "homepage": "https://github.com/Fall-Back/Nav-Bar",
     "authors": [
         "Andy Kirk <andy.kirk@gridlight-design.co.uk>"
     ],
-    "description": "A simple pattern for an expanding search form.",
-    "main": "_search-form.scss",
+    "description": "A pattern for a CSS only nav-bar.",
+    "main": "_nav-bar.scss",
     "ignore":[],
     "keywords": [
         "fallback",
         "css",
-        "search"
+        "nav-bar"
     ],
     "license": "Apache",
     "dependencies": {
