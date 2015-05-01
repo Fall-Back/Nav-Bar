@@ -334,9 +334,9 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
             display: inline-block;
             vertical-align: middle;
             /* IE10-11 flexbox chokes without width: */
-            @include fallback-rem(width, $fallback--nav-bar--height);
+            @include fallback-rem(width, ($fallback--nav-bar--height / 2 ));
             /* IE11 flexbox stretches icon without height: */
-            @include fallback-rem(height, $fallback--nav-bar--height);
+            @include fallback-rem(height, ($fallback--nav-bar--height / 2 ));
             /* But now blink pushes the icon to the bottom without line-height: 0. */
             line-height: 0;
         }
@@ -377,13 +377,13 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
         
         /* @micropattern:pseudo-dataicon-middle */
         .subnav__cancel:after {
-            content: url($fallback--nav-bar__closen--svg);
+            content: url($fallback--nav-bar__cancel--svg);
             display: inline-block;
             vertical-align: middle;
             /* IE10-11 flexbox chokes without width: */
-            @include fallback-rem(width, $fallback--nav-bar--height);
+            @include fallback-rem(width, ($fallback--nav-bar--height / 2 ));
             /* IE11 flexbox stretches icon without height: */
-            @include fallback-rem(height, $fallback--nav-bar--height);
+            @include fallback-rem(height, ($fallback--nav-bar--height / 2 ));
             /* But now blink pushes the icon to the bottom without line-height: 0. */
             line-height: 0;
         }
