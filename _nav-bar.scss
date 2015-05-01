@@ -23,7 +23,7 @@ $fallback--nav-bar--spacing:       5px !default;
 // SVG's
 
 $fallback--nav-bar__open--svg:    "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTUuODMzIDguMzMzbDQuMTY3IDQuMTY3IDQuMTY3LTQuMTY3eiI+PC9wYXRoPjwvc3ZnPg==" !default;  
-      
+
 $fallback--nav-bar__cancel--svg:  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTE1LjgzMyA1LjM0NmwtMS4xNzktMS4xNzktNC42NTQgNC42NTQtNC42NTQtNC42NTQtMS4xNzkgMS4xNzkgNC42NTQgNC42NTQtNC42NTQgNC42NTQgMS4xNzkgMS4xNzkgNC42NTQtNC42NTQgNC42NTQgNC42NTQgMS4xNzktMS4xNzktNC42NTQtNC42NTR6Ij48L3BhdGg+PC9zdmc+" !default;
 
 
@@ -330,7 +330,7 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
         /* @micropattern:pseudo-dataicon-middle */
         .subnav__open:after {
             /* These styles are enough for modern FF to V-center the icon: */
-            content: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTUuODMzIDguMzMzbDQuMTY3IDQuMTY3IDQuMTY3LTQuMTY3eiI+PC9wYXRoPjwvc3ZnPg==");
+            content: url($fallback--nav-bar__open--svg);
             display: inline-block;
             vertical-align: middle;
             /* IE10-11 flexbox chokes without width: */
