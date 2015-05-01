@@ -326,21 +326,6 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
                     transition: margin-top 0.5s ease;
         }  
         
-
-        /* @micropattern:pseudo-dataicon-middle */
-        .subnav__open:after {
-            /* These styles are enough for modern FF to V-center the icon: */
-            content: url($fallback--nav-bar__open--svg);
-            display: inline-block;
-            vertical-align: middle;
-            /* IE10-11 flexbox chokes without width: */
-            @include fallback-rem(width, ($fallback--nav-bar--height / 2 ));
-            /* IE11 flexbox stretches icon without height: */
-            @include fallback-rem(height, ($fallback--nav-bar--height / 2 ));
-            /* But now blink pushes the icon to the bottom without line-height: 0. */
-            line-height: 0;
-        }
-
     
         .subnav__open--icon-only {
             display: block;
@@ -375,9 +360,21 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
                     transition: $fallback--sub-nav---transition;
         }
         
+
+        .subnav__cancel:focus {
+            margin-top: 0;
+        }
+        
+        .subnav__open:focus ~ .subnav__cancel {
+            @include fallback-rem(top, $fallback--nav-bar--height);
+        }
+        
+        
         /* @micropattern:pseudo-dataicon-middle */
+        .subnav__open:after,
         .subnav__cancel:after {
-            content: url($fallback--nav-bar__cancel--svg);
+            /* These styles are enough for modern FF to V-center the icon: */
+            content: url($fallback--nav-bar__open--svg);
             display: inline-block;
             vertical-align: middle;
             /* IE10-11 flexbox chokes without width: */
@@ -387,14 +384,15 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
             /* But now blink pushes the icon to the bottom without line-height: 0. */
             line-height: 0;
         }
-        
-        .subnav__cancel:focus {
-            margin-top: 0;
+
+        .subnav__open:after {
+            content: url($fallback--nav-bar__open--svg);
         }
         
-        .subnav__open:focus ~ .subnav__cancel {
-            @include fallback-rem(top, $fallback--nav-bar--height);
+        .subnav__cancel:after {
+            content: url($fallback--nav-bar__cancel--svg);
         }
+        
         
         .subnav__open svg,
         .subnav__cancel svg {
