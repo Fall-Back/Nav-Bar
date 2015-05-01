@@ -334,11 +334,9 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
             display: inline-block;
             vertical-align: middle;
             /* IE10-11 flexbox chokes without width: */
-            width:  20px;
-            width:  2rem;
+            @include fallback-rem(width, $fallback--nav-bar--height);
             /* IE11 flexbox stretches icon without height: */
-            height:  20px;
-            height:  2rem;
+            @include fallback-rem(height, $fallback--nav-bar--height);
             /* But now blink pushes the icon to the bottom without line-height: 0. */
             line-height: 0;
         }
@@ -379,15 +377,13 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
         
         /* @micropattern:pseudo-dataicon-middle */
         .subnav__cancel:after {
-            content: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTE1LjgzMyA1LjM0NmwtMS4xNzktMS4xNzktNC42NTQgNC42NTQtNC42NTQtNC42NTQtMS4xNzkgMS4xNzkgNC42NTQgNC42NTQtNC42NTQgNC42NTQgMS4xNzkgMS4xNzkgNC42NTQtNC42NTQgNC42NTQgNC42NTQgMS4xNzktMS4xNzktNC42NTQtNC42NTR6Ij48L3BhdGg+PC9zdmc+");
+            content: url($fallback--nav-bar__closen--svg);
             display: inline-block;
             vertical-align: middle;
             /* IE10-11 flexbox chokes without width: */
-            width:  20px;
-            width:  2rem;
+            @include fallback-rem(width, $fallback--nav-bar--height);
             /* IE11 flexbox stretches icon without height: */
-            height:  20px;
-            height:  2rem;
+            @include fallback-rem(height, $fallback--nav-bar--height);
             /* But now blink pushes the icon to the bottom without line-height: 0. */
             line-height: 0;
         }
@@ -420,7 +416,7 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
         
          /* @micropattern:pseudo-dataicon-middle-ie8 */
         .subnav__open:after {
-            content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAcH+PMsL1QgAAACBJREFUeAFjYGKBAiYGIBvGArIhLDBgZmFhBFIQNpgFAA5pAGWVT5gDAAAAAElFTkSuQmCC");
+            content: url($fallback--nav-bar__open--png);
             /* Positioning tweaks: */
             text-align: center;
             line-height: 1;
