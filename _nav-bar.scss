@@ -163,6 +163,9 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
 
     /* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
 
+	/*
+		1. Opera Mini ignores line-height without !important.
+	*/
     .nav-bar__link,
     .subnav__link,
     .subnav__heading {
@@ -170,7 +173,7 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
         margin: 0;
         @include fallback-rem(padding, 0 ($fallback--nav-bar--spacing * 2));
         @include fallback-rem(height, $fallback--nav-bar--height);
-        @include fallback-rem(line-height, $fallback--nav-bar--height);  
+        @include fallback-rem(line-height, $fallback--nav-bar--height, true); /* [1] */
     }
 
     .nav-bar__link {
@@ -181,7 +184,7 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
     .nav-bar__link svg {
         display: none;
     }
-    
+
     .subnav__heading {
         color: $fallback--nav-bar--link-color;
     }
