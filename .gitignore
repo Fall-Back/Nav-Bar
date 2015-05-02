@@ -2,3 +2,4 @@
 bower_components/
 nav-bar.css
 nav-bar.scss
+*.css.map
