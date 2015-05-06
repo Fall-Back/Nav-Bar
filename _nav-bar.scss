@@ -4,34 +4,39 @@
 
 // Colours:
 
-$fallback--nav-bar--bg-color:      #f00 !default;
-$fallback--nav-bar--bg-color-alt:  #999 !default;
-$fallback--nav-bar--link-color:    #fff !default;
+$fallback--nav-bar--bg-color:             #aaa !default;
+$fallback--nav-bar--bg-color-alt:         #999 !default;
+$fallback--nav-bar--link-color:           #fff !default;
 
-$fallback--sub-nav--bg-color:      #666 !default;
-$fallback--sub-nav--bg-color-alt:  #999 !default;
-$fallback--sub-nav--link-bg-color: #666 !default;
-$fallback--sub-nav--link-color:    $fallback--nav-bar--link-color !default;
+$fallback--sub-nav--bg-color:             #666 !default;
+$fallback--sub-nav--bg-color-alt:         #999 !default;
+$fallback--sub-nav--link-bg-color:        #666 !default;
+$fallback--sub-nav--link-color:           $fallback--nav-bar--link-color !default;
 
 
 // Sizes:
 
-$fallback--nav-bar--height:        40px !default;
-$fallback--nav-bar--spacing:       5px !default;
+$fallback--nav-bar--height:               40px !default;
+$fallback--nav-bar--spacing:              5px !default;
+
+
+// Breakpoints:
+
+$fallback--nav-bar--breakpoint--enhanced: 720px !default;
 
 
 // SVG's
 
-$fallback--nav-bar__open--svg:    "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTUuODMzIDguMzMzbDQuMTY3IDQuMTY3IDQuMTY3LTQuMTY3eiI+PC9wYXRoPjwvc3ZnPg==" !default;  
+$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTUuODMzIDguMzMzbDQuMTY3IDQuMTY3IDQuMTY3LTQuMTY3eiI+PC9wYXRoPjwvc3ZnPg==" !default;  
 
-$fallback--nav-bar__cancel--svg:  "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTE1LjgzMyA1LjM0NmwtMS4xNzktMS4xNzktNC42NTQgNC42NTQtNC42NTQtNC42NTQtMS4xNzkgMS4xNzkgNC42NTQgNC42NTQtNC42NTQgNC42NTQgMS4xNzkgMS4xNzkgNC42NTQtNC42NTQgNC42NTQgNC42NTQgMS4xNzktMS4xNzktNC42NTQtNC42NTR6Ij48L3BhdGg+PC9zdmc+" !default;
+$fallback--nav-bar__cancel--svg:          "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTE1LjgzMyA1LjM0NmwtMS4xNzktMS4xNzktNC42NTQgNC42NTQtNC42NTQtNC42NTQtMS4xNzkgMS4xNzkgNC42NTQgNC42NTQtNC42NTQgNC42NTQgMS4xNzkgMS4xNzkgNC42NTQtNC42NTQgNC42NTQgNC42NTQgMS4xNzktMS4xNzktNC42NTQtNC42NTR6Ij48L3BhdGg+PC9zdmc+" !default;
 
 
 // Fallback PNG's:
 
-$fallback--nav-bar__open--png:    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAcH+PMsL1QgAAACBJREFUeAFjYGKBAiYGIBvGArIhLDBgZmFhBFIQNpgFAA5pAGWVT5gDAAAAAElFTkSuQmCC" !default;
+$fallback--nav-bar__open--png:            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAcH+PMsL1QgAAACBJREFUeAFjYGKBAiYGIBvGArIhLDBgZmFhBFIQNpgFAA5pAGWVT5gDAAAAAElFTkSuQmCC" !default;
 
-$fallback--nav-bar__cancel--png:  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFuSURBVDiN7ZG/asJQFMa/e3MzKDgEN4c7pEP/rHmBO/gKN2icO3SrYPsQHYqvoGALYsF2Kzj4Ek23ELq4GYpLiBftYAKS3ITSrn7jPef87jnfB5z0X5H8Q7vd5gBulVL3y+VS6YaEEIwx9gBguFgsvo5rVNPfB9BnjE2EEKwENsn68vUC0LKsAYAJANc0zWfHccysJqU0GGMjAC4hZKaUusvPF07OBqMoGgHoEUJm6/Xas217F0XRGIBHCJltt9uuzhItMHeaC2CaPrsApkqpXpm/pcD8pgBQtVkmXSiVn242m8oljLKCEIIlSfIEoIPDyR8AZK1WO+ecz8Mw3P0aKKU0kiQZA+ikaXrNZvMljuMzAF3DMK4sy5qvVqsCtABMfSuk6fv+3nGc1xTaqdfrlzpoAdhqtR4BXOOQpnccgO/7e875G6X0Ij2/EQTBeyXQtu1PAFBK3ejSDMNwxzmfU0obAIZBEHzrbDvp7/oBTO6g1QDr8X4AAAAASUVORK5CYII=" !default;
+$fallback--nav-bar__cancel--png:          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFuSURBVDiN7ZG/asJQFMa/e3MzKDgEN4c7pEP/rHmBO/gKN2icO3SrYPsQHYqvoGALYsF2Kzj4Ek23ELq4GYpLiBftYAKS3ITSrn7jPef87jnfB5z0X5H8Q7vd5gBulVL3y+VS6YaEEIwx9gBguFgsvo5rVNPfB9BnjE2EEKwENsn68vUC0LKsAYAJANc0zWfHccysJqU0GGMjAC4hZKaUusvPF07OBqMoGgHoEUJm6/Xas217F0XRGIBHCJltt9uuzhItMHeaC2CaPrsApkqpXpm/pcD8pgBQtVkmXSiVn242m8oljLKCEIIlSfIEoIPDyR8AZK1WO+ecz8Mw3P0aKKU0kiQZA+ikaXrNZvMljuMzAF3DMK4sy5qvVqsCtABMfSuk6fv+3nGc1xTaqdfrlzpoAdhqtR4BXOOQpnccgO/7e875G6X0Ij2/EQTBeyXQtu1PAFBK3ejSDMNwxzmfU0obAIZBEHzrbDvp7/oBTO6g1QDr8X4AAAAASUVORK5CYII=" !default;
 
 // Transitions:
 
@@ -43,8 +48,8 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
     /* -- .nav-bar -------------------------------------------------------------------------------*/
 
     .nav-bar {
-        position: relative;
         background-color: $fallback--nav-bar--bg-color;
+        @include fallback-rem(min-height, $fallback--nav-bar--height);
     }
     
     .nav-bar:before,
@@ -163,9 +168,6 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
 
     /* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
 
-	/*
-		1. Opera Mini ignores line-height without !important.
-	*/
     .nav-bar__link,
     .subnav__link,
     .subnav__heading {
@@ -173,7 +175,16 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
         margin: 0;
         @include fallback-rem(padding, 0 ($fallback--nav-bar--spacing * 2));
         @include fallback-rem(height, $fallback--nav-bar--height);
-        @include fallback-rem(line-height, $fallback--nav-bar--height, true); /* [1] */
+        @include fallback-rem(line-height, $fallback--nav-bar--height);
+    }
+    
+    /*
+        Fix for Opera Mini vertical centering:
+    */
+    _:-o-prefocus, body:last-child .nav-bar__link,
+    _:-o-prefocus, body:last-child .subnav__link,
+    _:-o-prefocus, body:last-child .subnav__heading {
+        line-height: 2.8 !important;
     }
 
     .nav-bar__link {
@@ -268,13 +279,13 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
     
 
     /* -- Enhanced layout ----------------------------------------------------------------------- */
-    
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
     
         .nav-bar {
+            position: relative;
             z-index: 1000; /* @var */
         }
-        
+    
         
         .nav-bar__inner {
             @include fallback-rem(min-height, $fallback--nav-bar--height);
