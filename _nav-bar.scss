@@ -350,6 +350,17 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
             @include fallback-rem(margin-top, $fallback--nav-bar--height);
         }
         
+        /*
+            Fixes cancel button behaviour if not using overflow:hidden on .nav-bar__inner
+            (Maybe be temp - I can't quite remember what the overflow:hidden was for.
+            May have been a float-clearing thing but may not need this now?)
+        */
+        .subnav__cancel:focus,
+        .subnav__cancel:active {
+            margin-top: 0;
+        }
+        
+        
         .subnav__item {
             float: none;
             display: table-cell;
