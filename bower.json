@@ -1,5 +1,5 @@
 {
-    "name": "Fallback-Nav-Bar",
+    "name": "FallBack-Nav-Bar",
     "version": "0.1.0",
     "homepage": "https://github.com/Fall-Back/Nav-Bar",
     "authors": [
@@ -15,6 +15,6 @@
     ],
     "license": "Apache",
     "dependencies": {
-        "Fallback-Base": "https://github.com/Fall-Back/Fallback-Base"
+        "FallBack-Base": "https://github.com/Fall-Back/FallBack-Base"
     }
 }
