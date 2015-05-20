@@ -13,11 +13,14 @@ $fallback--sub-nav--bg-color-alt:         #999 !default;
 $fallback--sub-nav--link-bg-color:        #666 !default;
 $fallback--sub-nav--link-color:           $fallback--nav-bar--link-color !default;
 
+$fallback--nav-bar__title--bg:            $fallback--nav-bar--bg-color !default;
 
 // Sizes:
 
 $fallback--nav-bar--height:               40px !default;
 $fallback--nav-bar--spacing:              5px !default;
+$fallback--nav-bar--margin-bottom:        0 !default;
+$fallback--nav-bar__title--padding:       0 !default;
 
 
 // Breakpoints:
@@ -40,7 +43,15 @@ $fallback--nav-bar__cancel--png:          "data:image/png;base64,iVBORw0KGgoAAAA
 
 // Transitions:
 
-$fallback--sub-nav---transition:  top 0.5s ease !default;
+$fallback--sub-nav---transition:          top 0.5s ease !default;
+
+
+// Other:
+// (shorthand property causes problems with IE9-10 due to rem support issues)
+$fallback--nav-bar__title--font-size:     24px !default;
+$fallback--nav-bar__title--font-style:    normal !default;
+$fallback--nav-bar__title--font-weight:   bold !default;
+$fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
 
 /* -- Basic/fallback layout --------------------------------------------------------------------- */
     
@@ -50,6 +61,7 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
     .nav-bar {
         background-color: $fallback--nav-bar--bg-color;
         @include fallback-rem(min-height, $fallback--nav-bar--height);
+        @include fallback-rem(margin-bottom, $fallback--nav-bar--margin-bottom);
     }
     
     .nav-bar:before,
@@ -72,6 +84,25 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
 
     /* -------------------------------------------------------------------------------------------*/
 
+    /* -- .nav-bar__title-section ----------------------------------------------------------------*/
+
+    .nav-bar__title-section {
+        @include fallback-rem(min-height, $fallback--nav-bar--height);
+    }
+
+        .nav-bar__title-text {
+            background: $fallback--nav-bar__title--bg;
+            display: inline-block;
+            font-family: $fallback--nav-bar__title--font-family;
+            font-weight: $fallback--nav-bar__title--font-weight;
+            font-style: $fallback--nav-bar__title--font-style;
+            @include fallback-rem(font-size, $fallback--nav-bar__title--font-size);
+            @include fallback-rem(height, $fallback--nav-bar--height);
+            @include fallback-rem(line-height, $fallback--nav-bar--height);
+            width: 100%;
+            @include fallback-rem(padding, $fallback--nav-bar__title--padding);
+        }
+    
     
     /* -- .nav-bar__inner ------------------------------------------------------------------------*/
 
@@ -281,13 +312,48 @@ $fallback--sub-nav---transition:  top 0.5s ease !default;
     /* -- Enhanced layout ----------------------------------------------------------------------- */
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
     
+        /*
+            1. For IE 9.
+            2. For -moz-box.
+        */
         .nav-bar {
             position: relative;
             z-index: 1000; /* @var */
+        
+            display: table; /* [1] */
+            
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+
+            width: 100%; /* [2] */
         }
-    
+        
+        
+        /*
+            1. For IE 9.
+            2. Reset width for modern browsers.
+        */
+        .nav-bar__title-section {   
+            display: table-cell; /* [1] */
+            width: 1px;          /* [1] */
+            width: initial;      /* [2] */
+            white-space: nowrap; /* [1] */
+            vertical-align: top; /* [1] */
+            
+            webkit-flex: 0 0 auto;
+            -moz-box-flex: 0;
+            -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+        }
         
         .nav-bar__inner {
+            -webkit-flex: 1 0 auto;
+            -moz-box-flex: 1;
+            -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
+
             @include fallback-rem(min-height, $fallback--nav-bar--height);
         }
 
