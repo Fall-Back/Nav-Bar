@@ -62,8 +62,6 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         background-color: $fallback--nav-bar--bg-color;
         @include fallback-rem(min-height, $fallback--nav-bar--height);
         @include fallback-rem(margin-bottom, $fallback--nav-bar--margin-bottom);
-    
-        
     }
     
     .nav-bar:before,
@@ -314,9 +312,22 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
     /* -- Enhanced layout ----------------------------------------------------------------------- */
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
     
+        /*
+            1. For IE 9.
+            2. For -moz-box.
+        */
         .nav-bar {
             position: relative;
             z-index: 1000; /* @var */
+            
+            display: table; /* [1] */
+        
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+
+            width: 100%; /* [2] */
         }
         
         
