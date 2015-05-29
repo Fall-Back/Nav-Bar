@@ -58,23 +58,12 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
 
     /* -- .nav-bar -------------------------------------------------------------------------------*/
 
-    /*
-        1. For IE 9.
-        2. For -moz-box.
-    */
     .nav-bar {
         background-color: $fallback--nav-bar--bg-color;
         @include fallback-rem(min-height, $fallback--nav-bar--height);
         @include fallback-rem(margin-bottom, $fallback--nav-bar--margin-bottom);
     
-        display: table; /* [1] */
         
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-
-        width: 100%; /* [2] */
     }
     
     .nav-bar:before,
