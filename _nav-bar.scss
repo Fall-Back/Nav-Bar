@@ -7,11 +7,13 @@
 $fallback--nav-bar--bg-color:             #aaa !default;
 $fallback--nav-bar--bg-color-alt:         #999 !default;
 $fallback--nav-bar--link-color:           #fff !default;
+$fallback--nav-bar--link-color-alt:       $fallback--nav-bar--link-color !default;
 
 $fallback--sub-nav--bg-color:             #666 !default;
 $fallback--sub-nav--bg-color-alt:         #999 !default;
 $fallback--sub-nav--link-bg-color:        #666 !default;
 $fallback--sub-nav--link-color:           $fallback--nav-bar--link-color !default;
+$fallback--sub-nav--link-color-alt:       $fallback--sub-nav--link-color !default;
 
 $fallback--nav-bar__title--bg:            $fallback--nav-bar--bg-color !default;
 
@@ -233,8 +235,8 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
     
     .subnav__link {
         display: inline-block;
-        background-color: $fallback--sub-nav--link-bg-color;
         color: $fallback--sub-nav--link-color;
+        background-color: $fallback--sub-nav--link-bg-color;
     }
 
 
@@ -260,12 +262,14 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
     .nav-bar__link:hover,
     .nav-bar__link:focus,
     .nav-bar__link:active {
+        color: $fallback--nav-bar--link-color-alt;
         background-color: $fallback--nav-bar--bg-color-alt;
     }
     
     .subnav__link:hover,
     .subnav__link:focus,
     .subnav__link:active {
+        color: $fallback--sub-nav--link-color-alt;
         background-color: $fallback--sub-nav--bg-color-alt;
     }
     
