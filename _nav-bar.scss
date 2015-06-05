@@ -382,7 +382,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         .nav-bar__link:hover,
         .nav-bar__link:focus,
         .nav-bar__link:active {
-            background-color: #999;
+            background-color: $fallback--nav-bar--bg-color-alt;
             cursor: pointer;
         }
         
