@@ -10,7 +10,7 @@ $fallback--nav-bar--link-color:           #fff !default;
 $fallback--nav-bar--link-color-alt:       $fallback--nav-bar--link-color !default;
 
 $fallback--sub-nav--bg-color:             #666 !default;
-$fallback--sub-nav--bg-color-alt:         #999 !default;
+$fallback--sub-nav--link-bg-color-alt:    #999 !default;
 $fallback--sub-nav--link-bg-color:        #666 !default;
 $fallback--sub-nav--link-color:           $fallback--nav-bar--link-color !default;
 $fallback--sub-nav--link-color-alt:       $fallback--sub-nav--link-color !default;
@@ -270,7 +270,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
     .subnav__link:focus,
     .subnav__link:active {
         color: $fallback--sub-nav--link-color-alt;
-        background-color: $fallback--sub-nav--bg-color-alt;
+        background-color: $fallback--sub-nav--link-bg-color-alt;
     }
     
     
