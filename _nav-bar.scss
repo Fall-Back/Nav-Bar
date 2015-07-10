@@ -323,15 +323,11 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         *display: none;
     }
 
-    /* -------------------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------------------------*/
     
     
     
-    
-    
-    
-
-    /* -- Enhanced layout ----------------------------------------------------------------------- */
+/* -- Enhanced layout --------------------------------------------------------------------------- */
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
     
         /*
@@ -543,3 +539,39 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
 
 
 /* ---------------------------------------------------------------------------------------------- */
+    
+    
+    
+/* -- Fit layout --------------------------------------------------------------------------- */
+
+.nav-bar--fit {
+
+    .nav-bar__items {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        
+        -webkit-justify-content: space-around;
+                  -ms-flex-pack: distribute;
+                justify-content: space-around;
+    }
+
+    
+    .nav-bar__item {
+        -webkit-flex: 0 0 auto;
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+        text-align: center;
+    }
+    
+    .has-subnav {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: center;
+                  -ms-flex-pack: center;
+                justify-content: center;
+    }
+}
+
+/* -----------------------------------------------------------------------------------------------*/
