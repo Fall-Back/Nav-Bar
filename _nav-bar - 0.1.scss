@@ -1,5 +1,5 @@
 /*------------------------------------------------------------------------------------------------*\
-    Fall-Back Nav Bar Pattern v0.5
+    Fall-Back Nav Bar Pattern v0.1
 \*------------------------------------------------------------------------------------------------*/
 
 // Colours:
@@ -36,13 +36,12 @@ $fallback--sub-nav__link--bg-color--alt:  lighten($fallback--sub-nav__link--bg-c
 $fallback--nav-bar__title--bg-color:      $fallback--nav-bar--bg-color !default;
 
 // Sizes:
-$fallback--nav-bar--font-size:            $fallback--base-font-size !default;    
-$fallback--nav-bar--height:               ($fallback--base-em-ratio * 2em) !default;
-//$fallback--nav-bar--height:               40px !default;
-$fallback--nav-bar--spacing:              ($fallback--nav-bar--height / 8) !default;
-//$fallback--nav-bar--spacing:              5px !default;
+
+$fallback--nav-bar--height:               40px !default;
+$fallback--nav-bar--spacing:              5px !default;
 $fallback--nav-bar--margin-bottom:        0 !default;
 $fallback--nav-bar__title--padding:       0 !default;
+
 
 // Breakpoints:
 
@@ -51,9 +50,9 @@ $fallback--nav-bar--breakpoint--enhanced: 720px !default;
 
 // SVG's
 
-$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;  
+$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTUuODMzIDguMzMzbDQuMTY3IDQuMTY3IDQuMTY3LTQuMTY3eiI+PC9wYXRoPjwvc3ZnPg==" !default;  
 
-$fallback--nav-bar__cancel--svg:          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTIwIDIuMDJMMTcuOTggMCAxMCA3Ljk4IDIuMDIgMCAwIDIuMDIgNy45OCAxMCAwIDE3Ljk4IDIuMDIgMjAgMTAgMTIuMDIgMTcuOTggMjAgMjAgMTcuOTggMTIuMDIgMTAgMjAgMi4wMnoiLz48L3N2Zz4=" !default;
+$fallback--nav-bar__cancel--svg:          "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCAgZmlsbD0iIzQ0NDQ0NCIgZD0iTTE1LjgzMyA1LjM0NmwtMS4xNzktMS4xNzktNC42NTQgNC42NTQtNC42NTQtNC42NTQtMS4xNzkgMS4xNzkgNC42NTQgNC42NTQtNC42NTQgNC42NTQgMS4xNzkgMS4xNzkgNC42NTQtNC42NTQgNC42NTQgNC42NTQgMS4xNzktMS4xNzktNC42NTQtNC42NTR6Ij48L3BhdGg+PC9zdmc+" !default;
 
 
 // Fall-Back PNG's:
@@ -69,8 +68,7 @@ $fallback--sub-nav---transition:          top 0.5s ease !default;
 
 // Other:
 // (shorthand property causes problems with IE9-10 due to rem support issues)
-//$fallback--nav-bar__title--font-size:     24px !default;
-$fallback--nav-bar__title--font-size:     1.5em !default;
+$fallback--nav-bar__title--font-size:     24px !default;
 $fallback--nav-bar__title--font-style:    normal !default;
 $fallback--nav-bar__title--font-weight:   bold !default;
 $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
@@ -82,12 +80,12 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
 
     .nav-bar {
         background-color: $fallback--nav-bar--bg-color;
-        //--@include fallback-rem(margin-bottom, $fallback--nav-bar--margin-bottom);
+        @include fallback-rem(margin-bottom, $fallback--nav-bar--margin-bottom);
         
         // Have no recollection why this is needed:
         // It forces the nav-bar to remain visible (though empty) on small screens. Not good, but
         // may have fixed other things so keep as reminderL
-        //--@include fallback-rem(min-height, $fallback--nav-bar--height);
+        //@include fallback-rem(min-height, $fallback--nav-bar--height);
     }
     
     .nav-bar:before,
@@ -113,24 +111,20 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
     /* -- .nav-bar__title-section ----------------------------------------------------------------*/
 
     .nav-bar__title-section {
-        //--@include fallback-rem(min-height, $fallback--nav-bar--height);
+        @include fallback-rem(min-height, $fallback--nav-bar--height);
     }
 
         .nav-bar__title-text {
             background: $fallback--nav-bar__title--bg-color;
             display: inline-block;
-            width: 100%;
-            height: $fallback--nav-bar--height;
             font-family: $fallback--nav-bar__title--font-family;
             font-weight: $fallback--nav-bar__title--font-weight;
             font-style: $fallback--nav-bar__title--font-style;
-            font-size: $fallback--nav-bar__title--font-size;
-            line-height: $fallback--nav-bar--height;
-            ////@include fallback-rem(font-size, $fallback--nav-bar__title--font-size);
-            ////@include fallback-rem(height, $fallback--nav-bar--height);
-            ////@include fallback-rem(line-height, $fallback--nav-bar--height);
-            
-            ////@include fallback-rem(padding, $fallback--nav-bar__title--padding);
+            @include fallback-rem(font-size, $fallback--nav-bar__title--font-size);
+            @include fallback-rem(height, $fallback--nav-bar--height);
+            @include fallback-rem(line-height, $fallback--nav-bar--height);
+            width: 100%;
+            @include fallback-rem(padding, $fallback--nav-bar__title--padding);
         }
     
     
@@ -198,8 +192,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
     .subnav {
         list-style-type: none;
         padding: 0;
-        margin: 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2);
-        ////@include fallback-rem(margin, 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2));
+        @include fallback-rem(margin, 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2));
         background-color: $fallback--sub-nav--bg-color;
     }
 
@@ -235,12 +228,9 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
     .subnav__heading {
         display: block;
         margin: 0;
-        padding: 0 ($fallback--nav-bar--spacing * 2);
-        height: $fallback--nav-bar--height;
-        line-height: $fallback--nav-bar--height;
-        ////@include fallback-rem(padding, 0 ($fallback--nav-bar--spacing * 2));
-        ////@include fallback-rem(height, $fallback--nav-bar--height);
-        ////@include fallback-rem(line-height, $fallback--nav-bar--height);
+        @include fallback-rem(padding, 0 ($fallback--nav-bar--spacing * 2));
+        @include fallback-rem(height, $fallback--nav-bar--height);
+        @include fallback-rem(line-height, $fallback--nav-bar--height);
     }
     
     /*
@@ -386,7 +376,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
             -ms-flex: 1 0 auto;
             flex: 1 0 auto;
 
-            //--@include fallback-rem(min-height, $fallback--nav-bar--height);
+            @include fallback-rem(min-height, $fallback--nav-bar--height);
         }
 
         
@@ -419,7 +409,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
             position: absolute;
             left: 0;
             right: 0;
-            //--@include fallback-rem(padding-right, $fallback--nav-bar--height);
+            @include fallback-rem(padding-right, $fallback--nav-bar--height);
             top: 0;
             z-index: -1;
             padding: 0;
@@ -445,8 +435,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         
         .subnav__open:focus + .subnav .subnav__link,
         .subnav__link:focus {
-            margin-top: $fallback--nav-bar--height;
-            ////@include fallback-rem(margin-top, $fallback--nav-bar--height);
+            @include fallback-rem(margin-top, $fallback--nav-bar--height);
         }
         
         /*
@@ -473,8 +462,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
             position: absolute;
             right: 0;
             top: 0;
-            //width: $fallback--nav-bar--height;
-            //@include fallback-rem(width, $fallback--nav-bar--height);
+            @include fallback-rem(width, $fallback--nav-bar--height);
             z-index: -1;
             
             background: transparent; /* [1] */
@@ -491,8 +479,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         }
         
         .subnav__open:focus ~ .subnav__cancel {
-            top: $fallback--nav-bar--height;
-            ////@include fallback-rem(top, $fallback--nav-bar--height);
+            @include fallback-rem(top, $fallback--nav-bar--height);
         }
         
         
@@ -503,22 +490,16 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
             content: url($fallback--nav-bar__open--svg);
             display: inline-block;
             vertical-align: middle;
-            width: $fallback--nav-bar--spacing * 2;
-            
             /* IE10-11 flexbox chokes without width: */
-            //@include fallback-rem(width, ($fallback--nav-bar--height / 2 ));
+            @include fallback-rem(width, ($fallback--nav-bar--height / 2 ));
             /* IE11 flexbox stretches icon without height: */
-            //@include fallback-rem(height, ($fallback--nav-bar--height / 2 ));
+            @include fallback-rem(height, ($fallback--nav-bar--height / 2 ));
             /* But now blink pushes the icon to the bottom without line-height: 0. */
             line-height: 0;
         }
 
         .subnav__open:after {
             content: url($fallback--nav-bar__open--svg);
-        }
-        
-        .subnav__open--fake:after {
-            margin-left: $fallback--nav-bar--spacing * 2;
         }
         
         .subnav__cancel:after {
