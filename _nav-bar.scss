@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*------------------------------------------------------------------------------------------------*\
     Fall-Back Nav Bar Pattern v0.5
 \*------------------------------------------------------------------------------------------------*/
@@ -51,7 +52,10 @@ $fallback--nav-bar--breakpoint--enhanced: 720px !default;
 
 // SVG's
 
+//////$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9ICIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;  
+
 $fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;  
+//$fallback--nav-bar__open--svg:            'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#444" d="M0 5l10 10L20 5H0z"/></svg>' !default;  
 
 $fallback--nav-bar__cancel--svg:          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTIwIDIuMDJMMTcuOTggMCAxMCA3Ljk4IDIuMDIgMCAwIDIuMDIgNy45OCAxMCAwIDE3Ljk4IDIuMDIgMjAgMTAgMTIuMDIgMTcuOTggMjAgMjAgMTcuOTggMTIuMDIgMTAgMjAgMi4wMnoiLz48L3N2Zz4=" !default;
 
@@ -75,6 +79,12 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
 
 // Calculate title heights based on IT'S font size:
 $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallback--nav-bar__title--font-size / 1em) * $fallback--base-font-size) * 1em);
+
+
+// MQ hacks:
+// https://jeffclayton.wordpress.com/2014/07/22/internet-explorer-css-hacks-collection/
+// 0\0 encoded to preserve hack.
+$fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution: .001dpcm)" !default;
 
 /* -- Basic/fallback layout --------------------------------------------------------------------- */
     
@@ -344,8 +354,10 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
     
         /*
-            1. For IE 9.
-            2. For -moz-box.
+            1. For IE 9 and FF 12-.
+            
+            Note: -moz-box prevents positioning context (position: relative) from working in FF 12-.
+            Need to hack / re-think / drop support
         */
         .nav-bar {
             position: relative;
@@ -354,16 +366,15 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
             display: table; /* [1] */
         
             display: -webkit-flex;
-            display: -moz-box;
             display: -ms-flexbox;
             display: flex;
 
-            width: 100%; /* [2] */
+            width: 100%; /* [1] */
         }
         
         
         /*
-            1. For IE 9.
+            1. For IE 9 and FF 12-.
             2. Reset width for modern browsers.
         */
         .nav-bar__title-section {   
@@ -374,7 +385,6 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
             vertical-align: top; /* [1] */
             
             webkit-flex: 0 0 auto;
-            -moz-box-flex: 0;
             -ms-flex: 0 0 auto;
             flex: 0 0 auto;
         }
@@ -488,7 +498,6 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
         
         .subnav__open:focus ~ .subnav__cancel {
             top: $fallback--nav-bar--height;
-            ////@include fallback-rem(top, $fallback--nav-bar--height);
         }
         
         
@@ -496,10 +505,11 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
         .subnav__open:after,
         .subnav__cancel:after {
             /* These styles are enough for modern FF to V-center the icon: */
-            content: url($fallback--nav-bar__open--svg);
             display: inline-block;
             vertical-align: middle;
             width: $fallback--nav-bar--spacing * 2;
+            
+            //width: 12px;
             
             /* IE10-11 flexbox chokes without width: */
             //@include fallback-rem(width, ($fallback--nav-bar--height / 2 ));
@@ -513,19 +523,18 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
             content: url($fallback--nav-bar__open--svg);
         }
         
-        .subnav__open--fake:after {
-            margin-left: $fallback--nav-bar--spacing * 2;
-        }
-        
         .subnav__cancel:after {
             content: url($fallback--nav-bar__cancel--svg);
         }
         
+        .subnav__open--fake:after {
+            margin-left: $fallback--nav-bar--spacing * 2;
+        }
         
-        .subnav__open svg,
+        /*.subnav__open svg,
         .subnav__cancel svg {
             vertical-align: text-bottom;
-        }
+        }*/
 
     }
     
@@ -554,6 +563,19 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
     }
     
 
+    /* IE9 hacks: */
+    /*
+    */
+    @media #{$fallback--ie9--hack} {
+        .subnav__open:after,
+        .subnav__cancel:after {
+            /* Increase icon width due to odd cropping: */
+            /* (Temp until something better can be found.) */
+            width: $fallback--nav-bar--spacing * 3;
+
+        }
+    }
+    
     /* -------------------------------------------------------------------------------------------*/
 
 
@@ -561,7 +583,7 @@ $fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallb
     
     
     
-/* -- Fit layout --------------------------------------------------------------------------- */
+/* -- Fit layout -------------------------------------------------------------------------------- */
 
 .nav-bar--fit {
 
