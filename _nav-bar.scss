@@ -68,12 +68,13 @@ $fallback--sub-nav---transition:          top 0.5s ease !default;
 
 
 // Other:
-// (shorthand property causes problems with IE9-10 due to rem support issues)
-//$fallback--nav-bar__title--font-size:     24px !default;
 $fallback--nav-bar__title--font-size:     1.5em !default;
 $fallback--nav-bar__title--font-style:    normal !default;
 $fallback--nav-bar__title--font-weight:   bold !default;
 $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
+
+// Calculate title heights based on IT'S font size:
+$fallback--nav-bar__title--height: (($fallback--base-line-height * 2) / (($fallback--nav-bar__title--font-size / 1em) * $fallback--base-font-size) * 1em);
 
 /* -- Basic/fallback layout --------------------------------------------------------------------- */
     
@@ -86,7 +87,7 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         
         // Have no recollection why this is needed:
         // It forces the nav-bar to remain visible (though empty) on small screens. Not good, but
-        // may have fixed other things so keep as reminderL
+        // may have fixed other things so keep as reminder
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
     }
     
@@ -120,17 +121,19 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
             background: $fallback--nav-bar__title--bg-color;
             display: inline-block;
             width: 100%;
-            height: $fallback--nav-bar--height;
+            
+            height: $fallback--nav-bar__title--height;
+            line-height: $fallback--nav-bar__title--height;
+            
             font-family: $fallback--nav-bar__title--font-family;
             font-weight: $fallback--nav-bar__title--font-weight;
             font-style: $fallback--nav-bar__title--font-style;
             font-size: $fallback--nav-bar__title--font-size;
-            line-height: $fallback--nav-bar--height;
-            ////@include fallback-rem(font-size, $fallback--nav-bar__title--font-size);
-            ////@include fallback-rem(height, $fallback--nav-bar--height);
-            ////@include fallback-rem(line-height, $fallback--nav-bar--height);
-            
-            ////@include fallback-rem(padding, $fallback--nav-bar__title--padding);
+        }
+        
+        .nav-bar__title-text .nav-bar__link {
+            height: $fallback--nav-bar__title--height;
+            line-height: $fallback--nav-bar__title--height;
         }
     
     
@@ -199,7 +202,6 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         list-style-type: none;
         padding: 0;
         margin: 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2);
-        ////@include fallback-rem(margin, 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2));
         background-color: $fallback--sub-nav--bg-color;
     }
 
@@ -238,9 +240,6 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         padding: 0 ($fallback--nav-bar--spacing * 2);
         height: $fallback--nav-bar--height;
         line-height: $fallback--nav-bar--height;
-        ////@include fallback-rem(padding, 0 ($fallback--nav-bar--spacing * 2));
-        ////@include fallback-rem(height, $fallback--nav-bar--height);
-        ////@include fallback-rem(line-height, $fallback--nav-bar--height);
     }
     
     /*
@@ -425,8 +424,6 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
             padding: 0;
             margin: 0;
             padding: 0;
-            
-            // background-color: #666;
         }
         
         .subnav__link {
@@ -446,7 +443,6 @@ $fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
         .subnav__open:focus + .subnav .subnav__link,
         .subnav__link:focus {
             margin-top: $fallback--nav-bar--height;
-            ////@include fallback-rem(margin-top, $fallback--nav-bar--height);
         }
         
         /*
