@@ -1,6 +1,11 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------------------------------------*\
     Fall-Back Nav Bar Pattern v0.5
+    
+    Design for use with the basic [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
+    IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+    
 \*------------------------------------------------------------------------------------------------*/
 
 // Colours:
@@ -131,7 +136,11 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
     /* -- .nav-bar__title-section ----------------------------------------------------------------*/
 
+    /*
+        1. For IE 9 and FF 21-.
+    */
     .nav-bar .nav-bar__title-section {
+        white-space: nowrap; /* [1] */
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
     }
 
@@ -216,16 +225,6 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             margin: 0;
         }
         
-        
-        .nav-bar .nav-bar__item {
-            border-style: $fallback--nav-bar__link--border-style; 
-            border-color: $fallback--nav-bar__link--border-color;
-            border-right-width: $fallback--nav-bar__link--border-width;
-        }
-        
-        .nav-bar .nav-bar__title-section + .nav-bar__inner .nav-bar__item:first-child {
-            border-left-width: $fallback--nav-bar__link--border-width;
-        }
         
         /*.nav-bar .nav-bar__item:not(:first-child) {
             border-style: $fallback--nav-bar__link--border-style; 
@@ -398,38 +397,21 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
 
         /*
-            1. For IE 9.
-
-            Note: `display: table|-moz-box` prevents positioning context (position: relative) from
-            working in FF 12- and IE9.
-            display: `table-cell; width: 100%;` doesn't work on `.nav-bar__inner` unless
-            `.nav-bar__title-section` is ALSO present, so setting it to `block` if it's on it's own,
-            and `table-cell` if it's not.
         */
         .nav-bar {
             position: relative;
             z-index: 1000; /* @var */
 
-            display: block; /* [1] */
-
             display: -webkit-flex;
             display: -ms-flexbox;
             display: flex;
-
-            width: 100%; /* [1] */
         }
 
 
         /*
-            1. For IE 9 and FF 12-. (see above)
-            2. Reset width for modern browsers.
+            1. For IE 9 and FF 21-.
         */
-        .nav-bar .nav-bar__title-section {
-            display: table-cell; /* [1] */
-            display: initial;    /* [2] */
-            width: 1px;          /* [1] */
-            width: initial;      /* [2] */
-            white-space: nowrap; /* [1] */
+        .nav-bar .nav-bar__title-section {  
             vertical-align: top; /* [1] */
 
             -webkit-flex: 0 0 auto;
@@ -441,31 +423,62 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             -webkit-flex: 1 0 auto;
                 -ms-flex: 1 0 auto;
                     flex: 1 0 auto;
-
-            //--@include fallback-rem(min-height, $fallback--nav-bar--height);
         }
 
-        .nav-bar .nav-bar__title-section + .nav-bar__inner {
-            display: table-cell; /* [1] */
-            display: initial;    /* [1] */
-            width: 100%;         /* [1] */
-            width: initial;      /* [2] */
+        
+        /*
+            Apply table-cell hack to all FF because -moz-box in FF12- doesn't honour `position:relative`
+            and applying the table-cell hack to everything causes other problems. 
+        */
+        _:-moz-tree-row(hover), .nav-bar .nav-bar__title-section { 
+            display: table-cell;
+            width: 1px;
         }
-        
-        // FF19+ supports `initial`, but not proper flex box. 18- is fine, 22+ is fine, but
-        // in-between is broken.
-        _:-moz-tree-row(hover), _::-moz-placeholder, .nav-bar {
-            display: -moz-box;
-            display: flex;
+        _:-moz-tree-row(hover), .nav-bar .nav-bar__title-section + .nav-bar__inner {
+            display: table-cell;
+            width: 100%;
         }
-        
-        
-        _:-moz-tree-row(hover), _::-moz-placeholder, .nav-bar__inner {
-            -moz-box-flex: 1;
-        }
-        
 
+        /*
+            Apply the table-cell hack to IE9.
+        */
+        _::selection, .nav-bar .nav-bar__title-section { 
+            display: table-cell\0;
+            width: 1px\0; 
+        }
 
+        _::selection, .nav-bar .nav-bar__title-section + .nav-bar__inner {
+            display: table-cell\0;
+            width: 100%\0;
+        }
+        
+        
+        /*
+            Remove table hack properties for browsers that support flexbox AND @supports.
+            Note, we're only interested in FF here, as other browsers already have flexbox properties
+            applied if they support it, so in this case the following is only relevent for FF22+ 
+            (below that FF will still use the table hack as applied above).
+        */
+        @supports (display: flex) {
+            .nav-bar .nav-bar__title-section,
+            .nav-bar .nav-bar__title-section + .nav-bar__inner {
+                display: block;
+                width: auto;
+            }
+        }
+        
+        /* Add dividers */
+        .nav-bar .nav-bar__item {
+            border-style: $fallback--nav-bar__link--border-style; 
+            border-color: $fallback--nav-bar__link--border-color;
+            border-right-width: $fallback--nav-bar__link--border-width;
+        }
+        
+        .nav-bar .nav-bar__title-section + .nav-bar__inner .nav-bar__item:first-child {
+            border-left-width: $fallback--nav-bar__link--border-width;
+        }
+        
+        /**/
         .nav-bar .nav-bar__item {
             float: left;
         }
@@ -646,11 +659,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             /* Increase icon width due to odd cropping, then rescale down: */
             width: 1rem;
             -ms-transform: scale(0.5);
-
         }
     }
 
-    /* -------------------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------------------------*/
 
 
 /* ---------------------------------------------------------------------------------------------- */
