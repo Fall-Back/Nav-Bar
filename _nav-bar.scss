@@ -281,10 +281,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav__heading {
         display: block;
         margin: 0;
-        padding: 0 ($fallback--nav-bar--spacing * 2);
+        padding: ($fallback--nav-bar--spacing * 1.333333) ($fallback--nav-bar--spacing * 2);
         border: 0;
-        height: $fallback--nav-bar--height;
-        line-height: $fallback--nav-bar--height;
+        //height: $fallback--nav-bar--height;
+        //line-height: $fallback--nav-bar--height;
     }
 
     .nav-bar .nav-bar__link:hover,
@@ -294,6 +294,11 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav__link:active,
     .nav-bar .subnav__link:focus {
         border: 0;
+    }
+    
+    .nav-bar__title-text .nav-bar__link {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     /*
