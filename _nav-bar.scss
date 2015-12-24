@@ -303,6 +303,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
     /*
         Fix for Opera Mini vertical centering:
+        (affects Opera 12.10-16 as well)
     */
     _:-o-prefocus, body:last-child .nav-bar .nav-bar__link,
     _:-o-prefocus, body:last-child .nav-bar .subnav__link,
@@ -660,11 +661,29 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     /*
     */
     @media #{$fallback--ie9--hack} {
-        //.nav-bar .subnav__cancel::after {
+        /*
+            The icons force a massive height increase for some reason.
+            Setting the height to this only works fine because on 'wide' the nav-bar can't be
+            allowed to be double-lined or it breaks, and on 'narrow' the icons are hidden.
+        */
+        
+        .nav-bar .subnav__open,
+        .nav-bar .subnav__cancel {
+            height: $fallback--nav-bar--height;
+        }
+    
+    
+        //.nav-bar .subnav__cancel::after,
         .nav-bar .subnav__open::after {
             /* Increase icon width due to odd cropping, then rescale down: */
             width: 1rem;
             -ms-transform: scale(0.5);
+        }
+        
+        .nav-bar .subnav__cancel::after {
+            /* Increase icon width due to odd cropping, then rescale down: */
+            width: 1.1rem;
+            -ms-transform: scale(0.8);
         }
     }
 
