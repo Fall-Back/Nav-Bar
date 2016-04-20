@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------------------------------------*\
-    Fall-Back Nav Bar Pattern v1.0.0
+    Fall-Back Nav Bar Pattern v0.5
     
     Design for use with the basic [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
@@ -60,7 +60,7 @@ $fallback--nav-bar___cancel--size:        1em !default;
 
 // Breakpoints:
 
-$fallback--nav-bar--breakpoint--enhanced: 50em !default;
+$fallback--nav-bar--breakpoint--enhanced: 45em !default;
 //$fallback--nav-bar--breakpoint--enhanced: 720px !default;
 
 
@@ -68,17 +68,17 @@ $fallback--nav-bar--breakpoint--enhanced: 50em !default;
 
 //////$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9ICIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;
 
-//$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;
-////$fallback--nav-bar__open--svg:            'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#444" d="M0 5l10 10L20 5H0z"/></svg>' !default;
+$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;
+//$fallback--nav-bar__open--svg:            'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#444" d="M0 5l10 10L20 5H0z"/></svg>' !default;
 
-//$fallback--nav-bar__cancel--svg:          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTIwIDIuMDJMMTcuOTggMCAxMCA3Ljk4IDIuMDIgMCAwIDIuMDIgNy45OCAxMCAwIDE3Ljk4IDIuMDIgMjAgMTAgMTIuMDIgMTcuOTggMjAgMjAgMTcuOTggMTIuMDIgMTAgMjAgMi4wMnoiLz48L3N2Zz4=" !default;
+$fallback--nav-bar__cancel--svg:          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTIwIDIuMDJMMTcuOTggMCAxMCA3Ljk4IDIuMDIgMCAwIDIuMDIgNy45OCAxMCAwIDE3Ljk4IDIuMDIgMjAgMTAgMTIuMDIgMTcuOTggMjAgMjAgMTcuOTggMTIuMDIgMTAgMjAgMi4wMnoiLz48L3N2Zz4=" !default;
 
 
 // Fall-Back PNG's:
 
-//$fallback--nav-bar__open--png:            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAcH+PMsL1QgAAACBJREFUeAFjYGKBAiYGIBvGArIhLDBgZmFhBFIQNpgFAA5pAGWVT5gDAAAAAElFTkSuQmCC" !default;
+$fallback--nav-bar__open--png:            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAcH+PMsL1QgAAACBJREFUeAFjYGKBAiYGIBvGArIhLDBgZmFhBFIQNpgFAA5pAGWVT5gDAAAAAElFTkSuQmCC" !default;
 
-//$fallback--nav-bar__cancel--png:          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFuSURBVDiN7ZG/asJQFMa/e3MzKDgEN4c7pEP/rHmBO/gKN2icO3SrYPsQHYqvoGALYsF2Kzj4Ek23ELq4GYpLiBftYAKS3ITSrn7jPef87jnfB5z0X5H8Q7vd5gBulVL3y+VS6YaEEIwx9gBguFgsvo5rVNPfB9BnjE2EEKwENsn68vUC0LKsAYAJANc0zWfHccysJqU0GGMjAC4hZKaUusvPF07OBqMoGgHoEUJm6/Xas217F0XRGIBHCJltt9uuzhItMHeaC2CaPrsApkqpXpm/pcD8pgBQtVkmXSiVn242m8oljLKCEIIlSfIEoIPDyR8AZK1WO+ecz8Mw3P0aKKU0kiQZA+ikaXrNZvMljuMzAF3DMK4sy5qvVqsCtABMfSuk6fv+3nGc1xTaqdfrlzpoAdhqtR4BXOOQpnccgO/7e875G6X0Ij2/EQTBeyXQtu1PAFBK3ejSDMNwxzmfU0obAIZBEHzrbDvp7/oBTO6g1QDr8X4AAAAASUVORK5CYII=" !default;
+$fallback--nav-bar__cancel--png:          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFuSURBVDiN7ZG/asJQFMa/e3MzKDgEN4c7pEP/rHmBO/gKN2icO3SrYPsQHYqvoGALYsF2Kzj4Ek23ELq4GYpLiBftYAKS3ITSrn7jPef87jnfB5z0X5H8Q7vd5gBulVL3y+VS6YaEEIwx9gBguFgsvo5rVNPfB9BnjE2EEKwENsn68vUC0LKsAYAJANc0zWfHccysJqU0GGMjAC4hZKaUusvPF07OBqMoGgHoEUJm6/Xas217F0XRGIBHCJltt9uuzhItMHeaC2CaPrsApkqpXpm/pcD8pgBQtVkmXSiVn242m8oljLKCEIIlSfIEoIPDyR8AZK1WO+ecz8Mw3P0aKKU0kiQZA+ikaXrNZvMljuMzAF3DMK4sy5qvVqsCtABMfSuk6fv+3nGc1xTaqdfrlzpoAdhqtR4BXOOQpnccgO/7e875G6X0Ij2/EQTBeyXQtu1PAFBK3ejSDMNwxzmfU0obAIZBEHzrbDvp7/oBTO6g1QDr8X4AAAAASUVORK5CYII=" !default;
 
 // Transitions:
 
@@ -316,7 +316,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         background-color: $fallback--nav-bar__link--bg-color;
     }
 
-    .nav-bar .nav-bar__link .icon {
+    .nav-bar .nav-bar__link svg {
         display: none;
     }
 
@@ -366,8 +366,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
 
     .nav-bar [href$="#"].nav-bar__link {
-        /* Hmmm. Not sure what this was for. Keep for now. */
-        /*background-color: transparent;*/
+        background-color: transparent;
         cursor: default;
     }
 
@@ -376,7 +375,6 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         display: none;
     }
 
-    
     .nav-bar .subnav__open::before {
         content: attr(data-content);
         display: inline-block;
@@ -387,7 +385,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav__open--icon-only {
         display: none;
     }
-    
+
 
     ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
     //.subnav__heading {
@@ -493,7 +491,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         }
 
 
-        .nav-bar .nav-bar__link .icon {
+        .nav-bar .nav-bar__link svg {
             display: inline;
         }
 
@@ -555,10 +553,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         }
 
 
-        /*.nav-bar .subnav__item {
+        .nav-bar .subnav__item {
             float: none;
             display: table-cell;
-        }*/
+        }
 
         /*
             1. Make background transparent so transition looks smoother.
@@ -591,25 +589,22 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
 
         /* @micropattern:pseudo-dataicon-middle */
-        /*
         .nav-bar .subnav__open::after,
         .nav-bar .subnav__cancel::after {
-            /* These styles are enough for modern FF to V-center the icon: *
+            /* These styles are enough for modern FF to V-center the icon: */
             display: inline-block;
             vertical-align: middle;
 
             //width: 12px;
 
-            /* IE10-11 flexbox chokes without width: *
+            /* IE10-11 flexbox chokes without width: */
             //@include fallback-rem(width, ($fallback--nav-bar--height / 2 ));
-            /* IE11 flexbox stretches icon without height: *
+            /* IE11 flexbox stretches icon without height: */
             //@include fallback-rem(height, ($fallback--nav-bar--height / 2 ));
-            /* But now blink pushes the icon to the bottom without line-height: 0. *
+            /* But now blink pushes the icon to the bottom without line-height: 0. */
             line-height: 0;
         }
-        */
 
-        /*
         .nav-bar .subnav__open::after {
             width: $fallback--nav-bar___open--size;
         }
@@ -625,7 +620,6 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .subnav__cancel::after {
             content: url($fallback--nav-bar__cancel--svg);
         }
-        */
 
         .nav-bar .subnav__open--fake::after {
             margin-left: $fallback--nav-bar--spacing * 2;
