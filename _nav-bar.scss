@@ -82,7 +82,7 @@ $fallback--nav-bar--breakpoint--enhanced: 50em !default;
 
 // Transitions:
 
-$fallback--sub-nav---transition:          top 0.5s ease !default;
+$fallback--sub-nav---transition:          margin-top 0.5s ease !default;
 
 
 // Other:
@@ -115,7 +115,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
     }
 
-    .nav-bar::before,
+    /* Not sure why I need float clearing here. Keep for reference. */
+    /*.nav-bar::before,
     .nav-bar::after,
     .nav-bar .nav-bar__inner::before,
     .nav-bar .nav-bar__inner::after {
@@ -123,10 +124,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         display: table;
     }
 
-    .nav-bar:after,
+    .nav-bar::after,
     .nav-bar .nav-bar__inner::after {
         clear: both;
-    }
+    }*/
 
     ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
     //.nav-bar {
@@ -246,6 +247,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         padding: 0;
         margin: 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2);
         background-color: $fallback--sub-nav--bg-color;
+        
     }
 
     .nav-bar .subnav::before,
@@ -308,7 +310,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     _:-o-prefocus, body:last-child .nav-bar .nav-bar__link,
     _:-o-prefocus, body:last-child .nav-bar .subnav__link,
     _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
-        line-height: 2.8 !important;
+        line-height: 1.71428571429 !important;
     }
 
     .nav-bar .nav-bar__link {
@@ -365,26 +367,26 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     }
 
 
-    .nav-bar [href$="#"].nav-bar__link {
-        /* Hmmm. Not sure what this was for. Keep for now. */
-        /*background-color: transparent;*/
+    /*.nav-bar [href$="#"].nav-bar__link {
+        /* Override link hover effect - we want this to not look like a link in basic mode: *
+        background-color: transparent;
         cursor: default;
-    }
+    }*/
 
 
-    .nav-bar .subnav__heading {
+    /*.nav-bar .subnav__heading + .subnav__open {
         display: none;
-    }
+    }*/
 
     
-    .nav-bar .subnav__open::before {
+    /*.nav-bar .subnav__open::before {
         content: attr(data-content);
         display: inline-block;
-    }
+    }*/
 
 
     .nav-bar .subnav__cancel,
-    .nav-bar .subnav__open--icon-only {
+    .nav-bar .subnav__open {
         display: none;
     }
     
@@ -523,24 +525,45 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             padding: 0;
             margin: 0;
             padding: 0;
-        }
-
-        .nav-bar .subnav__link {
-            white-space: nowrap;
-
+            
+            // iOS needs this set:
+            height: $fallback--nav-bar--height;
+            
             -webkit-transition: margin-top 0.5s ease;
                -moz-transition: margin-top 0.5s ease;
                  -o-transition: margin-top 0.5s ease;
                     transition: margin-top 0.5s ease;
         }
-
-
-        .nav-bar .subnav__open--icon-only {
-            display: block;
+        
+        .nav-bar .subnav__heading {
+            display: none;
         }
 
-        .nav-bar .subnav__open:focus + .subnav .subnav__link,
+
+        .nav-bar .subnav__link {
+            white-space: nowrap;
+
+            /*OLD-webkit-transition: margin-top 0.5s ease;
+               -moz-transition: margin-top 0.5s ease;
+                 -o-transition: margin-top 0.5s ease;
+                    transition: margin-top 0.5s ease;*/
+        }
+
+
+        .nav-bar .subnav__open {
+            display: block;
+        }
+        
+        .nav-bar .subnav__open::before {
+            content: attr(data-content);
+            display: inline-block;
+        }
+
+        /*OLD.nav-bar .subnav__open:focus + .subnav .subnav__link,
         .nav-bar .subnav__link:focus {
+            margin-top: $fallback--nav-bar--height;
+        }*/
+        .nav-bar .subnav:target {
             margin-top: $fallback--nav-bar--height;
         }
 
@@ -585,8 +608,9 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             margin-top: 0;
         }
 
-        .nav-bar .subnav__open:focus ~ .subnav__cancel {
-            top: $fallback--nav-bar--height;
+        //OLD.nav-bar .subnav__open:focus ~ .subnav__cancel {
+        .nav-bar .subnav:target ~ .subnav__cancel{
+            margin-top: $fallback--nav-bar--height;
         }
 
 
@@ -627,9 +651,9 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         }
         */
 
-        .nav-bar .subnav__open--fake::after {
+        /*.nav-bar .subnav__open--fake::after {
             margin-left: $fallback--nav-bar--spacing * 2;
-        }
+        }*/
 
         /*.subnav__open svg,
         .subnav__cancel svg {
