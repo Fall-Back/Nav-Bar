@@ -517,6 +517,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
         .nav-bar .subnav {
             position: absolute;
+            /*display: none;/**/
+            visibility: hidden;
             left: 0;
             right: 0;
             //--@include fallback-rem(padding-right, $fallback--nav-bar--height);
@@ -559,11 +561,12 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: inline-block;
         }
 
-        /*OLD.nav-bar .subnav__open:focus + .subnav .subnav__link,
+        /*.nav-bar .subnav__open:focus + .subnav .subnav__link,
         .nav-bar .subnav__link:focus {
             margin-top: $fallback--nav-bar--height;
         }*/
         .nav-bar .subnav:target {
+            visibility: visible;
             margin-top: $fallback--nav-bar--height;
         }
 
@@ -572,10 +575,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             (Maybe be temp - I can't quite remember what the overflow:hidden was for.
             May have been a float-clearing thing but may not need this now?)
         */
-        .nav-bar .subnav__cancel:focus,
+        /*.nav-bar .subnav__cancel:focus,
         .nav-bar .subnav__cancel:active {
             margin-top: 0;
-        }
+        }*/
 
 
         /*.nav-bar .subnav__item {
@@ -587,10 +590,12 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             1. Make background transparent so transition looks smoother.
         */
         .nav-bar .subnav__cancel {
-            display: block;
+            display: block;/**/
+            visibility: hidden; /**/
             position: absolute;
             right: 0;
             top: 0;
+            margin-top: 0;
             //width: $fallback--nav-bar--height;
             //@include fallback-rem(width, $fallback--nav-bar--height);
             z-index: -1;
@@ -604,15 +609,18 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         }
 
 
-        .nav-bar .subnav__cancel:focus {
+        /*.nav-bar .subnav__cancel:focus {
             margin-top: 0;
-        }
+        }*/
 
-        //OLD.nav-bar .subnav__open:focus ~ .subnav__cancel {
-        .nav-bar .subnav:target ~ .subnav__cancel{
+        /*.nav-bar .subnav__open:focus ~ .subnav__cancel {
+            margin-top: $fallback--nav-bar--height;
+        }*/
+        .nav-bar .subnav:target ~ .subnav__cancel {
+            visibility: visible;
             margin-top: $fallback--nav-bar--height;
         }
-
+        
 
         /* @micropattern:pseudo-dataicon-middle */
         /*
