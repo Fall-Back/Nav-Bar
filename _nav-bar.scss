@@ -2,7 +2,7 @@
 /*------------------------------------------------------------------------------------------------*\
     Fall-Back Nav Bar Pattern v1.0.0
     
-    Design for use with the basic [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
+    Designed for use with the basic [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
     
@@ -14,11 +14,9 @@
 // - base-ui colour (if set)
 // - otherwise #999
 // - but can be specifically overridden
-$t: false;
+$t: #999;
 @if variable-exists(fallback--base-ui-color) {
     $t: $fallback--base-ui-color;
-} @else {
-    $t: #999;
 }
 $fallback--nav-bar--ui-color:             $t !default;
 
