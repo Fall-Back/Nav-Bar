@@ -10,55 +10,70 @@
 
 // Colours:
 
-// Slightly hacky way of allowing the main UI colour of this pattern to be:
-// - base-ui colour (if set)
-// - otherwise #999
-// - but can be specifically overridden
+// Slightly hacky way of allowing the main UI colours of this pattern to be:
+// - the relevent Fall-Back colour (if set)
+// - otherwise a basic useable (preview) colour
+// - but that can be specifically overridden before importing this file
 $t: #999;
 @if variable-exists(fallback--base-ui-color) {
     $t: $fallback--base-ui-color;
 }
-$fallback--nav-bar--ui-color:             $t !default;
-
-$fallback--nav-bar--bg-color:             $fallback--nav-bar--ui-color !default;
-
-$fallback--nav-bar__link--color:          #fff !default;
-$fallback--nav-bar__link--color--alt:     $fallback--nav-bar__link--color !default;
-$fallback--nav-bar__link--bg-color:       $fallback--nav-bar--bg-color !default;
-$fallback--nav-bar__link--bg-color--alt:  darken($fallback--nav-bar--ui-color, 10%) !default;
-
-$fallback--nav-bar__link--border-color:   rgba(0,0,0,0.2) !default;
-$fallback--nav-bar__link--border-style:   solid !default;
-$fallback--nav-bar__link--border-width:   1px !default;
+$fallback--nav-bar--base-ui-color:         $t !default;
 
 
-$fallback--sub-nav--bg-color:             darken($fallback--nav-bar--ui-color, 20%) !default;
+$t: #fff;
+@if variable-exists(fallback--base-background-color) {
+    $t: $fallback--base-background-color;
+}
+$fallback--nav-bar--base-background-color: $t !default;
 
 
-$fallback--sub-nav__link--color:          $fallback--nav-bar__link--color !default;
-$fallback--sub-nav__link--color--alt:     $fallback--sub-nav__link--color !default;
-$fallback--sub-nav__link--bg-color:       $fallback--sub-nav--bg-color !default;
-$fallback--sub-nav__link--bg-color--alt:  lighten($fallback--sub-nav__link--bg-color, 10%) !default;
+$t: #333;
+@if variable-exists(fallback--base-text-color) {
+    $t: $fallback--base-text-color;
+}
+$fallback--nav-bar--base-text-color:       $t !default;
 
 
-$fallback--nav-bar__title--bg-color:      $fallback--nav-bar--bg-color !default;
+$fallback--nav-bar--bg-color:              $fallback--nav-bar--base-ui-color !default;
+
+$fallback--nav-bar__link--color:           #fff !default;
+$fallback--nav-bar__link--color--alt:      $fallback--nav-bar__link--color !default;
+$fallback--nav-bar__link--bg-color:        $fallback--nav-bar--bg-color !default;
+$fallback--nav-bar__link--bg-color--alt:   darken($fallback--nav-bar--base-ui-color, 10%) !default;
+
+$fallback--nav-bar__link--border-color:    rgba(0,0,0,0.2) !default;
+$fallback--nav-bar__link--border-style:    solid !default;
+$fallback--nav-bar__link--border-width:    1px !default;
+
+
+$fallback--sub-nav--bg-color:              darken($fallback--nav-bar--base-ui-color, 20%) !default;
+
+
+$fallback--sub-nav__link--color:           $fallback--nav-bar__link--color !default;
+$fallback--sub-nav__link--color--alt:      $fallback--sub-nav__link--color !default;
+$fallback--sub-nav__link--bg-color:        $fallback--sub-nav--bg-color !default;
+$fallback--sub-nav__link--bg-color--alt:   lighten($fallback--sub-nav__link--bg-color, 10%) !default;
+
+
+$fallback--nav-bar__title--bg-color:       $fallback--nav-bar--bg-color !default;
 
 // Sizes:
-$fallback--nav-bar--font-size:            $fallback--base-font-size !default;
-$fallback--nav-bar--height:               ($fallback--base-em-ratio * 1.5em) !default;
-//$fallback--nav-bar--height:               40px !default;
-$fallback--nav-bar--spacing:              ($fallback--nav-bar--height / 8) !default;
-//$fallback--nav-bar--spacing:              5px !default;
-$fallback--nav-bar--margin-bottom:        0 !default;
-$fallback--nav-bar__title--padding:       0 !default;
+$fallback--nav-bar--font-size:             $fallback--base-font-size !default;
+$fallback--nav-bar--height:                ($fallback--base-em-ratio * 1.5em) !default;
+//$fallback--nav-bar--height:                40px !default;
+$fallback--nav-bar--spacing:               ($fallback--nav-bar--height / 8) !default;
+//$fallback--nav-bar--spacing:               5px !default;
+$fallback--nav-bar--margin-bottom:         0 !default;
+$fallback--nav-bar__title--padding:        0 !default;
 
-$fallback--nav-bar___open--size:          0.64285714285em !default;//$fallback--nav-bar--spacing * 2 !default;
-$fallback--nav-bar___cancel--size:        1em !default;
+$fallback--nav-bar___open--size:           0.64285714285em !default;//$fallback--nav-bar--spacing * 2 !default;
+$fallback--nav-bar___cancel--size:         1em !default;
 
 
 // Breakpoints:
 
-$fallback--nav-bar--breakpoint--enhanced: 50em !default;
+$fallback--nav-bar--breakpoint--enhanced:  50em !default;
 //$fallback--nav-bar--breakpoint--enhanced: 720px !default;
 
 
@@ -209,7 +224,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
     /* -- .nav-bar__items -------------------------------------------------------------------------*/
     .nav-bar .nav-bar__items {
-        width: 100%;
+        //width: 100%;< Can't remember what this was for. Opera Mini? 
         list-style-type: none;
         padding: 0;
         margin: 0;
