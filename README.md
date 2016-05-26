@@ -9,34 +9,30 @@ Markup Example
 ```
 <div class="nav-bar">
     <nav class="nav-bar__inner">          
-        <ol class="nav-bar__items">
-            <li class="nav-bar__item"><a href="#1" tabindex="1" class="nav-bar__link">Link 1</a></li>
+        <ul class="nav-bar__items">
             <li class="nav-bar__item  has-subnav">
-                <a href="#2" tabindex="1" class="nav-bar__link">Link 2</a>
-                <a href="#" tabindex="1" class="nav-bar__link  subnav__open   subnav__open--icon-only  js-no-history"></a>
-                <ol class="subnav" id="subnav1">
-                    <li class="subnav__item"><a href="#2.1" tabindex="1" class="subnav__link">Sub link 2.1</a></li>
-                    <li class="subnav__item"><a href="#2.2" tabindex="1" class="subnav__link">Sub link 2.2</a></li>
-                    <li class="subnav__item"><a href="#2.3" tabindex="1" class="subnav__link">Sub link 2.3</a></li>
-                    <li class="subnav__item"><a href="#2.4" tabindex="1" class="subnav__link">Sub link 2.4</a></li>
-                    <li class="subnav__item"><a href="#2.5" tabindex="1" class="subnav__link">Sub link 2.5</a></li>
-                    <li class="subnav__item"><a href="#2.6" tabindex="1" class="subnav__link">Sub link 2.6</a></li>
-                </ol>
-                <a href="#" tabindex="-1" class="subnav__link  subnav__cancel  js-no-history"></a>
+                <a href="#" class="nav-bar__link">About us</a>
+                <a href="#about-us-submenu" class="nav-bar__link  subnav__open   subnav__open--icon-only  js-no-history" hidden><svg width="0" height="0" class="icon  icon--narrow" aria-label="About Us Submenu"><use xlink:href="#icon-triangle-down"></use></svg></a>
+                <ul class="subnav" id="about-us-submenu">
+                    <li class="subnav__item"><a href="#" class="subnav__link">What we do</a></li>
+                    <li class="subnav__item"><a href="#" class="subnav__link">Contact us</a></li>
+                    <li class="subnav__item"><a href="#" class="subnav__link">Meet the team</a></li>
+                    <li class="subnav__item"><a href="#" class="subnav__link">Testimonials</a></li>
+                </ul>
+                <a href="#" class="subnav__link  subnav__cancel  js-no-history" hidden><svg width="0" height="0" class="icon" aria-label="Close submenu"><use xlink:href="#icon-cross"></use></svg></a>
             </li>
-            <li class="nav-bar__item"><a href="#3" tabindex="1" class="nav-bar__link">Some <!--<br />-->link</a></li>
-            <li class="nav-bar__item"><a href="#4" tabindex="1" class="nav-bar__link">Another</a></li>
+            <li class="nav-bar__item"><a href="#3" class="nav-bar__link">News</a></li>
             <li class="nav-bar__item  has-subnav">
-                <span class="subnav__heading">Submenu heading:</span>
-                <a href="#" tabindex="1" data-content="Submenu heading:" class="nav-bar__link  subnav__open  subnav__open--fake  js-no-history"></a>
-                <ol class="subnav" id="subnav2">
-                    <li class="subnav__item"><a href="#6.1" tabindex="1" class="subnav__link">Sub link 6.1</a></li>
-                    <li class="subnav__item"><a href="#6.2" tabindex="1" class="subnav__link">Sub link 6.2</a></li>
-                    <li class="subnav__item"><a href="#6.3" tabindex="1" class="subnav__link">Sub link 6.3</a></li>
-                </ol>
-                <a href="#" tabindex="-1" class="subnav__link  subnav__cancel  js-no-history"></a>
+                <span class="subnav__heading">Categories:</span>
+                <a href="#categories-submenu" data-content="Categories:" class="nav-bar__link  subnav__open  js-no-history" aria-label="Categories Submenu" hidden> <svg width="0" height="0" class="icon  icon--narrow"><use xlink:href="#icon-triangle-down"></use></svg></a>
+                <ul class="subnav" id="categories-submenu">
+                    <li class="subnav__item"><a href="#" class="subnav__link">Category 1</a></li>
+                    <li class="subnav__item"><a href="#" class="subnav__link">Category 2</a></li>
+                    <li class="subnav__item"><a href="#" class="subnav__link">Category 3</a></li>
+                </ul>
+                <a href="#" class="subnav__link  subnav__cancel  js-no-history" hidden><svg width="0" height="0" class="icon" aria-label="Close submenu"><use xlink:href="#icon-cross"></use></svg></a>
             </li>
-        </ol>
+        </ul>
     </nav>
 </div>
 ```
