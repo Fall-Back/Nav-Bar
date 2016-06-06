@@ -7,7 +7,7 @@
     ],
     "description": "A pattern for a CSS only nav-bar.",
     "main": "_nav-bar.scss",
-    "ignore":[],
+    "ignore": [],
     "keywords": [
         "fallback",
         "css",
