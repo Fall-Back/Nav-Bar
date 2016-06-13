@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------------------------------------*\
     Fall-Back Nav Bar Pattern v1.0.0
-    
+
     Designed for use with the basic [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
@@ -156,12 +156,21 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .nav-bar__title-section {
         white-space: nowrap; /* [1] */
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
+
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-pack: justify;
+           -ms-flex-pack: justify;
+         justify-content: space-between;
     }
 
         .nav-bar .nav-bar__title-text {
             background: $fallback--nav-bar__title--bg-color;
             display: inline-block;
-            width: 100%;
+            // Not sure what this was for causes problems for top-bar layouts:
+            //width: 100%;
 
             height: $fallback--nav-bar__title--height;
             line-height: $fallback--nav-bar__title--height;
@@ -177,6 +186,21 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             line-height: $fallback--nav-bar__title--height;
         }
 
+    /*
+        Apply the table-cell hack to IE9.
+    */
+    @media only screen and (max-width: $fallback--nav-bar--breakpoint--enhanced) {
+        _::selection, .nav-bar__title-section > * {
+            display: table-cell\0 !important;
+            width: 1px\0;
+        }
+        // Not this isn't very robust:
+        _::selection, .nav-bar__title-section > div {
+            display: table-cell\0 !important;
+            width: 100%\0;
+            text-align: center;
+        }
+    }
 
     /* -- .nav-bar__inner ------------------------------------------------------------------------*/
 
@@ -223,7 +247,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
     /* -- .nav-bar__items -------------------------------------------------------------------------*/
     .nav-bar .nav-bar__items {
-        //width: 100%;< Can't remember what this was for. Opera Mini? 
+        //width: 100%;< Can't remember what this was for. Opera Mini?
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -238,14 +262,14 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .nav-bar__item {
             margin: 0;
         }
-        
-        
+
+
         /*.nav-bar .nav-bar__item:not(:first-child) {
-            border-style: $fallback--nav-bar__link--border-style; 
+            border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
             border-left-width: $fallback--nav-bar__link--border-width;
         }
-        
+
         .nav-bar .nav-bar__item:last-child {
             border-right-width: $fallback--nav-bar__link--border-width;
         }*/
@@ -259,7 +283,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         padding: 0;
         margin: 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2);
         background-color: $fallback--sub-nav--bg-color;
-        
+
     }
 
     .nav-bar .subnav::before,
@@ -309,7 +333,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav__link:focus {
         border: 0;
     }
-    
+
     .nav-bar__title-text .nav-bar__link {
         padding-top: 0;
         padding-bottom: 0;
@@ -390,7 +414,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         display: none;
     }*/
 
-    
+
     /*.nav-bar .subnav__open::before {
         content: attr(data-content);
         display: inline-block;
@@ -401,7 +425,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav__open {
         display: none;
     }
-    
+
 
     ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
     //.subnav__heading {
@@ -430,11 +454,21 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: flex;
         }
 
+        /*
+            Set flex-grow for immediate children to help with things like top-bar combinations
+            (search form won't grow otherwise).
+        */
+        .nav-bar > * {
+            -webkit-flex: 1 0 auto;
+                -ms-flex: 1 0 auto;
+                    flex: 1 0 auto;
+        }
+
 
         /*
             1. For IE 9 and FF 21-.
         */
-        .nav-bar .nav-bar__title-section {  
+        .nav-bar .nav-bar__title-section {
             vertical-align: top; /* [1] */
 
             -webkit-flex: 0 0 auto;
@@ -442,44 +476,44 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                     flex: 0 0 auto;
         }
 
-        .nav-bar .nav-bar__inner {
+        /*.nav-bar .nav-bar__inner {
             -webkit-flex: 1 0 auto;
                 -ms-flex: 1 0 auto;
                     flex: 1 0 auto;
-        }
+        }*/
 
-        
+
         /*
-            Apply table-cell hack to all FF because -moz-box in FF12- doesn't honour `position:relative`
-            and applying the table-cell hack to everything causes other problems. 
+            Apply table-cell hack to all FF because -moz-box in FF12- doesn't honour
+            `position:relative` and applying the table-cell hack to everything causes other
+            problems.
         */
-        _:-moz-tree-row(hover), .nav-bar .nav-bar__title-section { 
-            display: table-cell;
-            width: 1px;
-        }
-        _:-moz-tree-row(hover), .nav-bar .nav-bar__title-section + .nav-bar__inner {
+        _:-moz-tree-row(hover), .nav-bar > * {
             display: table-cell;
             width: 100%;
+        }
+        _:-moz-tree-row(hover), .nav-bar .nav-bar__title-section {
+            display: table-cell;
+            width: 1px;
         }
 
         /*
             Apply the table-cell hack to IE9.
         */
-        _::selection, .nav-bar .nav-bar__title-section { 
-            display: table-cell\0;
-            width: 1px\0; 
-        }
-
-        _::selection, .nav-bar .nav-bar__title-section + .nav-bar__inner {
+        _::selection, .nav-bar > * {
             display: table-cell\0;
             width: 100%\0;
         }
-        
-        
+        _::selection, .nav-bar .nav-bar__title-section {
+            display: table-cell\0;
+            width: 1px\0;
+        }
+
+
         /*
             Remove table hack properties for browsers that support flexbox AND @supports.
             Note, we're only interested in FF here, as other browsers already have flexbox properties
-            applied if they support it, so in this case the following is only relevent for FF22+ 
+            applied if they support it, so in this case the following is only relevent for FF22+
             (below that FF will still use the table hack as applied above).
         */
         @supports (display: flex) {
@@ -489,18 +523,24 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                 width: auto;
             }
         }
-        
-        /* Add dividers */
+
+        /*
+            Add dividers.
+            Dividers created by adding right borders to nav-bar__items.
+        */
         .nav-bar .nav-bar__item {
-            border-style: $fallback--nav-bar__link--border-style; 
+            border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
             border-right-width: $fallback--nav-bar__link--border-width;
         }
-        
-        .nav-bar .nav-bar__title-section + .nav-bar__inner .nav-bar__item:first-child {
+
+        /*
+            If there's a title section, add a left border to the first item too.
+        */
+        .nav-bar .nav-bar__title-section + * .nav-bar__item:first-child {
             border-left-width: $fallback--nav-bar__link--border-width;
         }
-        
+
         /**/
         .nav-bar .nav-bar__item {
             float: left;
@@ -539,16 +579,16 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             padding: 0;
             margin: 0;
             padding: 0;
-            
+
             // iOS needs this set:
             height: $fallback--nav-bar--height;
-            
+
             -webkit-transition: margin-top 0.5s ease;
                -moz-transition: margin-top 0.5s ease;
                  -o-transition: margin-top 0.5s ease;
                     transition: margin-top 0.5s ease;
         }
-        
+
         .nav-bar .subnav__heading {
             display: none;
         }
@@ -567,7 +607,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .subnav__open {
             display: block;
         }
-        
+
         .nav-bar .subnav__open::before {
             content: attr(data-content);
             display: inline-block;
@@ -632,7 +672,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             visibility: visible;
             margin-top: $fallback--nav-bar--height;
         }
-        
+
 
         /* @micropattern:pseudo-dataicon-middle */
         /*
@@ -716,20 +756,20 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             Setting the height to this only works fine because on 'wide' the nav-bar can't be
             allowed to be double-lined or it breaks, and on 'narrow' the icons are hidden.
         */
-        
+
         .nav-bar .subnav__open,
         .nav-bar .subnav__cancel {
             height: $fallback--nav-bar--height;
         }
-    
-    
+
+
         //.nav-bar .subnav__cancel::after,
         .nav-bar .subnav__open::after {
             /* Increase icon width due to odd cropping, then rescale down: */
             width: 1rem;
             -ms-transform: scale(0.5);
         }
-        
+
         .nav-bar .subnav__cancel::after {
             /* Increase icon width due to odd cropping, then rescale down: */
             width: 1.1rem;
@@ -751,7 +791,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
             .nav-bar--fit .nav-bar__items {
                 width: 100%;
-                
+
                 display: -webkit-flex;
                 display: -ms-flexbox;
                 display: flex;
@@ -782,3 +822,38 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     }
 
 /* -----------------------------------------------------------------------------------------------*/
+
+/*
+    These classes help control the layout in the nav-bar__title-section.
+
+    There are different ways to achieve these layouts with pros and cons to each.
+    There are also differences in possible behaviours so there's no right/wrong way.
+    E.g. A title section and a single menu opener control could be laid out with either the title
+    seciton centered in the width of the whole nav-bar, or centered in the remaining space
+    available after decducting the width of the control:
+
+       |-----TITLE-----| (no control)
+    A: |-----TITLE---|=| (control does not affect centering)
+    B: |----TITLE----|=| (control affects centering)
+
+    B can be acheived easily with flexbox, as can other layouts, which basically govern themselves
+    based on which elements are in place:
+
+    DEFAULT (no class):
+
+    |TITLE----------| (no control elements)
+    |=|--------TITLE| (control element before title)
+    |TITLE--------|=| (control element after title)
+    |=|---TITLE---|=| (two control elements)
+
+    RELATIVELY CENTERED (centered on remaining space)
+
+    .nav-bar__title-section--relatively-centered {
+        margin: 0 auto;
+    }
+
+*/
+
+.nav-bar__title-section--relatively-centered {
+    margin: 0 auto;
+}
