@@ -298,6 +298,9 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         padding: 0;
         margin: 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2);
         background-color: $fallback--sub-nav--bg-color;
+        
+        // OSX/iOS needs this:
+        min-height: $fallback--nav-bar--height;
 
     }
 
@@ -532,8 +535,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             (below that FF will still use the table hack as applied above).
         */
         @supports (display: flex) {
-            .nav-bar .nav-bar__title-section,
-            .nav-bar .nav-bar__title-section + .nav-bar__inner {
+            .nav-bar > * {
                 display: block;
                 width: auto;
             }
@@ -595,7 +597,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             margin: 0;
             padding: 0;
 
-            // iOS needs this set:
+            // OSX/iOS needs this:
             height: $fallback--nav-bar--height;
 
             -webkit-transition: margin-top 0.5s ease;
