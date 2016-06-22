@@ -165,18 +165,34 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     */
     .nav-bar .nav-bar__title-section {
         white-space: nowrap; /* [1] */
+        vertical-align: top; /* [1] */
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
 
+        display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
+        
+        /*display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;*/
 
         -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        
+        /*-webkit-box-pack: justify;
            -ms-flex-pack: justify;
-         justify-content: space-between;
+         justify-content: space-between;*/
     }
 
+        /*
+            1. For IE 9 and FF 21-.
+        */
         .nav-bar .nav-bar__title-text {
+            vertical-align: top; /* [1] */
+             
             background: $fallback--nav-bar__title--bg-color;
             display: inline-block;
             // Not sure what this was for causes problems for top-bar layouts:
@@ -199,16 +215,23 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
     @media only screen and (max-width: $fallback--nav-bar--breakpoint--enhanced) {
         /*
-        Apply the table-cell hack to IE9.
-    */
+            Apply the table-cell hack to IE9.
+        */
         _::selection, .nav-bar__title-section > * {
             display: table-cell\0 !important;
             width: 1px\0;
         }
-        // Not this isn't very robust:
+        // Note this isn't very robust:
         _::selection, .nav-bar__title-section > div {
             display: table-cell\0 !important;
             width: 100%\0;
+        }
+        /*
+            Without flexbox positioning doesn't sort itself out, so use text-align to position
+            the title. It can't be done completely without adding a class, but this should help a
+            little to cover the most likely scenarios:
+        */
+        _::selection, .nav-bar__title-section > a + div {
             text-align: center;
         }
 
@@ -492,13 +515,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                     flex: 1 0 auto;
         }
 
-
-        /*
-            1. For IE 9 and FF 21-.
-        */
         .nav-bar .nav-bar__title-section {
-            vertical-align: top; /* [1] */
-
             -webkit-flex: 0 0 auto;
                 -ms-flex: 0 0 auto;
                     flex: 0 0 auto;
