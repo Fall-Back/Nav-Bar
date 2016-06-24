@@ -39,6 +39,13 @@ $t: #fff;
     $t: $fallback--base-background-color;
 }
 $fallback--nav-bar--base-background-color: $t !default;
+
+// Same thing for the breakpoint:
+$t: 50em;
+@if variable-exists(fallback--breakpoint--enhanced) {
+    $t: $fallback--breakpoint--enhanced;
+}
+$fallback--nav-bar--breakpoint--enhanced: $t !default;
 /*------------------------------------------------------------------------------------------------*/
 
 
@@ -78,12 +85,6 @@ $fallback--nav-bar__title--padding:        0 !default;
 
 $fallback--nav-bar___open--size:           0.64285714285em !default;//$fallback--nav-bar--spacing * 2 !default;
 $fallback--nav-bar___cancel--size:         1em !default;
-
-
-// Breakpoints:
-
-$fallback--nav-bar--breakpoint--enhanced:  50em !default;
-//$fallback--nav-bar--breakpoint--enhanced: 720px !default;
 
 
 // SVG's
