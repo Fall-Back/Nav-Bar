@@ -225,15 +225,21 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         _::selection, .nav-bar__title-section > div {
             display: table-cell\0 !important;
             width: 100%\0;
+            text-align: center;
         }
         /*
             Without flexbox positioning doesn't sort itself out, so use text-align to position
-            the title. It can't be done completely without adding a class, but this should help a
-            little to cover the most likely scenarios:
+            the title.
         */
-        _::selection, .nav-bar__title-section > a + div {
-            text-align: center;
+        /* If there's no control to the left: */
+        _::selection, .nav-bar__title-section > div:first-child {
+            text-align: left;
         }
+        /* If there's no control to the right */
+        _::selection, .nav-bar__title-section > div:last-child {
+            text-align: right;
+        }
+
 
         /*
             Apply hacks for old FF.
@@ -576,6 +582,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .nav-bar__item {
             border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
+            border-width: 0;
             border-right-width: $fallback--nav-bar__link--border-width;
         }
 
