@@ -45,7 +45,7 @@ $t: 50em;
 @if variable-exists(fallback--breakpoint--enhanced) {
     $t: $fallback--breakpoint--enhanced;
 }
-$fallback--nav-bar--breakpoint--enhanced: $t !default;
+$fallback--nav-bar--breakpoint--enhanced:  $t !default;
 /*------------------------------------------------------------------------------------------------*/
 
 
@@ -583,7 +583,9 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .nav-bar__item {
             border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
-            border-width: 0;
+            border-top-width: 0;
+            border-bottom-width: 0;
+            border-left-width: 0;
             border-right-width: $fallback--nav-bar__link--border-width;
         }
 
