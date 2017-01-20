@@ -56,7 +56,7 @@ $fallback--nav-bar--bg-color:              $fallback--nav-bar--base-ui-color !de
 $fallback--nav-bar__link--color:           #fff !default;
 $fallback--nav-bar__link--color--alt:      $fallback--nav-bar__link--color !default;
 $fallback--nav-bar__link--bg-color:        $fallback--nav-bar--bg-color !default;
-$fallback--nav-bar__link--bg-color--alt:   darken($fallback--nav-bar--base-ui-color, 10%) !default;
+$fallback--nav-bar__link--bg-color--alt:   darken($fallback--nav-bar__link--bg-color, 10%) !default;
 
 $fallback--nav-bar__link--border-color:    rgba(0,0,0,0.2) !default;
 $fallback--nav-bar__link--border-style:    solid !default;
