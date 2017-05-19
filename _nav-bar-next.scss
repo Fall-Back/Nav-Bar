@@ -10,6 +10,9 @@
     This allows Start-CSS declarations to be overidden.
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
 
+    
+    Problem with close label
+    
 \*------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------------*\
@@ -617,7 +620,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .nav-bar__link:hover,
         .nav-bar .nav-bar__link:focus,
         .nav-bar .nav-bar__link:active,
-        .nav-bar__link:target {
+        .nav-bar .nav-bar__subnav-control:focus + label,
+        .nav-bar .nav-bar__subnav-control:checked + label {
             background-color: $fallback--nav-bar__link--bg-color--alt;
             cursor: pointer;
         }
@@ -649,15 +653,17 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                                 visibility 0s   ease 0.5s;
         }
         
-        .nav-bar :target + .subnav {
+        .nav-bar .nav-bar__subnav-control:checked ~ .subnav {
             visibility: visible;
             margin-top: $fallback--nav-bar--height;
             
             -webkit-transition: margin-top 0.5s ease;
-               -moz-transition: margin-top 0.5s ease;
-                 -o-transition: margin-top 0.5s ease;
-                    transition: margin-top 0.5s ease;
+            -moz-transition:    margin-top 0.5s ease;
+            -o-transition:      margin-top 0.5s ease;
+            transition:         margin-top 0.5s ease;
+
         }
+        
 
         .nav-bar .subnav__heading {
             display: none;
@@ -707,6 +713,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .subnav__link:focus {
             margin-top: $fallback--nav-bar--height;
         }*/
+
 
 
         /*
