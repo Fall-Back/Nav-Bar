@@ -514,9 +514,9 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
     display: inline; }
   .nav-bar .subnav__opened-message {
     display: none; }
-  .nav-bar :target .subnav__open-message {
+  .nav-bar .nav-bar__subnav-control:checked + label .subnav__open-message {
     display: none; }
-  .nav-bar :target .subnav__opened-message {
+  .nav-bar .nav-bar__subnav-control:checked + label .subnav__opened-message {
     display: inline; }
   /*.nav-bar .subnav__open:focus + .subnav .subnav__link,
         .nav-bar .subnav__link:focus {
