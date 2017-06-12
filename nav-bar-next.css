@@ -171,16 +171,16 @@ _:-o-prefocus, :root .icon {
   /* [1] */
   background: #663399;
   display: inline-block;
-  height: 1.7142857em;
-  line-height: 1.7142857em;
+  height: 1.5em;
+  line-height: 1.5em;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-style: normal;
   font-size: 1.5em; }
 
 .nav-bar .nav-bar__title-text .nav-bar__link {
-  height: 1.7142857em;
-  line-height: 1.7142857em; }
+  height: 1.5em;
+  line-height: 1.5em; }
 
 @media only screen and (max-width: 50em) {
   /*
@@ -270,11 +270,12 @@ _:-o-prefocus, :root .icon {
 /* -------------------------------------------------------------------------------------------*/
 /* -- .subnav --------------------------------------------------------------------------------*/
 .nav-bar .subnav {
+  display: block;
   list-style-type: none;
   padding: 0;
-  margin: 0 0.3214286em 0 1.2857143em;
+  margin: 0 0.28125em 0 1.125em;
   background-color: #331a4d;
-  min-height: 2.5714286em; }
+  min-height: 2.25em; }
 
 .nav-bar .subnav::before,
 .nav-bar .subnav::after {
@@ -295,7 +296,7 @@ _:-o-prefocus, :root .icon {
 .nav-bar .subnav__heading {
   display: block;
   margin: 0;
-  padding: 0.4285713em 0.6428571em;
+  padding: 0.3749999em 0.5625em;
   border: 0; }
 
 .nav-bar .nav-bar__link:hover,
@@ -485,14 +486,14 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
     padding: 0;
     margin: 0;
     padding: 0;
-    height: 2.5714286em;
+    height: 2.25em;
     -webkit-transition: margin-top 0.5s ease, visibility 0s   ease 0.5s;
     -moz-transition: margin-top 0.5s ease, visibility 0s   ease 0.5s;
     -o-transition: margin-top 0.5s ease, visibility 0s   ease 0.5s;
     transition: margin-top 0.5s ease, visibility 0s   ease 0.5s; }
   .nav-bar .nav-bar__subnav-control:checked ~ .subnav {
     visibility: visible;
-    margin-top: 2.5714286em;
+    margin-top: 2.25em;
     -webkit-transition: margin-top 0.5s ease;
     -moz-transition: margin-top 0.5s ease;
     -o-transition: margin-top 0.5s ease;
@@ -602,7 +603,7 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
         */
   .nav-bar .subnav__open,
   .nav-bar .subnav__cancel {
-    height: 2.5714286em; }
+    height: 2.25em; }
   .nav-bar .subnav__open::after {
     /* Increase icon width due to odd cropping, then rescale down: */
     width: 1rem;
