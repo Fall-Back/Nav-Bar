@@ -10,9 +10,9 @@
     This allows Start-CSS declarations to be overidden.
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
 
-    
+
     Problem with close label
-    
+
 \*------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------------*\
@@ -653,18 +653,18 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                     transition: margin-top 0.5s ease,
                                 visibility 0s   ease 0.5s;
         }
-        
+
         .nav-bar .nav-bar__subnav-control:checked ~ .subnav {
             visibility: visible;
             margin-top: $fallback--nav-bar--height;
-            
+
             -webkit-transition: margin-top 0.5s ease;
             -moz-transition:    margin-top 0.5s ease;
             -o-transition:      margin-top 0.5s ease;
             transition:         margin-top 0.5s ease;
 
         }
-        
+
 
         .nav-bar .subnav__heading {
             display: none;
@@ -690,11 +690,11 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: inline-block;
         }
 
-        
+
         .nav-bar .subnav__open-message {
             display: inline;
         }
-        
+
         .nav-bar .subnav__opened-message {
             display: none;
         }
@@ -702,12 +702,12 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .nav-bar__subnav-control:checked + label .subnav__open-message {
             display: none;
         }
-        
+
         .nav-bar .nav-bar__subnav-control:checked + label .subnav__opened-message {
             display: inline;
         }
-        
-        
+
+
 
 
         /*.nav-bar .subnav__open:focus + .subnav .subnav__link,
@@ -732,7 +732,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             float: none;
             display: table-cell;
         }*/
-        
+
         .nav-bar .subnav__cancel {
             display: block;
             float: right;
@@ -743,7 +743,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         */
         //.nav-bar .subnav__cancel a {
             //display: block;
-            
+
             /**/
             //visibility: hidden; /**/
             //position: absolute;
