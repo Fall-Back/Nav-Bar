@@ -54,7 +54,7 @@ $fallback--nav-bar--breakpoint--enhanced:  $t !default;*/
         .nav-bar * {
             line-height: $fallback--nav-bar__title--height;
         }
-        
+
         .nav-bar a {
             text-decoration: none;
         }
@@ -146,7 +146,7 @@ $fallback--nav-bar--breakpoint--enhanced:  $t !default;*/
             width: 100%\0;
             text-align: center;
         }
-        
+
         // Without flexbox positioning doesn't sort itself out, so use text-align to position the title.
         // If there's no control to the left:
         _::selection, .nav-bar__title-section > div:first-child {
@@ -547,23 +547,15 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
             content: attr(data-content);
             display: inline-block;
         }
-
-
-        .nav-bar .subnav__open-message {
-            display: inline;
-        }
-
-        .nav-bar .subnav__opened-message {
-            display: none;
-        }
-
-        .nav-bar :target .subnav__open-message {
-            display: none;
-        }
-
-        .nav-bar :target .subnav__opened-message {
-            display: inline;
-        }*/
+*/
+  .nav-bar .subnav__open-message {
+    display: inline; }
+  .nav-bar .subnav__opened-message {
+    display: none; }
+  .nav-bar :target .subnav__open-message {
+    display: none; }
+  .nav-bar :target .subnav__opened-message {
+    display: inline; }
   /*.nav-bar .subnav__open:focus + .subnav .subnav__link,
         .nav-bar .subnav__link:focus {
             margin-top: $fallback--nav-bar--height;
@@ -581,11 +573,8 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
             float: none;
             display: table-cell;
         }*/
-  /****
-        .nav-bar .subnav__cancel {
-            display: block;
-            float: right;
-        }*/
+  .nav-bar .subnav__cancel {
+    display: block; }
   /****
         .nav-bar .subnav__cancel a {
             display: block;

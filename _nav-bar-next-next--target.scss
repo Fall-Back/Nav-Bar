@@ -172,7 +172,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar * {
             line-height: $fallback--nav-bar__title--height;
         }
-        
+
         .nav-bar a {
             text-decoration: none;
         }
@@ -282,7 +282,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             width: 100%\0;
             text-align: center;
         }
-        
+
         // Without flexbox positioning doesn't sort itself out, so use text-align to position the title.
         // If there's no control to the left:
         _::selection, .nav-bar__title-section > div:first-child {
@@ -354,7 +354,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
 
     /* -- .nav-bar__items -------------------------------------------------------------------------*/
-    
+
     /*
         1. F
     */
@@ -374,7 +374,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .nav-bar__item {
             margin: 0;
         }
-        
+
         .nav-bar .nav-bar__item::before {
             display: none;
         }
@@ -393,7 +393,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     /* -------------------------------------------------------------------------------------------*/
 
     /* -- .subnav --------------------------------------------------------------------------------*/
-    
+
     .nav-bar .subnav {
         //display: block;
         padding: 0;
@@ -404,7 +404,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         //min-height: $fallback--nav-bar--height;
 
     }
-    
+
     .nav-bar .subnav__items {
         //display: block;
         list-style-type: none;
@@ -415,7 +415,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         //min-height: $fallback--nav-bar--height;
 
     }
-    
+
     // Contain floats:
     .nav-bar .subnav__items::before,
     .nav-bar .subnav__items::after {
@@ -426,24 +426,24 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav__items::after {
         clear: both;
     }
-    
-    
+
+
     .nav-bar .subnav__item {
         margin: 0;
         float: left;
     }
-    
+
     // This is to turn off Start-CSS's custom bullets:
     .nav-bar .subnav__item::before {
         display: none;
     }
-       
+
 
     /* -------------------------------------------------------------------------------------------*/
 
 
     /* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
-    
+
     .nav-bar .nav-bar__link,
     .nav-bar .subnav__link,
     .nav-bar .subnav__heading {
@@ -455,7 +455,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         border: 0;
         //height: $fallback--nav-bar--height;
         line-height: $fallback--nav-bar--height;
-        
+
         text-decoration: none;
         outline: 0;
     }
@@ -486,15 +486,15 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
         //line-height: 1.71428571429 !important;
         line-height: $fallback--nav-bar--height !important;
-        
-        
+
+
     }
 
 
     .nav-bar .nav-bar__link {
         color: $fallback--nav-bar__link--color;
         background-color: $fallback--nav-bar__link--bg-color;
-        
+
         background-color: #f00;
     }
 /****
@@ -535,7 +535,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         (this excludes submenu heading links - note that submenu links should never also be
         submenu heading links)
     */
-    
+
     .nav-bar .nav-bar__link:hover,
     .nav-bar .nav-bar__link:focus,
     .nav-bar .nav-bar__link:active {
@@ -569,7 +569,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     }*/
 
 
-    
+
     .nav-bar .subnav__control {
         display: none;
     }
@@ -779,6 +779,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         }
 */
 
+
+        // Set up the aria-live messages:
         .nav-bar .subnav__open-message {
             display: inline;
         }
@@ -819,11 +821,11 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             float: none;
             display: table-cell;
         }*/
-        /****
+
         .nav-bar .subnav__cancel {
             display: block;
-            float: right;
-        }*/
+            //float: right;
+        }
 
         /****
         .nav-bar .subnav__cancel a {
