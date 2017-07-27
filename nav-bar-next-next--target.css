@@ -1,40 +1,5 @@
-//  Fall-Back Start-CSS Settings v1.0.0
-/*------------------------------------------------------------------------------------------------*\
-\*------------------------------------------------------------------------------------------------*/
-
-
-$fallback--root-font-size: 16px !default;
-$fallback--base-font-size: 16px !default;
-$fallback--base-line-height: 24px !default; // 1.25
-
-$fallback--base-em-ratio: $fallback--base-line-height / $fallback--base-font-size; // 1.71428571429
-$fallback--root-font-size-percent: ($fallback--root-font-size / 16px) * 100;
-//@debug $fallback--base-line-height;
-//@debug ($fallback--base-line-height / $fallback--root-font-size);
-//@debug ($fallback--base-line-height / $fallback--root-font-size) * 1rem;
-
-$fallback--base-rem-space-unit: ($fallback--base-line-height / $fallback--root-font-size) * 1rem;
-$fallback--base-rem-1px: 1px / $fallback--root-font-size * 1rem;
-//$fallback--base-rem-1px: 0.0625rem;
-
-$fallback--base-font-family: sans-serif !default;
-// Consider:
-//$fallback--base-font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !default;
-// https://bitsofco.de/the-new-system-font-stack/ https://github.com/necolas/normalize.css/issues/665
-
-
-//$fallback--base-ui-color: #FF8C00 !default; // darkorange #FF8C00 rgb(255,140,0)
-//$fallback--base-ui-color: #2F4F4F !default; // teal, #008080, rgb(0,128,128)
-$fallback--base-ui-color: #663399 !default; //rebeccapurple #663399 rgb(102,51,153)
-
-$fallback--base-background-color: #fff !default;
-$fallback--base-text-color: #333 !default;
-
-$fallback--breakpoint--enhanced: 50em !default;
-
-// Fall-Back Nav Bar Pattern v2.0.0
-/*------------------------------------------------------------------------------------------------*\
-
+/*------------------------------------------------------------------------------------------------*\*------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*
     Designed for use with the basic [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
@@ -44,9 +9,7 @@ $fallback--breakpoint--enhanced: 50em !default;
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
 
 \*------------------------------------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------------------------------------*\
-    @Deprecated
+/*------------------------------------------------------------------------------------------------*    @Deprecated
     Import Fall-Back vars:
 
     Slightly hacky way of allowing the main UI colour of this pattern to be:
@@ -81,89 +44,8 @@ $t: 50em;
 }
 $fallback--nav-bar--breakpoint--enhanced:  $t !default;*/
 /*------------------------------------------------------------------------------------------------*/
-
-$fallback--nav-bar--breakpoint--enhanced:  $fallback--breakpoint--enhanced;
-
-
-// Colours:
-$fallback--nav-bar--base-ui-color:         $fallback--base-ui-color !default;
-$fallback--nav-bar--base-text-color:       $fallback--base-text-color !default;
-
-
-$fallback--nav-bar--bg-color:              $fallback--nav-bar--base-ui-color !default;
-
-$fallback--nav-bar__link--color:           #fff !default;
-$fallback--nav-bar__link--color--alt:      $fallback--nav-bar__link--color !default;
-$fallback--nav-bar__link--bg-color:        $fallback--nav-bar--bg-color !default;
-$fallback--nav-bar__link--bg-color--alt:   darken($fallback--nav-bar--base-ui-color, 10%) !default;
-
-$fallback--nav-bar__link--border-color:    rgba(0,0,0,0.2) !default;
-$fallback--nav-bar__link--border-style:    solid !default;
-$fallback--nav-bar__link--border-width:    1px !default;
-
-
-$fallback--sub-nav--bg-color:              darken($fallback--nav-bar--base-ui-color, 20%) !default;
-
-
-$fallback--sub-nav__link--color:           $fallback--nav-bar__link--color !default;
-$fallback--sub-nav__link--color--alt:      $fallback--sub-nav__link--color !default;
-$fallback--sub-nav__link--bg-color:        $fallback--sub-nav--bg-color !default;
-$fallback--sub-nav__link--bg-color--alt:   lighten($fallback--sub-nav__link--bg-color, 10%) !default;
-
-
-$fallback--nav-bar__title--bg-color:       $fallback--nav-bar--bg-color !default;
-
-// Sizes:
-$fallback--nav-bar--font-size:             $fallback--base-font-size !default;
-$fallback--nav-bar--height:                ($fallback--base-em-ratio * 1.5em) !default;
-//$fallback--nav-bar--height:                40px !default;
-$fallback--nav-bar--spacing:               ($fallback--nav-bar--height / 8) !default;
-//$fallback--nav-bar--spacing:               5px !default;
-$fallback--nav-bar--margin-bottom:         0 !default;
-$fallback--nav-bar__title--padding:        0 !default;
-
-$fallback--nav-bar___open--size:           0.64285714285em !default;//$fallback--nav-bar--spacing * 2 !default;
-$fallback--nav-bar___cancel--size:         1em !default;
-
-
-// SVG's
-
-//////$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjAiIHk9ICIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;
-
-//$fallback--nav-bar__open--svg:            "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTAgNWwxMCAxMEwyMCA1SDB6Ii8+PC9zdmc+" !default;
-////$fallback--nav-bar__open--svg:            'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="#444" d="M0 5l10 10L20 5H0z"/></svg>' !default;
-
-//$fallback--nav-bar__cancel--svg:          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iIzQ0NCIgZD0iTTIwIDIuMDJMMTcuOTggMCAxMCA3Ljk4IDIuMDIgMCAwIDIuMDIgNy45OCAxMCAwIDE3Ljk4IDIuMDIgMjAgMTAgMTIuMDIgMTcuOTggMjAgMjAgMTcuOTggMTIuMDIgMTAgMjAgMi4wMnoiLz48L3N2Zz4=" !default;
-
-
-// Fall-Back PNG's:
-
-//$fallback--nav-bar__open--png:            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAMAAABLuo1aAAAAD1BMVEUAAAD///////////////+PQt5oAAAABHRSTlMAcH+PMsL1QgAAACBJREFUeAFjYGKBAiYGIBvGArIhLDBgZmFhBFIQNpgFAA5pAGWVT5gDAAAAAElFTkSuQmCC" !default;
-
-//$fallback--nav-bar__cancel--png:          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAN1wAADdcBQiibeAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFuSURBVDiN7ZG/asJQFMa/e3MzKDgEN4c7pEP/rHmBO/gKN2icO3SrYPsQHYqvoGALYsF2Kzj4Ek23ELq4GYpLiBftYAKS3ITSrn7jPef87jnfB5z0X5H8Q7vd5gBulVL3y+VS6YaEEIwx9gBguFgsvo5rVNPfB9BnjE2EEKwENsn68vUC0LKsAYAJANc0zWfHccysJqU0GGMjAC4hZKaUusvPF07OBqMoGgHoEUJm6/Xas217F0XRGIBHCJltt9uuzhItMHeaC2CaPrsApkqpXpm/pcD8pgBQtVkmXSiVn242m8oljLKCEIIlSfIEoIPDyR8AZK1WO+ecz8Mw3P0aKKU0kiQZA+ikaXrNZvMljuMzAF3DMK4sy5qvVqsCtABMfSuk6fv+3nGc1xTaqdfrlzpoAdhqtR4BXOOQpnccgO/7e875G6X0Ij2/EQTBeyXQtu1PAFBK3ejSDMNwxzmfU0obAIZBEHzrbDvp7/oBTO6g1QDr8X4AAAAASUVORK5CYII=" !default;
-
-// Transitions:
-
-$fallback--sub-nav---transition:          margin-top 0.5s ease !default;
-
-
-// Other:
-$fallback--nav-bar__title--font-size:     1.5em !default;
-$fallback--nav-bar__title--font-style:    normal !default;
-$fallback--nav-bar__title--font-weight:   bold !default;
-$fallback--nav-bar__title--font-family:   Arial, Helvetica, sans-serif !default;
-
-// Calculate title heights based on IT'S font size:
-$fallback--nav-bar__title--height: (($fallback--base-line-height * 1.5) / (($fallback--nav-bar__title--font-size / 1em) * $fallback--base-font-size) * 1em);
-
-
-// MQ hacks:
-// https://jeffclayton.wordpress.com/2014/07/22/internet-explorer-css-hacks-collection/
-// 0\0 encoded to preserve hack.
-$fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution: .001dpcm)" !default;
-
 /* -- Basic/fallback layout --------------------------------------------------------------------- */
-
+/****
     // Mini reset if Start-CSS not present: (do we really need a condition? How do we do NOT variable-exists?)
     //@if variable-exists($using-start-css) {
         // Actually, this might be a good this to have anyway, not as a reset.
@@ -177,21 +59,13 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             text-decoration: none;
         }
     //}
+*/
+/* -- .nav-bar -------------------------------------------------------------------------------*/
+.nav-bar {
+  background-color: #663399; }
 
-    /* -- .nav-bar -------------------------------------------------------------------------------*/
-
-    .nav-bar {
-        background-color: $fallback--nav-bar--bg-color;
-        //--@include fallback-rem(margin-bottom, $fallback--nav-bar--margin-bottom);
-
-        // Have no recollection why this is needed:
-        // It forces the nav-bar to remain visible (though empty) on small screens. Not good, but
-        // may have fixed other things so keep as reminder
-        //--@include fallback-rem(min-height, $fallback--nav-bar--height);
-    }
-
-    /* Not sure why I need float clearing here. Keep for reference. */
-    /*.nav-bar::before,
+/* Not sure why I need float clearing here. Keep for reference. */
+/*.nav-bar::before,
     .nav-bar::after,
     .nav-bar .nav-bar__inner::before,
     .nav-bar .nav-bar__inner::after {
@@ -203,22 +77,15 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .nav-bar__inner::after {
         clear: both;
     }*/
-
-    ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
-    //.nav-bar {
-    //    *zoom: 1;
-    //}
-
-    /* -------------------------------------------------------------------------------------------*/
-
-    /* -- .nav-bar__title-section ----------------------------------------------------------------*/
-
-    /*
+/* -------------------------------------------------------------------------------------------*/
+/* -- .nav-bar__title-section ----------------------------------------------------------------*/
+/*
         1. For IE 9 and FF 21-.
     */
+/****
     .nav-bar .nav-bar__title-section {
-        white-space: nowrap; /* [1] */
-        vertical-align: top; /* [1] */
+        white-space: nowrap; /* [1] * /
+        vertical-align: top; /* [1] * /
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
 
         display: -webkit-box;
@@ -226,25 +93,26 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         display: -ms-flexbox;
         display: flex;
 
-        /*display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;*/
+        //display: -webkit-flex;
+        //display: -ms-flexbox;
+        //display: flex;
 
         -webkit-box-pack: justify;
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
         justify-content: space-between;
 
-        /*-webkit-box-pack: justify;
-           -ms-flex-pack: justify;
-         justify-content: space-between;*/
+        //-webkit-box-pack: justify;
+        //   -ms-flex-pack: justify;
+        // justify-content: space-between;
     }
-
-        /*
+*/
+/*
             1. For IE 9 and FF 21-.
         */
+/****
         .nav-bar .nav-bar__title-text {
-            vertical-align: top; /* [1] */
+            vertical-align: top; /* [1] * /
 
             background: $fallback--nav-bar__title--bg-color;
             display: inline-block;
@@ -264,12 +132,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             height: $fallback--nav-bar__title--height;
             line-height: $fallback--nav-bar__title--height;
         }
-
-
+*/
+/****
     @media only screen and (max-width: $fallback--nav-bar--breakpoint--enhanced) {
-        /*
-            Apply the table-cell hack to IE9.
-        */
+        // Apply the table-cell hack to IE9.
         _::selection, .nav-bar__title-section > * {
             display: table-cell\0 !important;
             width: 1px\0;
@@ -280,23 +146,19 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             width: 100%\0;
             text-align: center;
         }
-        /*
-            Without flexbox positioning doesn't sort itself out, so use text-align to position
-            the title.
-        */
-        /* If there's no control to the left: */
+        
+        // Without flexbox positioning doesn't sort itself out, so use text-align to position the title.
+        // If there's no control to the left:
         _::selection, .nav-bar__title-section > div:first-child {
             text-align: left;
         }
-        /* If there's no control to the right */
+        // If there's no control to the right
         _::selection, .nav-bar__title-section > div:last-child {
             text-align: right;
         }
 
 
-        /*
-            Apply hacks for old FF.
-        */
+        //Apply hacks for old FF.
         _:-moz-tree-row(hover), .nav-bar__title-section {
             display: -moz-box;
             -moz-box-pack: justify;
@@ -308,32 +170,23 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             -moz-box-flex: 1;
         }
     }
-
-    /* -- .nav-bar__inner ------------------------------------------------------------------------*/
-
-    /*
+*/
+/* -- .nav-bar__inner ------------------------------------------------------------------------*/
+/*
         1. Duplicating parent background-color here. There HAS to be a colour here for the pattern
            to work, the parent background-color is there to allow things to be NOT BROKEN on
            browsers that don't support HTML semantic elements.
     */
+/****
     .nav-bar .nav-bar__inner {
         background-color: $fallback--nav-bar--bg-color;
         overflow: hidden;
     }
-
-
-
-    ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
-    //.nav-bar__inner {
-    //    *zoom: 1;
-    //}
-
-    /* -------------------------------------------------------------------------------------------*/
-
-
-    /* -- .nav-bar__button -----------------------------------------------------------------------*/
-    /* Unused? */
-    /*.nav-bar__button {
+*/
+/* -------------------------------------------------------------------------------------------*/
+/* -- .nav-bar__button -----------------------------------------------------------------------*/
+/* Unused? */
+/*.nav-bar__button {
         -webkit-appearance: none;
         border-radius: 0;
         margin: 0;
@@ -349,33 +202,31 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         background-color: #ccc;  /* @var *
     }
     */
-    /* -------------------------------------------------------------------------------------------*/
-
-
-    /* -- .nav-bar__items -------------------------------------------------------------------------*/
-    .nav-bar .nav-bar__items {
-        //width: 100%;< Can't remember what this was for. Opera Mini?
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        float: left;
+/* -------------------------------------------------------------------------------------------*/
+/* -- .nav-bar__items -------------------------------------------------------------------------*/
+/*
+        1. F
+    */
+.nav-bar .nav-bar__items {
+  width: 100%;
+  /* 1 */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /****float: left;
 
         -webkit-box-flex: 0;
             -webkit-flex: 0 1 auto;
                 -ms-flex: 0 1 auto;
-                    flex: 0 1 auto;
-    }
+                    flex: 0 1 auto;*/ }
 
-        .nav-bar .nav-bar__item {
-            margin: 0;
-        }
-        
-        .nav-bar .nav-bar__item::before {
-            display: none;
-        }
+.nav-bar .nav-bar__item {
+  margin: 0; }
 
+.nav-bar .nav-bar__item::before {
+  display: none; }
 
-        /*.nav-bar .nav-bar__item:not(:first-child) {
+/*.nav-bar .nav-bar__item:not(:first-child) {
             border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
             border-left-width: $fallback--nav-bar__link--border-width;
@@ -383,115 +234,94 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
         .nav-bar .nav-bar__item:last-child {
             border-right-width: $fallback--nav-bar__link--border-width;
-        }*/
+        }* /
 
     /* -------------------------------------------------------------------------------------------*/
+/* -- .subnav --------------------------------------------------------------------------------*/
+.nav-bar .subnav {
+  padding: 0;
+  margin: 0 0.28125em 0 1.125em;
+  background-color: #331a4d; }
 
-    /* -- .subnav --------------------------------------------------------------------------------*/
+.nav-bar .subnav__items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
 
-    .nav-bar .subnav {
-        display: block;
-        list-style-type: none;
-        padding: 0;
-        margin: 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2);
-        background-color: $fallback--sub-nav--bg-color;
+.nav-bar .subnav__items::before,
+.nav-bar .subnav__items::after {
+  content: " ";
+  display: table; }
 
-        // OSX/iOS needs this:
-        min-height: $fallback--nav-bar--height;
+.nav-bar .subnav__items::after {
+  clear: both; }
 
-    }
+.nav-bar .subnav__item {
+  margin: 0;
+  float: left; }
 
-    .nav-bar .subnav::before,
-    .nav-bar .subnav::after {
-        content: " ";
-        display: table;
-    }
+.nav-bar .subnav__item::before {
+  display: none; }
 
-    .nav-bar .subnav::after {
-        clear: both;
-    }
+/* -------------------------------------------------------------------------------------------*/
+/* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
+.nav-bar .nav-bar__link,
+.nav-bar .subnav__link,
+.nav-bar .subnav__heading {
+  display: block;
+  margin: 0;
+  padding-left: 0.5625em;
+  padding-right: 0.5625em;
+  border: 0;
+  line-height: 2.25em;
+  text-decoration: none;
+  outline: 0; }
 
-    .nav-bar .subnav__item {
-        margin: 0;
-        float: left;
-    }
-    
-    .nav-bar .subnav__item::before {
-        display: none;
-    }
+.nav-bar .nav-bar__link:hover,
+.nav-bar .nav-bar__link:active,
+.nav-bar .nav-bar__link:focus,
+.nav-bar .subnav__link:hover,
+.nav-bar .subnav__link:active,
+.nav-bar .subnav__link:focus {
+  border: 0; }
 
-    ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
-    //.subnav__item {
-    //    *float: none;
-    //    *display: inline;
-    //    *zoom: 1;
-    //}
-
-
-    /* -------------------------------------------------------------------------------------------*/
-
-
-    /* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
-
-    .nav-bar .nav-bar__link,
-    .nav-bar .subnav__link,
-    .nav-bar .subnav__heading {
-        display: block;
-        margin: 0;
-        padding: ($fallback--nav-bar--spacing * 1.333333) ($fallback--nav-bar--spacing * 2);
-        border: 0;
-        //height: $fallback--nav-bar--height;
-        //line-height: $fallback--nav-bar--height;
-    }
-
-    .nav-bar .nav-bar__link:hover,
-    .nav-bar .nav-bar__link:active,
-    .nav-bar .nav-bar__link:focus,
-    .nav-bar .subnav__link:hover,
-    .nav-bar .subnav__link:active,
-    .nav-bar .subnav__link:focus {
-        border: 0;
-    }
-
+/****
     .nav-bar__title-text .nav-bar__link {
         padding-top: 0;
         padding-bottom: 0;
     }
-
-    /*
+*/
+/*
         Fix for Opera Mini vertical centering:
         (affects Opera 12.10-16 as well)
     */
-    _:-o-prefocus, body:last-child .nav-bar .nav-bar__link,
-    _:-o-prefocus, body:last-child .nav-bar .subnav__link,
-    _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
-        line-height: 1.71428571429 !important;
-    }
+_:-o-prefocus, body:last-child .nav-bar .nav-bar__link,
+_:-o-prefocus, body:last-child .nav-bar .subnav__link,
+_:-o-prefocus, body:last-child .nav-bar .subnav__heading {
+  line-height: 2.25em !important; }
 
-    .nav-bar .nav-bar__link {
-        color: $fallback--nav-bar__link--color;
-        background-color: $fallback--nav-bar__link--bg-color;
-    }
+.nav-bar .nav-bar__link {
+  color: #fff;
+  background-color: #663399;
+  background-color: #f00; }
 
+/****
     .nav-bar .nav-bar__link .icon {
         display: none;
     }
+*/
+.nav-bar .subnav__heading {
+  color: #fff; }
 
-    .nav-bar .subnav__heading {
-        color: $fallback--nav-bar__link--color;
-    }
+.nav-bar .subnav__link {
+  color: #fff;
+  background-color: #331a4d; }
 
-    .nav-bar .subnav__link {
-        display: inline-block;
-        color: $fallback--sub-nav__link--color;
-        background-color: $fallback--sub-nav__link--bg-color;
-    }
-
-
-    /*
+/*
         Don't allow the usual interaction effects on ALL nav-bar links:
         (this is to allow submenu heading links to appear as a non-link)
     */
+/****
     .nav-bar .nav-bar__link:hover,
     .nav-bar .nav-bar__link:focus,
     .nav-bar .nav-bar__link:active,
@@ -501,86 +331,63 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         text-decoration: none;
         outline: 0;
     }
-
-    /*
+*/
+/*
         Provide interaction effects for nav-bar links that ARE links:
         (this excludes submenu heading links - note that submenu links should never also be
         submenu heading links)
     */
-    .nav-bar .nav-bar__link:hover,
-    .nav-bar .nav-bar__link:focus,
-    .nav-bar .nav-bar__link:active {
-        color: $fallback--nav-bar__link--color--alt;
-        background-color: $fallback--nav-bar__link--bg-color--alt;
-    }
+.nav-bar .nav-bar__link:hover,
+.nav-bar .nav-bar__link:focus,
+.nav-bar .nav-bar__link:active {
+  color: #fff;
+  background-color: #4d2673; }
 
-    .nav-bar .subnav__link:hover,
-    .nav-bar .subnav__link:focus,
-    .nav-bar .subnav__link:active {
-        color: $fallback--sub-nav__link--color--alt;
-        background-color: $fallback--sub-nav__link--bg-color--alt;
-    }
+.nav-bar .subnav__link:hover,
+.nav-bar .subnav__link:focus,
+.nav-bar .subnav__link:active {
+  color: #fff;
+  background-color: #4d2673; }
 
-
-    /*.nav-bar [href$="#"].nav-bar__link {
+/*.nav-bar [href$="#"].nav-bar__link {
         /* Override link hover effect - we want this to not look like a link in basic mode: *
         background-color: transparent;
         cursor: default;
     }*/
-
-
-    /*.nav-bar .subnav__heading + .subnav__open {
+/*.nav-bar .subnav__heading + .subnav__open {
         display: none;
     }*/
-
-
-    /*.nav-bar .subnav__open::before {
+/*.nav-bar .subnav__open::before {
         content: attr(data-content);
         display: inline-block;
     }*/
-
-
-    .nav-bar .subnav__cancel,
-    .nav-bar .subnav__open {
-        display: none;
-    }
-
-
-    ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
-    //.subnav__heading {
-    //    *display: block;
-    //}
-
-    //.subnav__open--fake {
-    //    *display: none;
-    //}
+.nav-bar .subnav__control {
+  display: none; }
 
 /* -----------------------------------------------------------------------------------------------*/
-
-
-
 /* -- Enhanced layout --------------------------------------------------------------------------- */
-    @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
-
-        /*
+@media only screen and (min-width: 50em) {
+  /*
         */
+  /****
         .nav-bar {
             position: relative;
-            z-index: 1000; /* @var */
+            z-index: 1000; // @var
 
             display: -webkit-flex;
             display: -ms-flexbox;
             display: flex;
         }
-
-        /*
+*/
+  /*
             Set flex-grow for immediate children to help with things like top-bar combinations
             (search form won't grow otherwise).
         */
+  /****
         .nav-bar > * {
             -webkit-flex: 1 0 auto;
                 -ms-flex: 1 0 auto;
-                    flex: 1 0 auto;
+             *       flex: 1 0 auto;
         }
 
         .nav-bar .nav-bar__title-section {
@@ -588,19 +395,18 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                 -ms-flex: 0 0 auto;
                     flex: 0 0 auto;
         }
-
-        /*.nav-bar .nav-bar__inner {
+*/
+  /*.nav-bar .nav-bar__inner {
             -webkit-flex: 1 0 auto;
                 -ms-flex: 1 0 auto;
                     flex: 1 0 auto;
         }*/
-
-
-        /*
+  /*
             Apply table-cell hack to all FF because -moz-box in FF12- doesn't honour
             `position:relative` and applying the table-cell hack to everything causes other
             problems.
         */
+  /****
         _:-moz-tree-row(hover), .nav-bar > * {
             display: table-cell;
             width: 100%;
@@ -609,10 +415,11 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: table-cell;
             width: 1px;
         }
-
-        /*
+*/
+  /*
             Apply the table-cell hack to IE9.
         */
+  /****
         _::selection, .nav-bar > * {
             display: table-cell\0;
             width: 100%\0;
@@ -621,14 +428,14 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: table-cell\0;
             width: 1px\0;
         }
-
-
-        /*
+*/
+  /*
             Remove table hack properties for browsers that support flexbox AND @supports.
             Note, we're only interested in FF here, as other browsers already have flexbox properties
             applied if they support it, so in this case the following is only relevent for FF22+
             (below that FF will still use the table hack as applied above).
         */
+  /***
         @supports (display: flex) {
             .nav-bar > *,
             .nav-bar .nav-bar__title-section {
@@ -636,11 +443,12 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                 width: auto;
             }
         }
-
-        /*
+*/
+  /*
             Add dividers.
             Dividers created by adding right borders to nav-bar__items.
         */
+  /****
         .nav-bar .nav-bar__item {
             border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
@@ -649,15 +457,17 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             border-left-width: 0;
             border-right-width: $fallback--nav-bar__link--border-width;
         }
-
-        /*
+*/
+  /*
             If there's a title section, add a left border to the first item too.
         */
+  /****
         .nav-bar .nav-bar__title-section + * .nav-bar__item:first-child {
             border-left-width: $fallback--nav-bar__link--border-width;
         }
-
-        /**/
+*/
+  /**/
+  /****
         .nav-bar .nav-bar__item {
             float: left;
         }
@@ -670,11 +480,12 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .has-subnav > .nav-bar__link {
             float: left;
         }
-
-        /*
+*/
+  /*
             Allow interaction effects for ALL nav-bar links now we're wide enough to show the nav-bar
             enhanced version.
         */
+  /****
         .nav-bar .nav-bar__link:hover,
         .nav-bar .nav-bar__link:focus,
         .nav-bar .nav-bar__link:active,
@@ -682,11 +493,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             background-color: $fallback--nav-bar__link--bg-color--alt;
             cursor: pointer;
         }
-
-
+*/
+  /****
         .nav-bar .subnav {
             position: absolute;
-            /*display: none;/**/
             visibility: hidden;
             left: 0;
             right: 0;
@@ -709,7 +519,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                     transition: margin-top 0.5s ease,
                                 visibility 0s   ease 0.5s;
         }
-
+*/
+  /****
         .nav-bar :target + .subnav {
             visibility: visible;
             margin-top: $fallback--nav-bar--height;
@@ -720,25 +531,18 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                     transition: margin-top 0.5s ease;
         }
 
-        .nav-bar .subnav__heading {
-            display: none;
-        }
-
-
+*/
+  .nav-bar .subnav__heading {
+    display: none; }
+  /****
         .nav-bar .subnav__link {
             white-space: nowrap;
-
-            /*OLD-webkit-transition: margin-top 0.5s ease;
-               -moz-transition: margin-top 0.5s ease;
-                 -o-transition: margin-top 0.5s ease;
-                    transition: margin-top 0.5s ease;*/
         }
 
-
-        .nav-bar .subnav__open {
-            display: block;
-        }
-
+*/
+  .nav-bar .subnav__open {
+    display: block; }
+  /****
         .nav-bar .subnav__open::before {
             content: attr(data-content);
             display: inline-block;
@@ -759,80 +563,41 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
         .nav-bar :target .subnav__opened-message {
             display: inline;
-        }
-
-
-
-
-        /*.nav-bar .subnav__open:focus + .subnav .subnav__link,
+        }*/
+  /*.nav-bar .subnav__open:focus + .subnav .subnav__link,
         .nav-bar .subnav__link:focus {
             margin-top: $fallback--nav-bar--height;
         }*/
-
-
-        /*
+  /*
             Fixes cancel button behaviour if not using overflow:hidden on .nav-bar__inner
             (Maybe be temp - I can't quite remember what the overflow:hidden was for.
             May have been a float-clearing thing but may not need this now?)
         */
-        /*.nav-bar .subnav__cancel:focus,
+  /*.nav-bar .subnav__cancel:focus,
         .nav-bar .subnav__cancel:active {
             margin-top: 0;
         }*/
-
-
-        /*.nav-bar .subnav__item {
+  /*.nav-bar .subnav__item {
             float: none;
             display: table-cell;
         }*/
-
+  /****
         .nav-bar .subnav__cancel {
             display: block;
             float: right;
-        }
-
-        /*
-            1. Make background transparent so transition looks smoother.
-        */
+        }*/
+  /****
         .nav-bar .subnav__cancel a {
             display: block;
-
-            /**/
-            //visibility: hidden; /**/
-            //position: absolute;
-            //right: 0;
-            //top: 0;
-            //margin-top: 0;
-            ////width: $fallback--nav-bar--height;
-            ////@include fallback-rem(width, $fallback--nav-bar--height);
-            //z-index: -1;
-
-            //background: transparent; /* [1] */
-
-            //-webkit-transition: $fallback--sub-nav---transition;
-            //   -moz-transition: $fallback--sub-nav---transition;
-            //     -o-transition: $fallback--sub-nav---transition;
-            //        transition: $fallback--sub-nav---transition;
-        }
-
-
-        /*.nav-bar .subnav__cancel:focus {
+        }*/
+  /*.nav-bar .subnav__cancel:focus {
             margin-top: 0;
         }*/
-
-        /*.nav-bar .subnav__open:focus ~ .subnav__cancel {
+  /*.nav-bar .subnav__open:focus ~ .subnav__cancel {
             margin-top: $fallback--nav-bar--height;
         }*/
-        //.nav-bar :target ~ .subnav__cancel {
-        //    visibility: visible;
-        //    margin-top: $fallback--nav-bar--height;
-        //}
-
-
-
-
-        /* @micropattern:pseudo-dataicon-middle */
-        /*
+  /* @micropattern:pseudo-dataicon-middle */
+  /*
         .nav-bar .subnav__open::after,
         .nav-bar .subnav__cancel::after {
             /* These styles are enough for modern FF to V-center the icon: *
@@ -849,8 +614,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             line-height: 0;
         }
         */
-
-        /*
+  /*
         .nav-bar .subnav__open::after {
             width: $fallback--nav-bar___open--size;
         }
@@ -867,52 +631,24 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             content: url($fallback--nav-bar__cancel--svg);
         }
         */
-
-        /*.nav-bar .subnav__open--fake::after {
+  /*.nav-bar .subnav__open--fake::after {
             margin-left: $fallback--nav-bar--spacing * 2;
         }*/
-
-        /*.subnav__open svg,
+  /*.subnav__open svg,
         .subnav__cancel svg {
             vertical-align: text-bottom;
-        }*/
+        }*/ }
 
-    }
-
-
-    ///* IE8 hacks: */
-    ///*
-    //    min-width in place for Respond-friendliness
-    //    (maybe not, PNG fallbacks shouldn't be JS dependant unless it doesn't matter)
-    //*/
-    //@media \0screen and (min-width: 600px) {
-    //    .subnav {
-    //        width: 100%;
-    //    }
-    //
-    //     /* @micropattern:pseudo-dataicon-middle-ie8 */
-    //    .subnav__open:after {
-    //       content: url($fallback--nav-bar__open--png);
-    //        /* Positioning tweaks: */
-    //        text-align: center;
-    //        line-height: 1;
-    //    }
-    //
-    //    .subnav__cancel:after  {
-    //        content: url($fallback--nav-bar__cancel--png);
-    //    }
-    //}
-
-
-    /* IE9 hacks: */
-    /*
+/* IE9 hacks: */
+/*
     */
-    @media #{$fallback--ie9--hack} {
+/****
+    @media all and (min-width: 0\0) and (min-resolution: .001dpcm) {
         /*
             The icons force a massive height increase for some reason.
             Setting the height to this only works fine because on 'wide' the nav-bar can't be
             allowed to be double-lined or it breaks, and on 'narrow' the icons are hidden.
-        */
+        * /
 
         .nav-bar .subnav__open,
         .nav-bar .subnav__cancel {
@@ -922,26 +658,22 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
         //.nav-bar .subnav__cancel::after,
         .nav-bar .subnav__open::after {
-            /* Increase icon width due to odd cropping, then rescale down: */
+            // Increase icon width due to odd cropping, then rescale down:
             width: 1rem;
             -ms-transform: scale(0.5);
         }
 
         .nav-bar .subnav__cancel::after {
-            /* Increase icon width due to odd cropping, then rescale down: */
+            // Increase icon width due to odd cropping, then rescale down:
             width: 1.1rem;
             -ms-transform: scale(0.8);
         }
     }
-
+*/
 /* -----------------------------------------------------------------------------------------------*/
-
-
 /* ---------------------------------------------------------------------------------------------- */
-
-
 /* -- Fit layout -------------------------------------------------------------------------------- */
-    // We only want these adjustments on wider screens:
+/****
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
         .nav-bar--fit {}
 
@@ -976,9 +708,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                         justify-content: center;
             }
     }
-
+*/
 /* -----------------------------------------------------------------------------------------------*/
-
 /*
     These classes help control the layout in the nav-bar__title-section.
 
@@ -1009,7 +740,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     }
 
 */
-
-.nav-bar__title-section--relatively-centered {
-    margin: 0 auto;
-}
+/****
+    .nav-bar__title-section--relatively-centered {
+        margin: 0 auto;
+    }
+*/

@@ -1,4 +1,38 @@
-//  Fall-Back Nav Bar Pattern v2.0.0
+//  Fall-Back Start-CSS Settings v1.0.0
+/*------------------------------------------------------------------------------------------------*\
+\*------------------------------------------------------------------------------------------------*/
+
+
+$fallback--root-font-size: 16px !default;
+$fallback--base-font-size: 16px !default;
+$fallback--base-line-height: 24px !default; // 1.25
+
+$fallback--base-em-ratio: $fallback--base-line-height / $fallback--base-font-size; // 1.71428571429
+$fallback--root-font-size-percent: ($fallback--root-font-size / 16px) * 100;
+//@debug $fallback--base-line-height;
+//@debug ($fallback--base-line-height / $fallback--root-font-size);
+//@debug ($fallback--base-line-height / $fallback--root-font-size) * 1rem;
+
+$fallback--base-rem-space-unit: ($fallback--base-line-height / $fallback--root-font-size) * 1rem;
+$fallback--base-rem-1px: 1px / $fallback--root-font-size * 1rem;
+//$fallback--base-rem-1px: 0.0625rem;
+
+$fallback--base-font-family: sans-serif !default;
+// Consider:
+//$fallback--base-font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !default;
+// https://bitsofco.de/the-new-system-font-stack/ https://github.com/necolas/normalize.css/issues/665
+
+
+//$fallback--base-ui-color: #FF8C00 !default; // darkorange #FF8C00 rgb(255,140,0)
+//$fallback--base-ui-color: #2F4F4F !default; // teal, #008080, rgb(0,128,128)
+$fallback--base-ui-color: #663399 !default; //rebeccapurple #663399 rgb(102,51,153)
+
+$fallback--base-background-color: #fff !default;
+$fallback--base-text-color: #333 !default;
+
+$fallback--breakpoint--enhanced: 50em !default;
+
+// Fall-Back Nav Bar Pattern v2.0.0
 /*------------------------------------------------------------------------------------------------*\
 
     Designed for use with the basic [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
@@ -9,12 +43,10 @@
     This allows Start-CSS declarations to be overidden.
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
 
-
-    Problem with close label
-
 \*------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------------------------*\
+    @Deprecated
     Import Fall-Back vars:
 
     Slightly hacky way of allowing the main UI colour of this pattern to be:
@@ -22,7 +54,7 @@
      - otherwise #999
      - but can be specifically overridden
 \*------------------------------------------------------------------------------------------------*/
-$t: #999;
+/*$t: #999;
 @if variable-exists(fallback--base-ui-color) {
     $t: $fallback--base-ui-color;
 }
@@ -47,13 +79,30 @@ $t: 50em;
 @if variable-exists(fallback--breakpoint--enhanced) {
     $t: $fallback--breakpoint--enhanced;
 }
-$fallback--nav-bar--breakpoint--enhanced:  $t !default;
+$fallback--nav-bar--breakpoint--enhanced:  $t !default;*/
 /*------------------------------------------------------------------------------------------------*/
+
+$fallback--nav-bar--breakpoint--enhanced:  $fallback--breakpoint--enhanced;
 
 
 // Colours:
+$fallback--nav-bar--base-ui-color:         $fallback--base-ui-color !default;
+$fallback--nav-bar--base-text-color:       $fallback--base-text-color !default;
+
 
 $fallback--nav-bar--bg-color:              $fallback--nav-bar--base-ui-color !default;
+
+$fallback--nav-bar__link--color:           #fff !default;
+$fallback--nav-bar__link--color--alt:      $fallback--nav-bar__link--color !default;
+$fallback--nav-bar__link--bg-color:        $fallback--nav-bar--bg-color !default;
+$fallback--nav-bar__link--bg-color--alt:   darken($fallback--nav-bar__link--bg-color, 10%) !default;
+
+$fallback--nav-bar__link--border-color:    rgba(0,0,0,0.2) !default;
+$fallback--nav-bar__link--border-style:    solid !default;
+$fallback--nav-bar__link--border-width:    1px !default;
+
+
+$fallback--sub-nav--bg-color:              darken($fallback--nav-bar--base-ui-color, 20%) !default;
 
 $fallback--nav-bar__link--color:           #fff !default;
 $fallback--nav-bar__link--color--alt:      $fallback--nav-bar__link--color !default;
@@ -319,6 +368,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .nav-bar__item {
             margin: 0;
         }
+        
+        .nav-bar .nav-bar__item::before {
+            display: none;
+        }
 
 
         /*.nav-bar .nav-bar__item:not(:first-child) {
@@ -360,6 +413,10 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav__item {
         margin: 0;
         float: left;
+    }
+    
+    .nav-bar .subnav__item::before {
+        display: none;
     }
 
     ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
