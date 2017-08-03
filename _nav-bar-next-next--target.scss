@@ -104,6 +104,10 @@ $fallback--nav-bar__link--border-width:    1px !default;
 
 $fallback--sub-nav--bg-color:              darken($fallback--nav-bar--base-ui-color, 20%) !default;
 
+$fallback--sub-nav__link--border-color:    rgba(255,255,255,0.2) !default;
+$fallback--sub-nav__link--border-style:    solid !default;
+$fallback--sub-nav__link--border-width:    1px !default;
+
 
 $fallback--sub-nav__link--color:           $fallback--nav-bar__link--color !default;
 $fallback--sub-nav__link--color--alt:      $fallback--sub-nav__link--color !default;
@@ -180,8 +184,14 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 */
     /* -- .nav-bar -------------------------------------------------------------------------------*/
 
+    /*
+    */
     .nav-bar {
         background-color: $fallback--nav-bar--bg-color;
+
+        @if $fallback--nav-bar--font-size != $fallback--base-font-size {
+            font-size: $fallback--nav-bar--font-size;
+        }
 
         // Have no recollection why this is needed:
         // It forces the nav-bar to remain visible (though empty) on small screens. Not good, but
@@ -189,19 +199,6 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
     }
 
-    /* Not sure why I need float clearing here. Keep for reference. */
-    /*.nav-bar::before,
-    .nav-bar::after,
-    .nav-bar .nav-bar__inner::before,
-    .nav-bar .nav-bar__inner::after {
-        content: " ";
-        display: table;
-    }
-
-    .nav-bar::after,
-    .nav-bar .nav-bar__inner::after {
-        clear: both;
-    }*/
 
     ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
     //.nav-bar {
@@ -210,13 +207,13 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
     /* -------------------------------------------------------------------------------------------*/
 
-    /* -- .nav-bar__title-section ----------------------------------------------------------------*/
+    /* -- .nav-bar__title ----------------------------------------------------------------*/
 
     /*
         1. For IE 9 and FF 21-.
     */
 /****
-    .nav-bar .nav-bar__title-section {
+    .nav-bar .nav-bar__title {
         white-space: nowrap; /* [1] * /
         vertical-align: top; /* [1] * /
         //--@include fallback-rem(min-height, $fallback--nav-bar--height);
@@ -241,43 +238,43 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     }
 */
 
-        /*
-            1. For IE 9 and FF 21-.
-        */
-/****
-        .nav-bar .nav-bar__title-text {
-            vertical-align: top; /* [1] * /
+    /*
+        1. For IE 9 and FF 21-.
+    */
+    .nav-bar .nav-bar__title {
+        //vertical-align: top; /* [1] */
 
-            background: $fallback--nav-bar__title--bg-color;
-            display: inline-block;
-            // Not sure what this was for causes problems for top-bar layouts:
-            //width: 100%;
+        background: $fallback--nav-bar__title--bg-color;
+        // Not sure what this was for causes problems for top-bar layouts:
+        //width: 100%;
 
+        height: $fallback--nav-bar__title--height;
+        line-height: $fallback--nav-bar__title--height;
+
+        font-family: $fallback--nav-bar__title--font-family;
+        font-weight: $fallback--nav-bar__title--font-weight;
+        font-style: $fallback--nav-bar__title--font-style;
+        font-size: $fallback--nav-bar__title--font-size;
+
+        white-space: nowrap;
+    }
+
+        .nav-bar .nav-bar__title .nav-bar__link {
             height: $fallback--nav-bar__title--height;
             line-height: $fallback--nav-bar__title--height;
-
-            font-family: $fallback--nav-bar__title--font-family;
-            font-weight: $fallback--nav-bar__title--font-weight;
-            font-style: $fallback--nav-bar__title--font-style;
-            font-size: $fallback--nav-bar__title--font-size;
         }
 
-        .nav-bar .nav-bar__title-text .nav-bar__link {
-            height: $fallback--nav-bar__title--height;
-            line-height: $fallback--nav-bar__title--height;
-        }
-*/
 
 
 /****
     @media only screen and (max-width: $fallback--nav-bar--breakpoint--enhanced) {
         // Apply the table-cell hack to IE9.
-        _::selection, .nav-bar__title-section > * {
+        _::selection, .nav-bar__title > * {
             display: table-cell\0 !important;
             width: 1px\0;
         }
         // Note this isn't very robust:
-        _::selection, .nav-bar__title-section > div {
+        _::selection, .nav-bar__title > div {
             display: table-cell\0 !important;
             width: 100%\0;
             text-align: center;
@@ -285,24 +282,24 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
         // Without flexbox positioning doesn't sort itself out, so use text-align to position the title.
         // If there's no control to the left:
-        _::selection, .nav-bar__title-section > div:first-child {
+        _::selection, .nav-bar__title > div:first-child {
             text-align: left;
         }
         // If there's no control to the right
-        _::selection, .nav-bar__title-section > div:last-child {
+        _::selection, .nav-bar__title > div:last-child {
             text-align: right;
         }
 
 
         //Apply hacks for old FF.
-        _:-moz-tree-row(hover), .nav-bar__title-section {
+        _:-moz-tree-row(hover), .nav-bar__title {
             display: -moz-box;
             -moz-box-pack: justify;
             width: 100%;
             text-align: center;
         }
 
-        _:-moz-tree-row(hover), .nav-bar__title-section >  div {
+        _:-moz-tree-row(hover), .nav-bar__title >  div {
             -moz-box-flex: 1;
         }
     }
@@ -314,13 +311,15 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         1. Duplicating parent background-color here. There HAS to be a colour here for the pattern
            to work, the parent background-color is there to allow things to be NOT BROKEN on
            browsers that don't support HTML semantic elements.
+
+        2. Prevent any overflow and possible contain floats.
     */
-/****
+
     .nav-bar .nav-bar__inner {
-        background-color: $fallback--nav-bar--bg-color;
-        overflow: hidden;
+        background-color: $fallback--nav-bar--bg-color; /* 1 */
+        overflow: hidden; /* 2 */
     }
-*/
+
 
 
 
@@ -359,7 +358,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         1. F
     */
     .nav-bar .nav-bar__items {
-        width: 100%; /* 1 */
+        //width: 100%; /* 1 */
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -397,7 +396,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .subnav {
         //display: block;
         padding: 0;
-        margin: 0 $fallback--nav-bar--spacing 0 ($fallback--nav-bar--height / 2);
+        margin-left: $fallback--nav-bar--spacing * 4;
         background-color: $fallback--sub-nav--bg-color;
 
         // OSX/iOS needs this:
@@ -494,8 +493,6 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     .nav-bar .nav-bar__link {
         color: $fallback--nav-bar__link--color;
         background-color: $fallback--nav-bar__link--bg-color;
-
-        background-color: #f00;
     }
 /****
     .nav-bar .nav-bar__link .icon {
@@ -574,25 +571,72 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         display: none;
     }
 
+
+    .nav-bar .nav-bar__additional {
+        //padding-left: $fallback--nav-bar--spacing * 2;
+        //padding-right: $fallback--nav-bar--spacing * 2;
+    }
 /* -----------------------------------------------------------------------------------------------*/
 
 
-
+/* ********************************************************************************************** */
 /* -- Enhanced layout --------------------------------------------------------------------------- */
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
 
         /*
+            1. Flex is only really needed for 'additional' to fill up the space.
+               I don't think this would actually do any harm...
         */
-/****
         .nav-bar {
             position: relative;
             z-index: 1000; // @var
 
             display: -webkit-flex;
             display: -ms-flexbox;
-            display: flex;
+            display: flex; /* 1 */
         }
-*/
+
+        /*
+            Child items are floated, so clear those.
+        */
+        .nav-bar::before,
+        .nav-bar::after {
+            content: " ";
+            display: table;
+        }
+
+        .nav-bar::after {
+            clear: both;
+        }
+
+        /*
+            1. Floating left to allow 'additional' to appear on the same line, but width 100% to
+               make sure any subnavs are properly obscured, otherwise it looks weird.
+               However, this makes 'additional' collapse to it's content.
+               In the case of search form, this means the form is smaller than it could be.
+               It's still useable, but ...
+
+            2. ... flex makes this better ...
+        */
+        .nav-bar .nav-bar__inner {
+            float: left; /* 1 */
+            width: 100%; /* 1 */
+
+            -webkit-flex: 1 0 auto;
+                -ms-flex: 1 0 auto;
+                    flex: 1 0 auto; /* 2 */
+        }
+
+        /*
+            1. ... but we need to turn off 100% width if we're using flex.
+        */
+        @supports (display: -webkit-flex) or
+                  (display: -ms-flex) or
+                  (display: flex) {
+            .nav-bar .nav-bar__inner {
+                width: auto; /* 1 */
+            }
+        }
 
         /*
             Set flex-grow for immediate children to help with things like top-bar combinations
@@ -605,18 +649,13 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
              *       flex: 1 0 auto;
         }
 
-        .nav-bar .nav-bar__title-section {
+        .nav-bar .nav-bar__title {
             -webkit-flex: 0 0 auto;
                 -ms-flex: 0 0 auto;
                     flex: 0 0 auto;
         }
 */
 
-        /*.nav-bar .nav-bar__inner {
-            -webkit-flex: 1 0 auto;
-                -ms-flex: 1 0 auto;
-                    flex: 1 0 auto;
-        }*/
 
 
         /*
@@ -629,7 +668,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: table-cell;
             width: 100%;
         }
-        _:-moz-tree-row(hover), .nav-bar .nav-bar__title-section {
+        _:-moz-tree-row(hover), .nav-bar .nav-bar__title {
             display: table-cell;
             width: 1px;
         }
@@ -643,7 +682,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: table-cell\0;
             width: 100%\0;
         }
-        _::selection, .nav-bar .nav-bar__title-section {
+        _::selection, .nav-bar .nav-bar__title {
             display: table-cell\0;
             width: 1px\0;
         }
@@ -659,7 +698,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 /***
         @supports (display: flex) {
             .nav-bar > *,
-            .nav-bar .nav-bar__title-section {
+            .nav-bar .nav-bar__title {
                 display: block;
                 width: auto;
             }
@@ -670,7 +709,8 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             Add dividers.
             Dividers created by adding right borders to nav-bar__items.
         */
-/****
+
+        .nav-bar .nav-bar__title,
         .nav-bar .nav-bar__item {
             border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
@@ -679,13 +719,35 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             border-left-width: 0;
             border-right-width: $fallback--nav-bar__link--border-width;
         }
-*/
+
+        .nav-bar .nav-bar__link + .subnav__control {
+            border-style: $fallback--sub-nav__link--border-style;
+            border-color: $fallback--sub-nav__link--border-color;
+            border-top-width: 0;
+            border-bottom-width: 0;
+            border-left-width: $fallback--sub-nav__link--border-width;
+            border-right-width: 0;
+        }
+
+        // Prevent anything wrapping (fixed height is cruicial to making this work),
+        // and make things float
+        .nav-bar .nav-bar__title,
+        .nav-bar .nav-bar__item,
+        .nav-bar .nav-bar__link,
+        .nav-bar .subnav__link,
+        .nav-bar .subnav__heading {
+            white-space: nowrap;
+            float: left;
+        }
+
+        // Position subnave heading links over the text to create a
+
 
         /*
             If there's a title section, add a left border to the first item too.
         */
 /****
-        .nav-bar .nav-bar__title-section + * .nav-bar__item:first-child {
+        .nav-bar .nav-bar__title + * .nav-bar__item:first-child {
             border-left-width: $fallback--nav-bar__link--border-width;
         }
 */
@@ -720,13 +782,12 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         }
 */
 
-/****
+        // Set-up slide toggling for subnavs:
         .nav-bar .subnav {
             position: absolute;
             visibility: hidden;
             left: 0;
             right: 0;
-            //--@include fallback-rem(padding-right, $fallback--nav-bar--height);
             top: 0;
             z-index: -1;
             padding: 0;
@@ -745,9 +806,9 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                     transition: margin-top 0.5s ease,
                                 visibility 0s   ease 0.5s;
         }
-*/
 
-/****
+
+
         .nav-bar :target + .subnav {
             visibility: visible;
             margin-top: $fallback--nav-bar--height;
@@ -758,11 +819,11 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
                     transition: margin-top 0.5s ease;
         }
 
-*/
+
+
         .nav-bar .subnav__heading {
             display: none;
         }
-
 /****
         .nav-bar .subnav__link {
             white-space: nowrap;
@@ -772,12 +833,15 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
         .nav-bar .subnav__open {
             display: block;
         }
-/****
+
         .nav-bar .subnav__open::before {
             content: attr(data-content);
             display: inline-block;
         }
-*/
+
+        .nav-bar .subnav__heading + .subnav__open::before {
+            padding-right: $fallback--nav-bar--spacing * 2;
+        }
 
 
         // Set up the aria-live messages:
@@ -822,10 +886,67 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
             display: table-cell;
         }*/
 
+        .nav-bar .subnav__items {
+            float: left;
+        }
+
         .nav-bar .subnav__cancel {
             display: block;
-            //float: right;
+            float: right;
         }
+
+
+        /*
+            1. The 9999 hack forces this element to take up as much room as it can.
+               (See http://joren.co/flex-grow-9999-hack/)
+        */
+        .nav-bar .nav-bar__additional {
+            background-color: $fallback--nav-bar--bg-color;
+
+            float: right;
+
+            -webkit-flex: 9999 0 auto;
+                -ms-flex: 9999 0 auto;
+                    flex: 9999 0 auto; /* 1 */
+        }
+
+        /*
+            This zeros out Start-CSS form margin. Probably not the most robust.
+        */
+        .nav-bar .nav-bar__additional > form {
+            margin-bottom: 0;
+        }
+
+        /*
+            This will probably be better off in utility classes, but that introduces more
+            dependancies.
+            An alternative could be:
+            ```
+            .nav-bar .nav-bar__additional--push-end > * {
+                float: right;
+            }
+            ```
+            but I like the idea of controlling this from the parent, rather than an unknown child.
+
+        */
+        .nav-bar .nav-bar__additional--push-end {
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex; /* 1 */
+
+            -webkit-justify-content: flex-end;
+                      -ms-flex-pack: end;
+                    justify-content: flex-end;
+        }
+
+        /*
+        .nav-bar .nav-bar__additional--restrict-width {
+            max-width: $fallback--nav-bar__additional-max-width;
+        }
+
+        .nav-bar .nav-bar__additional--push-right {
+            margin-left: auto;
+        }*/
 
         /****
         .nav-bar .subnav__cancel a {
@@ -929,6 +1050,24 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
     }
 */
 
+    @media screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) and (min-width:0\0) and (min-resolution:.001dpcm) {
+    
+        .nav-bar {
+            display: table;
+            width: 100%;
+        }
+    
+        .nav-bar .nav-bar__title {
+            display: table-cell;
+            width: 1%;
+        }
+        
+        .nav-bar .nav-bar__inner {
+            display: table-cell;
+            width: 99%;
+        }
+    }
+
 /* -----------------------------------------------------------------------------------------------*/
 
 
@@ -977,7 +1116,7 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 /* -----------------------------------------------------------------------------------------------*/
 
 /*
-    These classes help control the layout in the nav-bar__title-section.
+    These classes help control the layout in the nav-bar__title.
 
     There are different ways to achieve these layouts with pros and cons to each.
     There are also differences in possible behaviours so there's no right/wrong way.
@@ -1001,13 +1140,13 @@ $fallback--ie9--hack: "all and (min-width: \0030\005C\0030) and (min-resolution:
 
     RELATIVELY CENTERED (centered on remaining space)
 
-    .nav-bar__title-section--relatively-centered {
+    .nav-bar__title--relatively-centered {
         margin: 0 auto;
     }
 
 */
 /****
-    .nav-bar__title-section--relatively-centered {
+    .nav-bar__title--relatively-centered {
         margin: 0 auto;
     }
 */
