@@ -1,4 +1,5 @@
-.sass-cache
+_archive/
+.sass-cache/
 bower_components/
 nav-bar.css
 nav-bar.scss
