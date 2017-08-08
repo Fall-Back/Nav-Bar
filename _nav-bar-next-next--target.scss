@@ -97,15 +97,15 @@ $fallback--nav-bar__link--color--alt:      $fallback--nav-bar__link--color !defa
 $fallback--nav-bar__link--bg-color:        $fallback--nav-bar--bg-color !default;
 $fallback--nav-bar__link--bg-color--alt:   darken($fallback--nav-bar--base-ui-color, 10%) !default;
 
-$fallback--nav-bar__link--border-color:    rgba(0,0,0,0.2) !default;
+$fallback--nav-bar__link--border-color:    rgba(255,255,255,0.2) !default;
 $fallback--nav-bar__link--border-style:    solid !default;
 $fallback--nav-bar__link--border-width:    1px !default;
 
 
 $fallback--sub-nav--bg-color:              darken($fallback--nav-bar--base-ui-color, 20%) !default;
 
-$fallback--sub-nav__link--border-color:    rgba(255,255,255,0.2) !default;
-$fallback--sub-nav__link--border-style:    solid !default;
+$fallback--sub-nav__link--border-color:    rgba(255,255,255,0.3) !default;
+$fallback--sub-nav__link--border-style:    dashed !default;
 $fallback--sub-nav__link--border-width:    1px !default;
 
 
