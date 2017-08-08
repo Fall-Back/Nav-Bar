@@ -3,10 +3,4 @@ _archive/
 bower_components/
 nav-bar.css
 nav-bar.scss
-nav-bar-next.css
-nav-bar-next.scss
-nav-bar-next--target.css
-nav-bar-next--target.scss
-nav-bar-next-next--target.css
-nav-bar-next-next--target.scss
 *.css.map
