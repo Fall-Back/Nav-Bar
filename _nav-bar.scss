@@ -3,17 +3,17 @@
 
     Fall-Back is designed for use with the basic
     [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
-    
+
     This determines a browser support base of:
-    
+
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
-    
-    
+
+
     Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
     This allows Start-CSS declarations to be overidden.
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
-    
+
 |-------------------------------------------------------------------------------------------------*/
 
 $fallback--root-font-size:         16px !default;
@@ -552,16 +552,28 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         }
 
         /*
+			This psuedo element helps to cover any subnavs to stop them being visible in the main
+			nav-bar.
+		*/
+        .nav-bar::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: -1;
+			background-color: $fallback--nav-bar--background-color;
+		}
+		
+		/*
             Child items are floated, so clear those.
         */
-        .nav-bar::before,
         .nav-bar::after {
             content: " ";
             display: table;
-        }
-
-        .nav-bar::after {
-            clear: both;
+			clear: both;
         }
 
         /*
@@ -575,7 +587,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         */
         .nav-bar .nav-bar__inner {
             float: left; /* 1 */
-            width: 100%; /* 1 */
+            ////width: 100%; /* 1 */
 
             -webkit-flex: 1 0 auto;
                 -ms-flex: 1 0 auto;
@@ -698,13 +710,16 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
 
 
         // Set-up slide toggling for subnavs:
+		/*
+			1. This puts the subnav behind the covering pseudo element. See .nav-bar::before, above.
+		*/
         .nav-bar .subnav {
             position: absolute;
             visibility: hidden;
             left: 0;
             right: 0;
             top: 0;
-            z-index: -1;
+            z-index: -2; /* 1 */
             padding: 0;
             margin: 0;
             padding: 0;
@@ -853,7 +868,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
             -webkit-justify-content: flex-end;
                       -ms-flex-pack: end;
                     justify-content: flex-end;
-        }  
+        }
 
     }
 
@@ -889,25 +904,25 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         }
     }
 */
-
+/*
     @media screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) and (min-width:0\0) and (min-resolution:.001dpcm) {
-    
+
         .nav-bar {
             display: table;
             width: 100%;
         }
-    
+
         .nav-bar .nav-bar__title {
             display: table-cell;
             width: 1%;
         }
-        
+
         .nav-bar .nav-bar__inner {
             display: table-cell;
             width: 99%;
         }
     }
-
+*/
 /* -----------------------------------------------------------------------------------------------*/
 
 
