@@ -3,17 +3,17 @@
 
     Fall-Back is designed for use with the basic
     [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
-
+    
     This determines a browser support base of:
-
+    
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
-
-
+    
+    
     Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
     This allows Start-CSS declarations to be overidden.
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
-
+    
 |-------------------------------------------------------------------------------------------------*/
 
 $fallback--root-font-size:         16px !default;

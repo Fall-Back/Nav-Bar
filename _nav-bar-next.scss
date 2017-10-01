@@ -3,17 +3,17 @@
 
     Fall-Back is designed for use with the basic
     [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
-
+    
     This determines a browser support base of:
-
+    
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
-
-
+    
+    
     Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
     This allows Start-CSS declarations to be overidden.
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
-
+    
 |-------------------------------------------------------------------------------------------------*/
 
 $fallback--root-font-size:         16px !default;
@@ -126,6 +126,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     */
     .nav-bar {
         background-color: $fallback--nav-bar--background-color;
+        position: relative;
 
         @if $fallback--nav-bar--font-size != $fallback--base-font-size {
             font-size: $fallback--nav-bar--font-size;
@@ -190,7 +191,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         robust, but I was hoping to avoud the need for extra containers.
     */
     @supports ((-webkit-flex-wrap: wrap) or (flex-wrap: wrap)) {
-        .nav-bar__main {
+        .nav-bar .nav-bar__main {
             display: -webkit-flex;
             display: flex;
             -webkit-flex-wrap: wrap;
@@ -203,6 +204,8 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     /*
         1. Related to Note A, we specificially want the title fill the avaialble space.
         2. But in older browsers we just want it pushed left.
+        3. Helps compatibiliy with Over-Panel. No down-sides I can see. May have to revise if some
+           become apparent.
 
         -. For IE 9 and FF 21-.
     */
@@ -212,34 +215,54 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         -webkit-flex: 1 0 auto; /* [1] */
                 flex: 1 0 auto; /* [1] */
 
-        float: left; /* [2] */
+        ////float: left; /* [2] */
 
         background: $fallback--nav-bar__title--background-color;
         // Not sure what this was for causes problems for top-bar layouts:
         //width: 100%;
 
-        height: $fallback--nav-bar__title--height;
-        line-height: $fallback--nav-bar__title--height;
-
-        font-family: $fallback--nav-bar__title--font-family;
-        font-weight: $fallback--nav-bar__title--font-weight;
-        font-style: $fallback--nav-bar__title--font-style;
-        font-size: $fallback--nav-bar__title--font-size;
+        ////height: $fallback--nav-bar__title--height;
+        ////line-height: $fallback--nav-bar__title--height;
 
         white-space: nowrap;
+        
+        position: relative; /* [1] */
+        z-index: 1;         /* [1] */
     }
-
+    
+        /*
+            1. Related to Note A; in older browsers we just want it pushed left.
+        */
         .nav-bar .nav-bar__title .nav-bar__link {
+            float: left; /* [1] */
             height: $fallback--nav-bar__title--height;
             line-height: $fallback--nav-bar__title--height;
+            
+            font-family: $fallback--nav-bar__title--font-family;
+            font-weight: $fallback--nav-bar__title--font-weight;
+            font-style: $fallback--nav-bar__title--font-style;
+            font-size: $fallback--nav-bar__title--font-size;
+            
+            white-space: nowrap;
         }
-
-    /*
-        Related to Note A. Everything but the title pushed right.
-    */
-    .nav-bar .nav-bar__title ~ * {
-        float: right;
+    
+    @supports ((-webkit-flex-wrap: wrap) or (flex-wrap: wrap)) {
+        .nav-bar .nav-bar__title {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        
+        .nav-bar .nav-bar__title .nav-bar__link {
+            -webkit-flex: 1 0 auto;
+                    flex: 1 0 auto;
+        }
     }
+
+        
+
+    
 
 /****
     @media only screen and (max-width: $fallback--nav-bar--breakpoint--enhanced) {
@@ -599,6 +622,14 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         .js-nav-bar .nav-bar__title {
             -webkit-flex: 0 1 auto;
             flex: 0 1 auto;
+        }
+        
+        /*
+            Related to Note A. Everything but the title pushed right.
+        */
+        .nav-bar .nav-bar__title ~ * {
+            float: right;
+            //width: 100%;
         }
 
         /*
