@@ -535,7 +535,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             1. Flex is only really needed for 'additional' to fill up the space.
                I don't think this would actually do any harm...
         */
-        .js-nav-bar {
+        .js-nav-bar.nav-bar {
             position: relative;
             z-index: 1000; // @var
 
@@ -548,7 +548,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 			This psuedo element helps to cover any subnavs to stop them being visible in the main
 			nav-bar.
 		*/
-        .js-nav-bar::before {
+        .js-nav-bar.nav-bar::before {
 			content: "";
 			display: block;
 			position: absolute;
@@ -563,7 +563,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 		/*
             Child items are floated, so clear those.
         */
-        .js-nav-bar::after {
+        .js-nav-bar.nav-bar::after {
             content: " ";
             display: table;
 			clear: both;
@@ -627,7 +627,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         /*
             Related to Note A. Everything but the title pushed right.
         */
-        .nav-bar .nav-bar__title ~ * {
+        .js-nav-bar .nav-bar__title ~ * {
             float: right;
             //width: 100%;
         }
