@@ -109,6 +109,8 @@ $fallback--nav-bar__title--font-style:            normal !default;
 $fallback--nav-bar__title--font-weight:           bold !default;
 $fallback--nav-bar__title--font-family:           Arial, Helvetica, sans-serif !default;
 
+$fallback--nav-bar-z-index:                       9999 !default;
+
 // Calculate title heights based on IT'S font size:
 $fallback--nav-bar__title--height:                (($fallback--base-line-height * 1.5) / (($fallback--nav-bar__title--font-size / 1em) * $fallback--base-font-size) * 1em);
 
@@ -123,10 +125,12 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     /* -- .nav-bar -------------------------------------------------------------------------------*/
 
     /*
+        1. Helps to position above subsequent elements so subnavs sit on top.
     */
     .nav-bar.nav-bar {
         background-color: $fallback--nav-bar--background-color;
         position: relative;
+        z-index: $fallback--nav-bar-z-index; /* [1] */
 
         @if $fallback--nav-bar--font-size != $fallback--base-font-size {
             font-size: $fallback--nav-bar--font-size;
