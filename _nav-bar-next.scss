@@ -3,17 +3,17 @@
 
     Fall-Back is designed for use with the basic
     [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
-    
+
     This determines a browser support base of:
-    
+
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
-    
-    
+
+
     Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
     This allows Start-CSS declarations to be overidden.
     E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
-    
+
 |-------------------------------------------------------------------------------------------------*/
 
 $fallback--root-font-size:         16px !default;
@@ -124,7 +124,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 
     /*
     */
-    .nav-bar {
+    .nav-bar.nav-bar {
         background-color: $fallback--nav-bar--background-color;
         position: relative;
 
@@ -143,14 +143,10 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         display: none;
 	}
 
-    ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
-    //.nav-bar {
-    //    *zoom: 1;
-    //}
-
     /* -------------------------------------------------------------------------------------------*/
 
-    /* -- .nav-bar__title ----------------------------------------------------------------*/
+
+    /* -- .nav-bar__title ------------------------------------------------------------------------*/
 
     /*
         1. For IE 9 and FF 21-.
@@ -179,7 +175,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         //   -ms-flex-pack: justify;
         // justify-content: space-between;
     }
-*/
+****/
 
     /*
         Note A.
@@ -225,11 +221,11 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         ////line-height: $fallback--nav-bar__title--height;
 
         white-space: nowrap;
-        
+
         position: relative; /* [1] */
         z-index: 1;         /* [1] */
     }
-    
+
         /*
             1. Related to Note A; in older browsers we just want it pushed left.
         */
@@ -237,15 +233,15 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             float: left; /* [1] */
             height: $fallback--nav-bar__title--height;
             line-height: $fallback--nav-bar__title--height;
-            
+
             font-family: $fallback--nav-bar__title--font-family;
             font-weight: $fallback--nav-bar__title--font-weight;
             font-style: $fallback--nav-bar__title--font-style;
             font-size: $fallback--nav-bar__title--font-size;
-            
+
             white-space: nowrap;
         }
-    
+
     @supports ((-webkit-flex-wrap: wrap) or (flex-wrap: wrap)) {
         .nav-bar .nav-bar__title {
             display: -webkit-flex;
@@ -253,16 +249,14 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             -webkit-flex-wrap: wrap;
             flex-wrap: wrap;
         }
-        
+
         .nav-bar .nav-bar__title .nav-bar__link {
             -webkit-flex: 1 0 auto;
                     flex: 1 0 auto;
         }
     }
 
-        
 
-    
 
 /****
     @media only screen and (max-width: $fallback--nav-bar--breakpoint--enhanced) {
@@ -302,6 +296,8 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         }
     }
 */
+    /* -------------------------------------------------------------------------------------------*/
+
 
     /* -- .nav-bar__main ------------------------------------------------------------------------*/
 
@@ -312,19 +308,15 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 
         2. Prevent any overflow and possible contain floats.
     */
-
     .nav-bar .nav-bar__main {
         background-color: $fallback--nav-bar--background-color; /* 1 */
         overflow: hidden; /* 2 */
     }
 
-
-
-
     /* -------------------------------------------------------------------------------------------*/
 
 
-    /* -- .nav-bar__items -------------------------------------------------------------------------*/
+    /* -- .nav-bar__items ------------------------------------------------------------------------*/
 
     /*
         1. Related to Note A. Force this on to its own line.
@@ -363,6 +355,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         }* /
 
     /* -------------------------------------------------------------------------------------------*/
+
 
     /* -- .subnav --------------------------------------------------------------------------------*/
 
@@ -409,7 +402,6 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     .nav-bar .subnav__item::before {
         display: none;
     }
-
 
     /* -------------------------------------------------------------------------------------------*/
 
@@ -518,6 +510,9 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         //padding-left: $fallback--nav-bar--spacing * 2;
         //padding-right: $fallback--nav-bar--spacing * 2;
     }
+
+    /* -------------------------------------------------------------------------------------------*/
+
 /* -----------------------------------------------------------------------------------------------*/
 
 
@@ -623,7 +618,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             -webkit-flex: 0 1 auto;
             flex: 0 1 auto;
         }
-        
+
         /*
             Related to Note A. Everything but the title pushed right.
         */
@@ -800,4 +795,3 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     }
 
 /* -----------------------------------------------------------------------------------------------*/
-
