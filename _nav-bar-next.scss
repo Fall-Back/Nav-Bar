@@ -250,7 +250,12 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             flex-wrap: wrap;
         }
 
-        .nav-bar .nav-bar__title .nav-bar__link {
+        /*
+            This is a littel flakey. We generally expeect the first item to be a logo container that
+            should fill all the remaining space. Will have to see how this plays out but may need a
+            rethink.
+        */
+        .nav-bar .nav-bar__title :first-child {
             -webkit-flex: 1 0 auto;
                     flex: 1 0 auto;
         }
