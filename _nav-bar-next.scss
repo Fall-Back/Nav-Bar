@@ -258,11 +258,12 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         }
 
         /*
-            This is a littel flakey. We generally expeect the first item to be a logo container that
-            should fill all the remaining space. Will have to see how this plays out but may need a
-            rethink.
+            This is a little flakey.
+            It assumes that we want any links to take up as much space as possible.
+            Anything else (e.g. buttons) would not change size.
+            Will have to see how this plays out.
         */
-        .nav-bar .nav-bar__title :first-child {
+        .nav-bar .nav-bar__title .nav-bar__link {
             -webkit-flex: 1 0 auto;
                     flex: 1 0 auto;
         }
@@ -453,6 +454,10 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     .nav-bar .subnav__link:active,
     .nav-bar .subnav__link:focus {
         border: 0;
+    }
+    
+    .nav-bar__link--centered {
+            text-align: center;
     }
 
 
