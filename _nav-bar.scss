@@ -3,18 +3,18 @@
 
     Fall-Back is designed for use with the basic
     [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
-    
+
     This determines a browser support base of:
-    
+
     IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
     Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
-    
-    
+
+
     Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
     This allows any applicable Start-CSS declarations to be overidden.
     E.g. `.{pattern} .{pattern}__child` would `a[href]`, but just `.{pattern}` wouldn't, so we use
     `.{pattern}.{pattren}`
-    
+
 |-------------------------------------------------------------------------------------------------*/
 
 $fallback--root-font-size:         16px !default;
@@ -49,123 +49,111 @@ $fallback--breakpoint--enhanced:   50em !default;
     Fall-Back Nav Bar Pattern v2.0.0
 |-------------------------------------------------------------------------------------------------*/
 
-$fallback--nav-bar--breakpoint--enhanced:        $fallback--breakpoint--enhanced;
+$fallback--nav-bar--breakpoint--enhanced:         $fallback--breakpoint--enhanced;
 
 
 // Colours:
 
-$fallback--nav-bar--base-ui-color:               $fallback--base-ui-color !default;
-$fallback--nav-bar--base-text-color:             $fallback--base-text-color !default;
+$fallback--nav-bar--base-ui-color:                $fallback--base-ui-color !default;
+$fallback--nav-bar--base-text-color:              $fallback--base-text-color !default;
 
 
-$fallback--nav-bar--background-color:            $fallback--nav-bar--base-ui-color !default;
+$fallback--nav-bar--background-color:             $fallback--nav-bar--base-ui-color !default;
 
-$fallback--nav-bar__link--color:                 #fff !default;
-$fallback--nav-bar__link--color--alt:            $fallback--nav-bar__link--color !default;
-$fallback--nav-bar__link--background-color:      $fallback--nav-bar--background-color !default;
-$fallback--nav-bar__link--background-color--alt: darken($fallback--nav-bar--base-ui-color, 10%) !default;
+$fallback--nav-bar__link--color:                  #fff !default;
+$fallback--nav-bar__link--color--alt:             $fallback--nav-bar__link--color !default;
+$fallback--nav-bar__link--background-color:       $fallback--nav-bar--background-color !default;
+$fallback--nav-bar__link--background-color--alt:  darken($fallback--nav-bar--background-color, 14%) !default;
+$fallback--nav-bar__link--background-color--alt2: darken($fallback--nav-bar--background-color, 7%) !default;
 
-$fallback--nav-bar__link--border-color:          rgba(255,255,255,0.2) !default;
-$fallback--nav-bar__link--border-style:          solid !default;
-$fallback--nav-bar__link--border-width:          1px !default;
-
-
-$fallback--sub-nav--background-color:            darken($fallback--nav-bar--base-ui-color, 20%) !default;
-
-$fallback--sub-nav__link--border-color:          rgba(255,255,255,0.3) !default;
-$fallback--sub-nav__link--border-style:          dashed !default;
-$fallback--sub-nav__link--border-width:          1px !default;
+$fallback--nav-bar__link--border-color:           rgba(255,255,255,0.2) !default;
+$fallback--nav-bar__link--border-style:           solid !default;
+$fallback--nav-bar__link--border-width:           1px !default;
+$fallback--nav-bar__link--border-radius:          0 !default;
 
 
-$fallback--sub-nav__link--color:                 $fallback--nav-bar__link--color !default;
-$fallback--sub-nav__link--color--alt:            $fallback--sub-nav__link--color !default;
-$fallback--sub-nav__link--background-color:      $fallback--sub-nav--background-color !default;
-$fallback--sub-nav__link--background-color--alt: lighten($fallback--sub-nav__link--background-color, 10%) !default;
+$fallback--sub-nav--background-color:             darken($fallback--nav-bar--base-ui-color, 20%) !default;
+
+$fallback--sub-nav__link--border-color:           rgba(255,255,255,0.3) !default;
+$fallback--sub-nav__link--border-style:           dashed !default;
+$fallback--sub-nav__link--border-width:           1px !default;
 
 
-$fallback--nav-bar__title--background-color:     $fallback--nav-bar--background-color !default;
+$fallback--sub-nav__link--color:                  $fallback--nav-bar__link--color !default;
+$fallback--sub-nav__link--color--alt:             $fallback--sub-nav__link--color !default;
+$fallback--sub-nav__link--background-color:       $fallback--sub-nav--background-color !default;
+$fallback--sub-nav__link--background-color--alt:  lighten($fallback--sub-nav__link--background-color, 10%) !default;
+
+
+$fallback--nav-bar__title--background-color:      $fallback--nav-bar--background-color !default;
 
 
 
 // Sizes:
 
-$fallback--nav-bar--font-size:                   $fallback--base-font-size !default;
-$fallback--nav-bar--height:                      ($fallback--base-em-ratio * 1.5em) !default;
-//$fallback--nav-bar--height:                      40px !default;
-$fallback--nav-bar--spacing:                     ($fallback--nav-bar--height / 8) !default;
-//$fallback--nav-bar--spacing:                     5px !default;
-$fallback--nav-bar--margin-bottom:               0 !default;
-$fallback--nav-bar__title--padding:              0 !default;
-
-$fallback--nav-bar___open--size:                 0.64285714285em !default;//$fallback--nav-bar--spacing * 2 !default;
-$fallback--nav-bar___cancel--size:               1em !default;
+$fallback--nav-bar--font-size:                    $fallback--base-font-size !default;
+$fallback--nav-bar--height:                       ($fallback--base-em-ratio * 1.5em) !default;
+$fallback--nav-bar--spacing:                      ($fallback--nav-bar--height / 8) !default;
+$fallback--nav-bar--margin-bottom:                0 !default;
+$fallback--nav-bar__title--padding:               0 !default;
 
 
 
 // Transitions:
 
-$fallback--sub-nav---transition:                 margin-top 0.5s ease !default;
+$fallback--sub-nav---transition:                  margin-top 0.5s ease !default;
 
 
 
 // Other:
 
-$fallback--nav-bar__title--font-size:            1.5em !default;
-$fallback--nav-bar__title--font-style:           normal !default;
-$fallback--nav-bar__title--font-weight:          bold !default;
-$fallback--nav-bar__title--font-family:          Arial, Helvetica, sans-serif !default;
+$fallback--nav-bar__title--font-size:             1.5em !default;
+$fallback--nav-bar__title--font-style:            normal !default;
+$fallback--nav-bar__title--font-weight:           bold !default;
+$fallback--nav-bar__title--font-family:           Arial, Helvetica, sans-serif !default;
+
+$fallback--nav-bar-z-index:                       9999 !default;
 
 // Calculate title heights based on IT'S font size:
-$fallback--nav-bar__title--height:               (($fallback--base-line-height * 1.5) / (($fallback--nav-bar__title--font-size / 1em) * $fallback--base-font-size) * 1em);
+$fallback--nav-bar__title--height:                (($fallback--base-line-height * 1.5) / (($fallback--nav-bar__title--font-size / 1em) * $fallback--base-font-size) * 1em);
 
 
 // MQ hacks:
 // https://jeffclayton.wordpress.com/2014/07/22/internet-explorer-css-hacks-collection/
 // 0\0 encoded to preserve hack.
-$fallback--ie9--hack:                            "all and (min-width: \0030\005C\0030) and (min-resolution: .001dpcm)" !default;
+//$fallback--ie9--hack:                             "all and (min-width: \0030\005C\0030) and (min-resolution: .001dpcm)" !default;
 
 /* -- Basic/fallback layout --------------------------------------------------------------------- */
-/****
-    // Mini reset if Start-CSS not present: (do we really need a condition? How do we do NOT variable-exists?)
-    //@if variable-exists($using-start-css) {
-        // Actually, this might be a good this to have anyway, not as a reset.
-        // Could then remove other declarations of `line-height`.
-        .nav-bar,
-        .nav-bar * {
-            line-height: $fallback--nav-bar__title--height;
-        }
 
-        .nav-bar a {
-            text-decoration: none;
-        }
-    //}
-*/
     /* -- .nav-bar -------------------------------------------------------------------------------*/
 
     /*
+        1. Helps to position above subsequent elements so subnavs sit on top.
     */
-    .nav-bar {
+    .nav-bar.nav-bar {
         background-color: $fallback--nav-bar--background-color;
+        position: relative;
+        z-index: $fallback--nav-bar-z-index; /* [1] */
 
         @if $fallback--nav-bar--font-size != $fallback--base-font-size {
             font-size: $fallback--nav-bar--font-size;
         }
-
-        // Have no recollection why this is needed:
-        // It forces the nav-bar to remain visible (though empty) on small screens. Not good, but
-        // may have fixed other things so keep as reminder
-        //--@include fallback-rem(min-height, $fallback--nav-bar--height);
     }
 
-
-    ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
-    //.nav-bar {
-    //    *zoom: 1;
-    //}
+	/*
+		This is a bit of a hack, but it's a way of letting JS know that this CSS has loaded.
+		It doesn't work for Opera Mini, but I'm happy to provide this browser only with the
+		unenhanced version.
+	*/
+	.nav-bar::before {
+		content: 'CSS Loaded';
+        display: none;
+	}
 
     /* -------------------------------------------------------------------------------------------*/
 
-    /* -- .nav-bar__title ----------------------------------------------------------------*/
+
+    /* -- .nav-bar__title ------------------------------------------------------------------------*/
 
     /*
         1. For IE 9 and FF 21-.
@@ -194,33 +182,92 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         //   -ms-flex-pack: justify;
         // justify-content: space-between;
     }
-*/
+****/
 
     /*
-        1. For IE 9 and FF 21-.
+        Note A.
+        We want elements to fill the space to maximise actionable areas if it's supported.
+        This requirement becomes apparent when using a Title and an button between the title and
+        the nav items.
+        We also need things positioned correctly in older browsers. A bunch of scattered
+        declarations help acheive this. I may need to re-think it if it turns out not to be very
+        robust, but I was hoping to avoud the need for extra containers.
+    */
+    @supports ((-webkit-flex-wrap: wrap) or (flex-wrap: wrap)) {
+        .nav-bar .nav-bar__main {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+    }
+
+
+
+    /*
+        1. Related to Note A, we specificially want the title fill the avaialble space.
+        2. But in older browsers we just want it pushed left.
+        3. Helps compatibiliy with Over-Panel. No down-sides I can see. May have to revise if some
+           become apparent.
+
+        -. For IE 9 and FF 21-.
     */
     .nav-bar .nav-bar__title {
-        //vertical-align: top; /* [1] */
+        //vertical-align: top; /* [-] */
+
+        -webkit-flex: 1 0 auto; /* [1] */
+                flex: 1 0 auto; /* [1] */
+
+        ////float: left; /* [2] */
 
         background: $fallback--nav-bar__title--background-color;
         // Not sure what this was for causes problems for top-bar layouts:
         //width: 100%;
 
-        height: $fallback--nav-bar__title--height;
-        line-height: $fallback--nav-bar__title--height;
-
-        font-family: $fallback--nav-bar__title--font-family;
-        font-weight: $fallback--nav-bar__title--font-weight;
-        font-style: $fallback--nav-bar__title--font-style;
-        font-size: $fallback--nav-bar__title--font-size;
+        ////height: $fallback--nav-bar__title--height;
+        ////line-height: $fallback--nav-bar__title--height;
 
         white-space: nowrap;
+
+        position: relative; /* [1] */
+        z-index: 1;         /* [1] */
     }
 
+        /*
+            1. Related to Note A; in older browsers we just want it pushed left.
+        */
         .nav-bar .nav-bar__title .nav-bar__link {
+            float: left; /* [1] */
             height: $fallback--nav-bar__title--height;
             line-height: $fallback--nav-bar__title--height;
+
+            font-family: $fallback--nav-bar__title--font-family;
+            font-weight: $fallback--nav-bar__title--font-weight;
+            font-style: $fallback--nav-bar__title--font-style;
+            font-size: $fallback--nav-bar__title--font-size;
+
+            white-space: nowrap;
         }
+
+    @supports ((-webkit-flex-wrap: wrap) or (flex-wrap: wrap)) {
+        .nav-bar .nav-bar__title {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        /*
+            This is a little flakey.
+            It assumes that we want any links to take up as much space as possible.
+            Anything else (e.g. buttons) would not change size.
+            Will have to see how this plays out.
+        */
+        .nav-bar .nav-bar__title .nav-bar__link {
+            -webkit-flex: 1 0 auto;
+                    flex: 1 0 auto;
+        }
+    }
 
 
 
@@ -262,8 +309,10 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         }
     }
 */
+    /* -------------------------------------------------------------------------------------------*/
 
-    /* -- .nav-bar__inner ------------------------------------------------------------------------*/
+
+    /* -- .nav-bar__main ------------------------------------------------------------------------*/
 
     /*
         1. Duplicating parent background-color here. There HAS to be a colour here for the pattern
@@ -272,51 +321,22 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
 
         2. Prevent any overflow and possible contain floats.
     */
-
-    .nav-bar .nav-bar__inner {
+    .nav-bar .nav-bar__main {
         background-color: $fallback--nav-bar--background-color; /* 1 */
         overflow: hidden; /* 2 */
     }
 
-
-
-
-    ///* IE7- hacks (can't use MQ or IE8 Respond applies it): */
-    //.nav-bar__inner {
-    //    *zoom: 1;
-    //}
-
     /* -------------------------------------------------------------------------------------------*/
 
 
-    /* -- .nav-bar__button -----------------------------------------------------------------------*/
-    /* Unused? */
-    /*.nav-bar__button {
-        -webkit-appearance: none;
-        border-radius: 0;
-        margin: 0;
-        padding: 0;
-        background: #ddd;
-        border: none;
-        @include fallback-rem(height, $fallback--nav-bar--height);
-    }
-
-    .nav-bar__button:hover,
-    .nav-bar__button:active,
-    .nav-bar__button:focus {
-        background-color: #ccc;  /* @var *
-    }
-    */
-    /* -------------------------------------------------------------------------------------------*/
-
-
-    /* -- .nav-bar__items -------------------------------------------------------------------------*/
+    /* -- .nav-bar__items ------------------------------------------------------------------------*/
 
     /*
-        1. F
+        1. Related to Note A. Force this on to its own line.
     */
     .nav-bar .nav-bar__items {
-        //width: 100%; /* 1 */
+        width: 100%; /* 1 */
+
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -348,6 +368,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         }* /
 
     /* -------------------------------------------------------------------------------------------*/
+
 
     /* -- .subnav --------------------------------------------------------------------------------*/
 
@@ -395,12 +416,14 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         display: none;
     }
 
-
     /* -------------------------------------------------------------------------------------------*/
 
 
     /* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
-
+	/*
+		1. These override button styles defined as part of StartCSS. I may consider making these
+		   customisable via more variables.
+	*/
     .nav-bar .nav-bar__link,
     .nav-bar .subnav__link,
     .nav-bar .subnav__heading {
@@ -409,12 +432,18 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         //padding: ($fallback--nav-bar--spacing * 1.333333) ($fallback--nav-bar--spacing * 2);
         padding-left: $fallback--nav-bar--spacing * 2;
         padding-right: $fallback--nav-bar--spacing * 2;
+		padding-bottom: 0; /* 1 */
+		padding-top: 0; /* 1 */
+
         border: 0;
+        border-radius: $fallback--nav-bar__link--border-radius;
         //height: $fallback--nav-bar--height;
         line-height: $fallback--nav-bar--height;
 
         text-decoration: none;
         outline: 0;
+
+		box-shadow: none; /* 1 */
     }
 
     // This is to turn off Start-CSS's hover border:
@@ -427,12 +456,10 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         border: 0;
     }
 
-/****
-    .nav-bar__title-text .nav-bar__link {
-        padding-top: 0;
-        padding-bottom: 0;
+    .nav-bar__link--centered {
+            text-align: center;
     }
-*/
+
 
     /*
         Fix for Opera Mini vertical centering:
@@ -452,11 +479,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         color: $fallback--nav-bar__link--color;
         background-color: $fallback--nav-bar__link--background-color;
     }
-/****
-    .nav-bar .nav-bar__link .icon {
-        display: none;
-    }
-*/
+
     .nav-bar .subnav__heading {
         color: $fallback--nav-bar__link--color;
     }
@@ -470,32 +493,21 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
 
 
     /*
-        Don't allow the usual interaction effects on ALL nav-bar links:
-        (this is to allow submenu heading links to appear as a non-link)
-    */
-/****
-    .nav-bar .nav-bar__link:hover,
-    .nav-bar .nav-bar__link:focus,
-    .nav-bar .nav-bar__link:active,
-    .nav-bar .subnav__link:hover,
-    .nav-bar .subnav__link:focus,
-    .nav-bar .subnav__link:active {
-        text-decoration: none;
-        outline: 0;
-    }
-*/
-
-    /*
         Provide interaction effects for nav-bar links that ARE links:
         (this excludes submenu heading links - note that submenu links should never also be
         submenu heading links)
     */
 
     .nav-bar .nav-bar__link:hover,
-    .nav-bar .nav-bar__link:focus,
-    .nav-bar .nav-bar__link:active {
+    .nav-bar .nav-bar__link:active,
+    .nav-bar .nav-bar__link[aria-expanded="true"] {
         color: $fallback--nav-bar__link--color--alt;
         background-color: $fallback--nav-bar__link--background-color--alt;
+    }
+
+    .nav-bar .nav-bar__link:focus {
+        color: $fallback--nav-bar__link--color--alt;
+        background-color: $fallback--nav-bar__link--background-color--alt2;
     }
 
     .nav-bar .subnav__link:hover,
@@ -504,25 +516,6 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         color: $fallback--sub-nav__link--color--alt;
         background-color: $fallback--sub-nav__link--background-color--alt;
     }
-
-
-    /*.nav-bar [href$="#"].nav-bar__link {
-        /* Override link hover effect - we want this to not look like a link in basic mode: *
-        background-color: transparent;
-        cursor: default;
-    }*/
-
-
-    /*.nav-bar .subnav__heading + .subnav__open {
-        display: none;
-    }*/
-
-
-    /*.nav-bar .subnav__open::before {
-        content: attr(data-content);
-        display: inline-block;
-    }*/
-
 
 
     .nav-bar .subnav__control {
@@ -534,18 +527,27 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         //padding-left: $fallback--nav-bar--spacing * 2;
         //padding-right: $fallback--nav-bar--spacing * 2;
     }
+
+    /* -------------------------------------------------------------------------------------------*/
+
 /* -----------------------------------------------------------------------------------------------*/
 
 
 /* ********************************************************************************************** */
 /* -- Enhanced layout --------------------------------------------------------------------------- */
+/*
+    This layout can only be used if JS is there to supprt the toggling of hidden submenus.
+    (CSS only attempts weren't good enough)
+    So, scoping these styles to the 'js-nav-bar' class.
+*/
+
     @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
 
         /*
             1. Flex is only really needed for 'additional' to fill up the space.
                I don't think this would actually do any harm...
         */
-        .nav-bar {
+        .js-nav-bar.nav-bar {
             position: relative;
             z-index: 1000; // @var
 
@@ -558,7 +560,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
 			This psuedo element helps to cover any subnavs to stop them being visible in the main
 			nav-bar.
 		*/
-        .nav-bar::before {
+        .js-nav-bar.nav-bar::before {
 			content: "";
 			display: block;
 			position: absolute;
@@ -569,11 +571,11 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
 			z-index: -1;
 			background-color: $fallback--nav-bar--background-color;
 		}
-		
+
 		/*
             Child items are floated, so clear those.
         */
-        .nav-bar::after {
+        .js-nav-bar.nav-bar::after {
             content: " ";
             display: table;
 			clear: both;
@@ -588,7 +590,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
 
             2. ... flex makes this better ...
         */
-        .nav-bar .nav-bar__inner {
+        .js-nav-bar .nav-bar__main {
             float: left; /* 1 */
             ////width: 100%; /* 1 */
 
@@ -603,7 +605,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         @supports (display: -webkit-flex) or
                   (display: -ms-flex) or
                   (display: flex) {
-            .nav-bar .nav-bar__inner {
+            .js-nav-bar .nav-bar__main {
                 width: auto; /* 1 */
             }
         }
@@ -624,64 +626,40 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
                 -ms-flex: 0 0 auto;
                     flex: 0 0 auto;
         }
-*/
-
-
+****/
 
         /*
-            Apply table-cell hack to all FF because -moz-box in FF12- doesn't honour
-            `position:relative` and applying the table-cell hack to everything causes other
-            problems.
+            Related to Note A. Reset the positioning.
         */
-/****
-        _:-moz-tree-row(hover), .nav-bar > * {
-            display: table-cell;
-            width: 100%;
+        .js-nav-bar .nav-bar__title {
+            -webkit-flex: 0 1 auto;
+            flex: 0 1 auto;
         }
-        _:-moz-tree-row(hover), .nav-bar .nav-bar__title {
-            display: table-cell;
-            width: 1px;
-        }
-*/
 
         /*
-            Apply the table-cell hack to IE9.
+            Related to Note A. Everything but the title pushed right.
         */
-/****
-        _::selection, .nav-bar > * {
-            display: table-cell\0;
-            width: 100%\0;
+        .js-nav-bar .nav-bar__title ~ * {
+            float: right;
+            //width: 100%;
         }
-        _::selection, .nav-bar .nav-bar__title {
-            display: table-cell\0;
-            width: 1px\0;
-        }
-*/
-
 
         /*
-            Remove table hack properties for browsers that support flexbox AND @supports.
-            Note, we're only interested in FF here, as other browsers already have flexbox properties
-            applied if they support it, so in this case the following is only relevent for FF22+
-            (below that FF will still use the table hack as applied above).
+            Related to Note A. Reset the positioning and width.
         */
-/***
-        @supports (display: flex) {
-            .nav-bar > *,
-            .nav-bar .nav-bar__title {
-                display: block;
-                width: auto;
-            }
+        .js-nav-bar .nav-bar__items {
+            width: auto;
+            float: none;
         }
-*/
+
 
         /*
             Add dividers.
             Dividers created by adding right borders to nav-bar__items.
         */
 
-        .nav-bar .nav-bar__title,
-        .nav-bar .nav-bar__item {
+        .js-nav-bar .nav-bar__title,
+        .js-nav-bar .nav-bar__item {
             border-style: $fallback--nav-bar__link--border-style;
             border-color: $fallback--nav-bar__link--border-color;
             border-top-width: 0;
@@ -690,7 +668,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
             border-right-width: $fallback--nav-bar__link--border-width;
         }
 
-        .nav-bar .nav-bar__link + .subnav__control {
+        .js-nav-bar .nav-bar__link + .subnav__control {
             border-style: $fallback--sub-nav__link--border-style;
             border-color: $fallback--sub-nav__link--border-color;
             border-top-width: 0;
@@ -699,24 +677,27 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
             border-right-width: 0;
         }
 
-        // Prevent anything wrapping (fixed height is cruicial to making this work),
-        // and make things float
-        .nav-bar .nav-bar__title,
-        .nav-bar .nav-bar__item,
-        .nav-bar .nav-bar__link,
-        .nav-bar .subnav__link,
-        .nav-bar .subnav__heading {
+        /*
+            Prevent anything wrapping (fixed height is cruicial to making this work),
+            and make things float
+        */
+        .js-nav-bar .nav-bar__title,
+        .js-nav-bar .nav-bar__item,
+        .js-nav-bar .nav-bar__link,
+        .js-nav-bar .subnav__link,
+        .js-nav-bar .subnav__heading {
             white-space: nowrap;
             float: left;
         }
 
 
-
-        // Set-up slide toggling for subnavs:
 		/*
+            Set-up slide toggling for subnavs:
+
 			1. This puts the subnav behind the covering pseudo element. See .nav-bar::before, above.
+            2. OSX/iOS needs this:
 		*/
-        .nav-bar .subnav {
+        .js-nav-bar .subnav {
             position: absolute;
             visibility: hidden;
             left: 0;
@@ -727,8 +708,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
             margin: 0;
             padding: 0;
 
-            // OSX/iOS needs this:
-            height: $fallback--nav-bar--height;
+            height: $fallback--nav-bar--height; /* 2 */
 
             -webkit-transition: margin-top 0.5s ease,
                                 visibility 0s   ease 0.5s;
@@ -741,8 +721,26 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         }
 
 
+        .js-nav-bar .subnav__heading {
+            display: none;
+        }
 
-        :target + .subnav {
+        .js-nav-bar .subnav__control {
+            display: block;
+        }
+
+        .js-nav-bar .subnav__control .icon--is-open,
+        .js-nav-bar .subnav__control[aria-expanded="true"] .icon--is-closed {
+            display: none;
+        }
+
+        .js-nav-bar .subnav__control .icon--is-closed,
+        .js-nav-bar .subnav__control[aria-expanded="true"] .icon--is-open {
+            display: inline;
+        }
+
+
+        .js-nav-bar .subnav__control[aria-expanded="true"] ~ .subnav {
             visibility: visible;
             margin-top: $fallback--nav-bar--height;
 
@@ -753,80 +751,18 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         }
 
 
-
-        .nav-bar .subnav__heading {
-            display: none;
-        }
-/****
-        .nav-bar .subnav__link {
-            white-space: nowrap;
-        }
-
-*/
-        .nav-bar .subnav__open {
-            display: block;
-        }
-
-        //.nav-bar .subnav__open::before {
-        .nav-bar .subnav__control-heading::before {
-            content: attr(data-content);
-            display: inline-block;
-            speak: none;
-        }
-
-        .nav-bar .subnav__heading + .subnav__open::before {
-            padding-right: $fallback--nav-bar--spacing * 2;
-        }
-
-
-        // Set up the aria-live messages:
-        .nav-bar .subnav__is-closed-message {
-            display: inline;
-        }
-
-        .nav-bar .subnav__is-open-message {
-            display: none;
-        }
-
-        .nav-bar :target .subnav__is-closed-message {
-            display: none;
-        }
-
-        .nav-bar :target .subnav__is-open-message {
-            display: inline;
-        }
-
-
-
-        /*.nav-bar .subnav__open:focus + .subnav .subnav__link,
-        .nav-bar .subnav__link:focus {
-            margin-top: $fallback--nav-bar--height;
-        }*/
-
-
         /*
-            Fixes cancel button behaviour if not using overflow:hidden on .nav-bar__inner
-            (Maybe be temp - I can't quite remember what the overflow:hidden was for.
-            May have been a float-clearing thing but may not need this now?)
+            1. Prevent content from increasing height of element.
         */
-        /*.nav-bar .subnav__cancel:focus,
-        .nav-bar .subnav__cancel:active {
-            margin-top: 0;
-        }*/
-
-
-        /*.nav-bar .subnav__item {
-            float: none;
-            display: table-cell;
-        }*/
-
-        .nav-bar .subnav__items {
-            float: left;
+        .js-nav-bar .subnav__control[data-content]::before {
+            content: attr(data-content);
+            display: inline;
+            vertical-align: top; /* 1 */
         }
 
-        .nav-bar .subnav__cancel {
-            display: block;
-            float: right;
+
+        .js-nav-bar .subnav__items {
+            float: left;
         }
 
 
@@ -834,11 +770,11 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
             1. The 9999 hack forces this element to take up as much room as it can.
                (See http://joren.co/flex-grow-9999-hack/)
         */
-        .nav-bar .nav-bar__additional {
+        .js-nav-bar .nav-bar__additional {
             background-color: $fallback--nav-bar--background-color;
 
             float: right;
-
+/* - this causes problems on Firefox on Mac. Investigate before reinstating.
             -webkit-flex: 9999 0 auto;
                 -ms-flex: 9999 0 auto;
                     flex: 9999 0 auto; /* 1 */
@@ -847,7 +783,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
         /*
             This zeros out Start-CSS form margin. Probably not the most robust.
         */
-        .nav-bar .nav-bar__additional > form {
+        .js-nav-bar .nav-bar__additional > form {
             margin-bottom: 0;
         }
 
@@ -863,7 +799,7 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
             but I like the idea of controlling this from the parent, rather than an unknown child.
 
         */
-        .nav-bar .nav-bar__additional--push-end {
+        .js-nav-bar .nav-bar__additional--push-end {
             display: -webkit-flex;
             display: -ms-flexbox;
             display: flex; /* 1 */
@@ -875,136 +811,4 @@ $fallback--ie9--hack:                            "all and (min-width: \0030\005C
 
     }
 
-
-    /* IE9 hacks: */
-    /*
-    */
-/****
-    @media #{$fallback--ie9--hack} {
-        /*
-            The icons force a massive height increase for some reason.
-            Setting the height to this only works fine because on 'wide' the nav-bar can't be
-            allowed to be double-lined or it breaks, and on 'narrow' the icons are hidden.
-        * /
-
-        .nav-bar .subnav__open,
-        .nav-bar .subnav__cancel {
-            height: $fallback--nav-bar--height;
-        }
-
-
-        //.nav-bar .subnav__cancel::after,
-        .nav-bar .subnav__open::after {
-            // Increase icon width due to odd cropping, then rescale down:
-            width: 1rem;
-            -ms-transform: scale(0.5);
-        }
-
-        .nav-bar .subnav__cancel::after {
-            // Increase icon width due to odd cropping, then rescale down:
-            width: 1.1rem;
-            -ms-transform: scale(0.8);
-        }
-    }
-*/
-/*
-    @media screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) and (min-width:0\0) and (min-resolution:.001dpcm) {
-
-        .nav-bar {
-            display: table;
-            width: 100%;
-        }
-
-        .nav-bar .nav-bar__title {
-            display: table-cell;
-            width: 1%;
-        }
-
-        .nav-bar .nav-bar__inner {
-            display: table-cell;
-            width: 99%;
-        }
-    }
-*/
 /* -----------------------------------------------------------------------------------------------*/
-
-
-/* ---------------------------------------------------------------------------------------------- */
-
-
-/* -- Fit layout -------------------------------------------------------------------------------- */
-    // We only want these adjustments on wider screens:
-/****
-    @media only screen and (min-width: $fallback--nav-bar--breakpoint--enhanced) {
-        .nav-bar--fit {}
-
-            .nav-bar--fit .nav-bar__items {
-                width: 100%;
-
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-
-                -webkit-justify-content: space-around;
-                          -ms-flex-pack: distribute;
-                        justify-content: space-around;
-            }
-
-
-            .nav-bar--fit .nav-bar__item {
-                -webkit-flex: 0 0 auto;
-                    -ms-flex: 0 0 auto;
-                        flex: 0 0 auto;
-                text-align: center;
-                // Borders don't really work in this scenario:
-                border: 0;
-            }
-
-            .nav-bar--fit .has-subnav {
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-justify-content: center;
-                          -ms-flex-pack: center;
-                        justify-content: center;
-            }
-    }
-*/
-
-/* -----------------------------------------------------------------------------------------------*/
-
-/*
-    These classes help control the layout in the nav-bar__title.
-
-    There are different ways to achieve these layouts with pros and cons to each.
-    There are also differences in possible behaviours so there's no right/wrong way.
-    E.g. A title section and a single menu opener control could be laid out with either the title
-    seciton centered in the width of the whole nav-bar, or centered in the remaining space
-    available after decducting the width of the control:
-
-       |-----TITLE-----| (no control)
-    A: |-----TITLE---|=| (control does not affect centering)
-    B: |----TITLE----|=| (control affects centering)
-
-    B can be acheived easily with flexbox, as can other layouts, which basically govern themselves
-    based on which elements are in place:
-
-    DEFAULT (no class):
-
-    |TITLE----------| (no control elements)
-    |=|--------TITLE| (control element before title)
-    |TITLE--------|=| (control element after title)
-    |=|---TITLE---|=| (two control elements)
-
-    RELATIVELY CENTERED (centered on remaining space)
-
-    .nav-bar__title--relatively-centered {
-        margin: 0 auto;
-    }
-
-*/
-/****
-    .nav-bar__title--relatively-centered {
-        margin: 0 auto;
-    }
-*/
