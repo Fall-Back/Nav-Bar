@@ -1,0 +1,470 @@
+/*-------------------------------------------------------------------------------------------------|
+    Fall-Back Start-CSS Settings v1.0.0
+
+    Fall-Back is designed for use with the basic
+    [CSS Mustard Cut](https://github.com/Fall-Back/CSS-Mustard-Cut)
+
+    This determines a browser support base of:
+
+    IE 9+, FF 8+, Opera 12, [Chrome 29+, Android ~4.4+]
+    Chrome 29+, Opera 16+, Safari 6.1+, iOS 7+, Android ~4.4+
+
+
+    Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
+    This allows Start-CSS declarations to be overidden.
+    E.g. `.{pattern}__open.{pattren}__open` overrides `a[href]`.
+
+|-------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------|
+    Fall-Back Nav Bar Pattern v2.0.0
+|-------------------------------------------------------------------------------------------------*/
+/* -- Basic/fallback layout --------------------------------------------------------------------- */
+/* -- .nav-bar -------------------------------------------------------------------------------*/
+/*
+    */
+.nav-bar {
+  background-color: #663399; }
+
+/*
+		This is a bit of a hack, but it's a way of letting JS know that this CSS has loaded.
+		It doesn't work for Opera Mini, but I'm happy to provide this browser only with the
+		unenhanced version.
+	*/
+.nav-bar::before {
+  content: 'CSS Loaded';
+  display: none; }
+
+/* -------------------------------------------------------------------------------------------*/
+/* -- .nav-bar__title ----------------------------------------------------------------*/
+/*
+        1. For IE 9 and FF 21-.
+    */
+/****
+    .nav-bar .nav-bar__title {
+        white-space: nowrap; /* [1] * /
+        vertical-align: top; /* [1] * /
+        //--@include fallback-rem(min-height, $fallback--nav-bar--height);
+
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+
+        //display: -webkit-flex;
+        //display: -ms-flexbox;
+        //display: flex;
+
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        //-webkit-box-pack: justify;
+        //   -ms-flex-pack: justify;
+        // justify-content: space-between;
+    }
+*/
+/*
+        1. For IE 9 and FF 21-.
+    */
+.nav-bar .nav-bar__title {
+  background: #663399;
+  height: 1.5em;
+  line-height: 1.5em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.5em;
+  white-space: nowrap; }
+
+.nav-bar .nav-bar__title .nav-bar__link {
+  height: 1.5em;
+  line-height: 1.5em; }
+
+/****
+    @media only screen and (max-width: $fallback--nav-bar--breakpoint--enhanced) {
+        // Apply the table-cell hack to IE9.
+        _::selection, .nav-bar__title > * {
+            display: table-cell\0 !important;
+            width: 1px\0;
+        }
+        // Note this isn't very robust:
+        _::selection, .nav-bar__title > div {
+            display: table-cell\0 !important;
+            width: 100%\0;
+            text-align: center;
+        }
+
+        // Without flexbox positioning doesn't sort itself out, so use text-align to position the title.
+        // If there's no control to the left:
+        _::selection, .nav-bar__title > div:first-child {
+            text-align: left;
+        }
+        // If there's no control to the right
+        _::selection, .nav-bar__title > div:last-child {
+            text-align: right;
+        }
+
+
+        //Apply hacks for old FF.
+        _:-moz-tree-row(hover), .nav-bar__title {
+            display: -moz-box;
+            -moz-box-pack: justify;
+            width: 100%;
+            text-align: center;
+        }
+
+        _:-moz-tree-row(hover), .nav-bar__title >  div {
+            -moz-box-flex: 1;
+        }
+    }
+*/
+/* -- .nav-bar__main ------------------------------------------------------------------------*/
+/*
+        1. Duplicating parent background-color here. There HAS to be a colour here for the pattern
+           to work, the parent background-color is there to allow things to be NOT BROKEN on
+           browsers that don't support HTML semantic elements.
+
+        2. Prevent any overflow and possible contain floats.
+    */
+.nav-bar .nav-bar__main {
+  background-color: #663399;
+  /* 1 */
+  overflow: hidden;
+  /* 2 */ }
+
+/* -------------------------------------------------------------------------------------------*/
+/* -- .nav-bar__items -------------------------------------------------------------------------*/
+/*
+        1. F
+    */
+.nav-bar .nav-bar__items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /****float: left;
+
+        -webkit-box-flex: 0;
+            -webkit-flex: 0 1 auto;
+                -ms-flex: 0 1 auto;
+                    flex: 0 1 auto;*/ }
+
+.nav-bar .nav-bar__item {
+  margin: 0; }
+
+.nav-bar .nav-bar__item::before {
+  display: none; }
+
+/*.nav-bar .nav-bar__item:not(:first-child) {
+            border-style: $fallback--nav-bar__link--border-style;
+            border-color: $fallback--nav-bar__link--border-color;
+            border-left-width: $fallback--nav-bar__link--border-width;
+        }
+
+        .nav-bar .nav-bar__item:last-child {
+            border-right-width: $fallback--nav-bar__link--border-width;
+        }* /
+
+    /* -------------------------------------------------------------------------------------------*/
+/* -- .subnav --------------------------------------------------------------------------------*/
+.nav-bar .subnav {
+  padding: 0;
+  margin-left: 1.125em;
+  background-color: #331a4d; }
+
+.nav-bar .subnav__items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+
+.nav-bar .subnav__items::before,
+.nav-bar .subnav__items::after {
+  content: " ";
+  display: table; }
+
+.nav-bar .subnav__items::after {
+  clear: both; }
+
+.nav-bar .subnav__item {
+  margin: 0;
+  float: left; }
+
+.nav-bar .subnav__item::before {
+  display: none; }
+
+/* -------------------------------------------------------------------------------------------*/
+/* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
+/*
+		1. These override button styles defined as part of StartCSS. I may consider making these
+		   customisable via more variables.
+	*/
+.nav-bar .nav-bar__link,
+.nav-bar .subnav__link,
+.nav-bar .subnav__heading {
+  display: block;
+  margin: 0;
+  padding-left: 0.5625em;
+  padding-right: 0.5625em;
+  padding-bottom: 0;
+  /* 1 */
+  padding-top: 0;
+  /* 1 */
+  border: 0;
+  border-radius: 0;
+  line-height: 2.25em;
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+  /* 1 */ }
+
+.nav-bar .nav-bar__link:hover,
+.nav-bar .nav-bar__link:active,
+.nav-bar .nav-bar__link:focus,
+.nav-bar .subnav__link:hover,
+.nav-bar .subnav__link:active,
+.nav-bar .subnav__link:focus {
+  border: 0; }
+
+/*
+        Fix for Opera Mini vertical centering:
+        (affects Opera 12.10-16 as well)
+    */
+_:-o-prefocus, body:last-child .nav-bar .nav-bar__link,
+_:-o-prefocus, body:last-child .nav-bar .subnav__link,
+_:-o-prefocus, body:last-child .nav-bar .subnav__heading {
+  line-height: 2.25em !important; }
+
+.nav-bar .nav-bar__link {
+  color: #fff;
+  background-color: #663399; }
+
+.nav-bar .subnav__heading {
+  color: #fff; }
+
+.nav-bar .subnav__link {
+  color: #fff;
+  background-color: #331a4d; }
+
+/*
+        Provide interaction effects for nav-bar links that ARE links:
+        (this excludes submenu heading links - note that submenu links should never also be
+        submenu heading links)
+    */
+.nav-bar .nav-bar__link:hover,
+.nav-bar .nav-bar__link:active,
+.nav-bar .nav-bar__link[aria-expanded="true"] {
+  color: #fff;
+  background-color: #422163; }
+
+.nav-bar .nav-bar__link:focus {
+  color: #fff;
+  background-color: #542a7e; }
+
+.nav-bar .subnav__link:hover,
+.nav-bar .subnav__link:focus,
+.nav-bar .subnav__link:active {
+  color: #fff;
+  background-color: #4d2673; }
+
+.nav-bar .subnav__control {
+  display: none; }
+
+/* -----------------------------------------------------------------------------------------------*/
+/* ********************************************************************************************** */
+/* -- Enhanced layout --------------------------------------------------------------------------- */
+/*
+    This layout can only be used if JS is there to supprt the toggling of hidden submenus.
+    (CSS only attempts weren't good enough)
+    So, scoping these styles to the 'js-nav-bar' class.
+*/
+@media only screen and (min-width: 50em) {
+  /*
+            1. Flex is only really needed for 'additional' to fill up the space.
+               I don't think this would actually do any harm...
+        */
+  .js-nav-bar {
+    position: relative;
+    z-index: 1000;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /* 1 */ }
+  /*
+			This psuedo element helps to cover any subnavs to stop them being visible in the main
+			nav-bar.
+		*/
+  .js-nav-bar::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: #663399; }
+  /*
+            Child items are floated, so clear those.
+        */
+  .js-nav-bar::after {
+    content: " ";
+    display: table;
+    clear: both; }
+  /*
+            1. Floating left to allow 'additional' to appear on the same line, but width 100% to
+               make sure any subnavs are properly obscured, otherwise it looks weird.
+               However, this makes 'additional' collapse to it's content.
+               In the case of search form, this means the form is smaller than it could be.
+               It's still useable, but ...
+
+            2. ... flex makes this better ...
+        */
+  .js-nav-bar .nav-bar__main {
+    float: left;
+    /* 1 */
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    /* 2 */ }
+  /*
+            1. ... but we need to turn off 100% width if we're using flex.
+        */
+  @supports (display: -webkit-flex) or (display: -ms-flex) or (display: flex) {
+    .js-nav-bar .nav-bar__main {
+      width: auto;
+      /* 1 */ } }
+  /*
+            Set flex-grow for immediate children to help with things like top-bar combinations
+            (search form won't grow otherwise).
+        */
+  /****
+        .nav-bar > * {
+            -webkit-flex: 1 0 auto;
+                -ms-flex: 1 0 auto;
+             *       flex: 1 0 auto;
+        }
+
+        .nav-bar .nav-bar__title {
+            -webkit-flex: 0 0 auto;
+                -ms-flex: 0 0 auto;
+                    flex: 0 0 auto;
+        }
+*/
+  /*
+            Add dividers.
+            Dividers created by adding right borders to nav-bar__items.
+        */
+  .js-nav-bar .nav-bar__title,
+  .js-nav-bar .nav-bar__item {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 1px; }
+  .js-nav-bar .nav-bar__link + .subnav__control {
+    border-style: dashed;
+    border-color: rgba(255, 255, 255, 0.3);
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 1px;
+    border-right-width: 0; }
+  /*
+            Prevent anything wrapping (fixed height is cruicial to making this work),
+            and make things float
+        */
+  .js-nav-bar .nav-bar__title,
+  .js-nav-bar .nav-bar__item,
+  .js-nav-bar .nav-bar__link,
+  .js-nav-bar .subnav__link,
+  .js-nav-bar .subnav__heading {
+    white-space: nowrap;
+    float: left; }
+  /*
+            Set-up slide toggling for subnavs:
+
+			1. This puts the subnav behind the covering pseudo element. See .nav-bar::before, above.
+            2. OSX/iOS needs this:
+		*/
+  .js-nav-bar .subnav {
+    position: absolute;
+    visibility: hidden;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -2;
+    /* 1 */
+    padding: 0;
+    margin: 0;
+    padding: 0;
+    height: 2.25em;
+    /* 2 */
+    -webkit-transition: margin-top 0.5s ease, visibility 0s   ease 0.5s;
+    -moz-transition: margin-top 0.5s ease, visibility 0s   ease 0.5s;
+    -o-transition: margin-top 0.5s ease, visibility 0s   ease 0.5s;
+    transition: margin-top 0.5s ease, visibility 0s   ease 0.5s; }
+  .js-nav-bar .subnav__heading {
+    display: none; }
+  .js-nav-bar .subnav__control {
+    display: block; }
+  .js-nav-bar .subnav__control .icon--is-open,
+  .js-nav-bar .subnav__control[aria-expanded="true"] .icon--is-closed {
+    display: none; }
+  .js-nav-bar .subnav__control .icon--is-closed,
+  .js-nav-bar .subnav__control[aria-expanded="true"] .icon--is-open {
+    display: inline; }
+  .js-nav-bar .subnav__control[aria-expanded="true"] ~ .subnav {
+    visibility: visible;
+    margin-top: 2.25em;
+    -webkit-transition: margin-top 0.5s ease;
+    -moz-transition: margin-top 0.5s ease;
+    -o-transition: margin-top 0.5s ease;
+    transition: margin-top 0.5s ease; }
+  /*
+            1. Prevent content from increasing height of element.
+        */
+  .js-nav-bar .subnav__control[data-content]::before {
+    content: attr(data-content);
+    display: inline;
+    vertical-align: top;
+    /* 1 */ }
+  .js-nav-bar .subnav__items {
+    float: left; }
+  /*
+            1. The 9999 hack forces this element to take up as much room as it can.
+               (See http://joren.co/flex-grow-9999-hack/)
+        */
+  .js-nav-bar .nav-bar__additional {
+    background-color: #663399;
+    float: right;
+    /* - this causes problems on Firefox on Mac. Investigate before reinstating.
+            -webkit-flex: 9999 0 auto;
+                -ms-flex: 9999 0 auto;
+                    flex: 9999 0 auto; /* 1 */ }
+  /*
+            This zeros out Start-CSS form margin. Probably not the most robust.
+        */
+  .js-nav-bar .nav-bar__additional > form {
+    margin-bottom: 0; }
+  /*
+            This will probably be better off in utility classes, but that introduces more
+            dependancies.
+            An alternative could be:
+            ```
+            .nav-bar .nav-bar__additional--push-end > * {
+                float: right;
+            }
+            ```
+            but I like the idea of controlling this from the parent, rather than an unknown child.
+
+        */
+  .js-nav-bar .nav-bar__additional--push-end {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    /* 1 */
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; } }
+
+/* -----------------------------------------------------------------------------------------------*/
