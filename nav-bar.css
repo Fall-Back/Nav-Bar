@@ -13,7 +13,9 @@
     Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
     This allows any applicable Start-CSS declarations to be overidden.
     E.g. `.{pattern} .{pattern}__child` would `a[href]`, but just `.{pattern}` wouldn't, so we use
-    `.{pattern}.{pattren}`
+    `.{pattern}.{pattern}`
+
+
 
 |-------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------|
@@ -75,8 +77,8 @@
         This requirement becomes apparent when using a Title and an button between the title and
         the nav items.
         We also need things positioned correctly in older browsers. A bunch of scattered
-        declarations help acheive this. I may need to re-think it if it turns out not to be very
-        robust, but I was hoping to avoud the need for extra containers.
+        declarations help achieve this. I may need to re-think it if it turns out not to be very
+        robust, but I was hoping to avoid the need for extra containers.
     */
 @supports (-webkit-flex-wrap: wrap) or (flex-wrap: wrap) {
   .nav-bar .nav-bar__main {
@@ -86,7 +88,7 @@
     flex-wrap: wrap; } }
 
 /*
-        1. Related to Note A, we specificially want the title fill the avaialble space.
+        1. Related to Note A, we specificially want the title fill the available space.
         2. But in older browsers we just want it pushed left.
         3. Helps compatibiliy with Over-Panel. No down-sides I can see. May have to revise if some
            become apparent.
@@ -334,7 +336,7 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
 /* ********************************************************************************************** */
 /* -- Enhanced layout --------------------------------------------------------------------------- */
 /*
-    This layout can only be used if JS is there to supprt the toggling of hidden submenus.
+    This layout can only be used if JS is there to support the toggling of hidden submenus.
     (CSS only attempts weren't good enough)
     So, scoping these styles to the 'js-nav-bar' class.
 */
@@ -394,23 +396,6 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
     .js-nav-bar .nav-bar__main {
       width: auto;
       /* 1 */ } }
-  /*
-            Set flex-grow for immediate children to help with things like top-bar combinations
-            (search form won't grow otherwise).
-        */
-  /****
-        .nav-bar > * {
-            -webkit-flex: 1 0 auto;
-                -ms-flex: 1 0 auto;
-             *       flex: 1 0 auto;
-        }
-
-        .nav-bar .nav-bar__title {
-            -webkit-flex: 0 0 auto;
-                -ms-flex: 0 0 auto;
-                    flex: 0 0 auto;
-        }
-****/
   /*
             Related to Note A. Reset the positioning.
         */

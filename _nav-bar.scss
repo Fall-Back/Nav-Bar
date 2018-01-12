@@ -13,7 +13,9 @@
     Any double-classing (e.g. `.class.class`) is deliberate and intended to increase specifity.
     This allows any applicable Start-CSS declarations to be overidden.
     E.g. `.{pattern} .{pattern}__child` would `a[href]`, but just `.{pattern}` wouldn't, so we use
-    `.{pattern}.{pattren}`
+    `.{pattern}.{pattern}`
+
+
 
 |-------------------------------------------------------------------------------------------------*/
 
@@ -610,23 +612,6 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             }
         }
 
-        /*
-            Set flex-grow for immediate children to help with things like top-bar combinations
-            (search form won't grow otherwise).
-        */
-/****
-        .nav-bar > * {
-            -webkit-flex: 1 0 auto;
-                -ms-flex: 1 0 auto;
-             *       flex: 1 0 auto;
-        }
-
-        .nav-bar .nav-bar__title {
-            -webkit-flex: 0 0 auto;
-                -ms-flex: 0 0 auto;
-                    flex: 0 0 auto;
-        }
-****/
 
         /*
             Related to Note A. Reset the positioning.
