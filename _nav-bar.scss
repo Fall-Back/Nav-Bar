@@ -759,7 +759,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             background-color: $fallback--nav-bar--background-color;
 
             float: right;
-/* - this causes problems on Firefox on Mac. Investigate before reinstating.
+            /* - this causes problems on Firefox on Mac. Investigate before reinstating.
             -webkit-flex: 9999 0 auto;
                 -ms-flex: 9999 0 auto;
                     flex: 9999 0 auto; /* 1 */
