@@ -28,7 +28,7 @@
             );
             //console.log(window.getComputedStyle(nav_bar, ':before').getPropertyValue('content'));
             //console.log(css_is_loaded);
-            
+
             if (css_is_loaded) {
                 // Add the JS class names ...
                 if (nav_bar.classList) {
@@ -46,30 +46,30 @@
                 var buttons = document.querySelectorAll('.js-nav-bar .js-toggle-button');
                 Array.prototype.forEach.call(buttons, function(button, i) {
                     var button_id = button.getAttribute('id');
-                    
+
                     button.setAttribute('aria-expanded', 'false');
-                    
+
                     // Main toggle button:
                     button.addEventListener('click', function() {
                         // Switch the `aria-expanded` attribute:
                         var expanded = this.getAttribute('aria-expanded') === 'true' || false;
-                        
+
                         // Close any open submenu:
                         var expanded_buttons = document.querySelectorAll('.js-nav-bar .js-toggle-button[aria-expanded="true"]');
                         Array.prototype.forEach.call(expanded_buttons, function(expanded_button, i) {
                             expanded_button.setAttribute('aria-expanded', 'false');
                         });
-                            
+
                         // Set the attribute:
                         this.setAttribute('aria-expanded', !expanded);
-                        
+
                         // Set the focus to the first link if submenu newly opened:
                         if (!expanded) {
                             var first_link = document.querySelector('#' + button_id + '--target .subnav__link');
                             first_link.focus();
                         }
                     });
-                    
+
                 });
             }
         }
