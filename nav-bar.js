@@ -18,8 +18,8 @@
         init: function() {
             var nav_bar = document.querySelector('.nav-bar');
             var nav_bar_js_classname = 'js-nav-bar';
-            // Note that `getComputedStyle` on psuedo elements doesn't work in Opera Mini, but in
-            // this case I'm happy to serve only the unenhanced version to Opera Mini.
+            // Note that `getComputedStyle` on pseudo elements doesn't work in Opera Mini, but in
+            // this case I'm happy to serve only the un-enhanced version to Opera Mini.
             var css_is_loaded = (
                 window.getComputedStyle(nav_bar, ':before')
                 .getPropertyValue('content')
@@ -37,7 +37,7 @@
                     nav_bar.className += ' ' + nav_bar_js_classname;
                 }
                 // ... and button actions:
-                // (note a dilema here, as the toggle button code is designed to be generic, but I
+                // (note a dilemma here, as the toggle button code is designed to be generic, but I
                 // don't want to run it for ALL `.js-toggle-button` by default, because I'm being
                 // more discerning than that. I.e. I NEVER want this running for Opera Mini, and I
                 // ONLY want it running for Nav-Bars if the Nav-Bar CSS has loaded.

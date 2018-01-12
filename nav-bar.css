@@ -88,9 +88,9 @@
     flex-wrap: wrap; } }
 
 /*
-        1. Related to Note A, we specificially want the title fill the available space.
+        1. Related to Note A, we specifically want the title fill the available space.
         2. But in older browsers we just want it pushed left.
-        3. Helps compatibiliy with Over-Panel. No down-sides I can see. May have to revise if some
+        3. Helps compatibility with Over-Panel. No down-sides I can see. May have to revise if some
            become apparent.
 
         -. For IE 9 and FF 21-.
@@ -178,7 +178,7 @@
 /* -------------------------------------------------------------------------------------------*/
 /* -- .nav-bar__main ------------------------------------------------------------------------*/
 /*
-        1. Duplicating parent background-color here. There HAS to be a colour here for the pattern
+        1. Duplicating parent background-color here. There HAS to be a color here for the pattern
            to work, the parent background-color is there to allow things to be NOT BROKEN on
            browsers that don't support HTML semantic elements.
 
@@ -353,7 +353,7 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
     display: flex;
     /* 1 */ }
   /*
-			This psuedo element helps to cover any subnavs to stop them being visible in the main
+			This pseudo element helps to cover any subnavs to stop them being visible in the main
 			nav-bar.
 		*/
   .js-nav-bar.nav-bar::before {
@@ -378,7 +378,7 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
                make sure any subnavs are properly obscured, otherwise it looks weird.
                However, this makes 'additional' collapse to it's content.
                In the case of search form, this means the form is smaller than it could be.
-               It's still useable, but ...
+               It's still usable, but ...
 
             2. ... flex makes this better ...
         */
@@ -511,7 +511,7 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
     margin-bottom: 0; }
   /*
             This will probably be better off in utility classes, but that introduces more
-            dependancies.
+            dependencies.
             An alternative could be:
             ```
             .nav-bar .nav-bar__additional--push-end > * {
