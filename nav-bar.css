@@ -248,6 +248,9 @@
   margin: 0;
   float: left; }
 
+.nav-bar .subnav__items--stacked .subnav__item {
+  float: none; }
+
 .nav-bar .subnav__item::before {
   display: none; }
 
@@ -443,6 +446,8 @@ _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
   .js-nav-bar .subnav__heading {
     white-space: nowrap;
     float: left; }
+  .js-nav-bar .subnav__items--stacked .subnav__link {
+    float: none; }
   /*
             Set-up slide toggling for subnavs:
 
