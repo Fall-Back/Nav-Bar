@@ -396,6 +396,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 
     }
 
+
     // Contain floats:
     .nav-bar .subnav__items::before,
     .nav-bar .subnav__items::after {
@@ -411,6 +412,11 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     .nav-bar .subnav__item {
         margin: 0;
         float: left;
+    }
+    
+        
+    .nav-bar .subnav__items--stacked .subnav__item {
+        float: none;
     }
 
     // This is to turn off Start-CSS's custom bullets:
@@ -673,6 +679,10 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         .js-nav-bar .subnav__heading {
             white-space: nowrap;
             float: left;
+        }
+        
+        .js-nav-bar .subnav__items--stacked .subnav__link {
+            float: none;
         }
 
 
