@@ -146,11 +146,18 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 		This is a bit of a hack, but it's a way of letting JS know that this CSS has loaded.
 		It doesn't work for Opera Mini, but I'm happy to provide this browser only with the
 		unenhanced version.
+        UPDATE: Due to problem with FOBP, now checking for existence of class in styesheet earlier
+        on, so this isn't needed:
 	*/
-	.nav-bar::before {
+	/*.nav-bar::before {
 		content: 'CSS Loaded';
         display: none;
-	}
+	}*/
+    // Use this instead:
+    .js-nav-bar {
+        // This could be any inconsequential declaration:
+        border: 0;
+    }
 
     /* -------------------------------------------------------------------------------------------*/
 
@@ -555,7 +562,8 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             1. Flex is only really needed for 'additional' to fill up the space.
                I don't think this would actually do any harm...
         */
-        .js-nav-bar.nav-bar {
+        //.js-nav-bar.nav-bar {
+        .js-nav-bar .nav-bar {
             position: relative;
             z-index: 1000; // @var
 
@@ -568,7 +576,8 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 			This pseudo element helps to cover any subnavs to stop them being visible in the main
 			nav-bar.
 		*/
-        .js-nav-bar.nav-bar::before {
+        //.js-nav-bar.nav-bar::before {
+        .js-nav-bar .nav-bar::before {
 			content: "";
 			display: block;
 			position: absolute;
@@ -583,7 +592,8 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 		/*
             Child items are floated, so clear those.
         */
-        .js-nav-bar.nav-bar::after {
+        //.js-nav-bar.nav-bar::after {
+        .js-nav-bar .nav-bar::after {
             content: " ";
             display: table;
 			clear: both;
