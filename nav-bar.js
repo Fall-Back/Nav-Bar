@@ -59,7 +59,7 @@
                 }*/
                 // ... and button actions:*/
                 // CSS all good, add button actions:
-                var buttons = document.querySelectorAll('.js-nav-bar .js-nav-bar__button');
+                var buttons = document.querySelectorAll('[data-js="nav-bar__button"]');
                 Array.prototype.forEach.call(buttons, function(button, i) {
                     var button_id = button.getAttribute('id');
 
@@ -71,7 +71,7 @@
                         var expanded = this.getAttribute('aria-expanded') === 'true' || false;
 
                         // Close any open submenu:
-                        var expanded_buttons = document.querySelectorAll('.js-nav-bar .js-nav-bar__button[aria-expanded="true"]');
+                        var expanded_buttons = document.querySelectorAll('[data-js="nav-bar__button"][aria-expanded="true"]');
                         Array.prototype.forEach.call(expanded_buttons, function(expanded_button, i) {
                             expanded_button.setAttribute('aria-expanded', 'false');
                         });
@@ -81,7 +81,7 @@
 
                         // Set the focus to the first link if submenu newly opened:
                         if (!expanded) {
-                            var first_link = document.querySelector('#' + button_id + '--target .subnav__link');
+                            var first_link = document.querySelector('#' + button_id + '--target [data-js="nav-bar__focus-start"]');
                             if (first_link) {
                                 first_link.focus();
                             }
