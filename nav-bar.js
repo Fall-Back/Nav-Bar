@@ -5,8 +5,8 @@
     Released under the MIT license https://git.io/vwTVl
 */
 (function() {
-
-    var nav_bar_js_classname = 'js-nav-bar';
+    
+    var nav_bar_js_classname = 'js-nav-bar'; 
 
     var check_for_css = function(selector) {
         
@@ -37,7 +37,7 @@
         }
         return haveRule;
     }
-
+    
     var ready = function(fn) {
         if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
             fn();
@@ -49,9 +49,8 @@
 	var navbar = {
 
         init: function() {
-            
             /*var nav_bar = document.querySelector('.nav-bar');
-
+            
             // Note that `getComputedStyle` on pseudo elements doesn't work in Opera Mini, but in
             // this case I'm happy to serve only the un-enhanced version to Opera Mini.
             var css_is_loaded = (
@@ -61,19 +60,7 @@
                 == 'CSS Loaded'
             );*/
 
-            var css_is_loaded = check_for_css('.' + nav_bar_js_classname);
-
             if (css_is_loaded) {
-
-                // Add the JS class name ...
-                var hmtl_el = document.querySelector('html');
-
-                if (hmtl_el.classList) {
-                    hmtl_el.classList.add(nav_bar_js_classname);
-                } else {
-                    hmtl_el.className += ' ' + nav_bar_js_classname;
-                }
-
                 // Add the JS class names ...
                 /*if (nav_bar.classList) {
                     nav_bar.classList.add(nav_bar_js_classname);
@@ -81,8 +68,7 @@
                     nav_bar.className += ' ' + nav_bar_js_classname;
                 }*/
                 // ... and button actions:*/
-
-                // Add button actions:
+                // CSS all good, add button actions:
                 var buttons = document.querySelectorAll('[data-js="nav-bar__button"]');
                 Array.prototype.forEach.call(buttons, function(button, i) {
                     var button_id = button.getAttribute('id');
@@ -116,6 +102,20 @@
             }
         }
 	}
+
+    // This is _here_ to mitigate a Flash of Basic Styled Navbar:
+    var css_is_loaded = check_for_css('.' + nav_bar_js_classname);
+    
+    if (css_is_loaded) {
+        // Add the JS class name ...
+        var hmtl_el = document.querySelector('html');
+        
+        if (hmtl_el.classList) {
+            hmtl_el.classList.add(nav_bar_js_classname);
+        } else {
+            hmtl_el.className += ' ' + nav_bar_js_classname;
+        }
+    }
 
 	ready(navbar.init);
 })();
