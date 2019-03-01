@@ -434,13 +434,13 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     /* -------------------------------------------------------------------------------------------*/
 
 
-    /* -- .nav-bar__link, .subnav__link ----------------------------------------------------------*/
+    /* -- .nav-bar__link, .subnav__link[href]  ----------------------------------------------------------*/
 	/*
 		1. These override button styles defined as part of StartCSS. I may consider making these
 		   customisable via more variables.
 	*/
-    .nav-bar .nav-bar__link,
-    .nav-bar .subnav__link,
+    .nav-bar .nav-bar__link[href] ,
+    .nav-bar .subnav__link[href] ,
     .nav-bar .subnav__heading {
         display: block;
         margin: 0;
@@ -462,12 +462,12 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     }
 
     // This is to turn off Start-CSS's hover border:
-    .nav-bar .nav-bar__link:hover,
-    .nav-bar .nav-bar__link:active,
-    .nav-bar .nav-bar__link:focus,
-    .nav-bar .subnav__link:hover,
-    .nav-bar .subnav__link:active,
-    .nav-bar .subnav__link:focus {
+    .nav-bar .nav-bar__link[href] :hover,
+    .nav-bar .nav-bar__link[href] :active,
+    .nav-bar .nav-bar__link[href] :focus,
+    .nav-bar .subnav__link[href] :hover,
+    .nav-bar .subnav__link[href] :active,
+    .nav-bar .subnav__link[href] :focus {
         border: 0;
     }
 
@@ -480,8 +480,8 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         Fix for Opera Mini vertical centering:
         (affects Opera 12.10-16 as well)
     */
-    _:-o-prefocus, body:last-child .nav-bar .nav-bar__link,
-    _:-o-prefocus, body:last-child .nav-bar .subnav__link,
+    _:-o-prefocus, body:last-child .nav-bar .nav-bar__link[href] ,
+    _:-o-prefocus, body:last-child .nav-bar .subnav__link[href] ,
     _:-o-prefocus, body:last-child .nav-bar .subnav__heading {
         //line-height: 1.71428571429 !important;
         line-height: $fallback--nav-bar--height !important;
@@ -490,7 +490,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     }
 
 
-    .nav-bar .nav-bar__link {
+    .nav-bar .nav-bar__link[href]  {
         color: $fallback--nav-bar__link--color;
         background-color: $fallback--nav-bar__link--background-color;
     }
@@ -500,7 +500,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     }
 
 
-    .nav-bar .subnav__link {
+    .nav-bar .subnav__link[href]  {
         //display: inline-block;
         color: $fallback--sub-nav__link--color;
         background-color: $fallback--sub-nav__link--background-color;
@@ -513,21 +513,21 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         submenu heading links)
     */
 
-    .nav-bar .nav-bar__link:hover,
-    .nav-bar .nav-bar__link:active,
-    .nav-bar .nav-bar__link[aria-expanded="true"] {
+    .nav-bar .nav-bar__link[href] :hover,
+    .nav-bar .nav-bar__link[href] :active,
+    .nav-bar .nav-bar__link[href] [aria-expanded="true"] {
         color: $fallback--nav-bar__link--color--alt;
         background-color: $fallback--nav-bar__link--background-color--alt;
     }
 
-    .nav-bar .nav-bar__link:focus {
+    .nav-bar .nav-bar__link[href] :focus {
         color: $fallback--nav-bar__link--color--alt;
         background-color: $fallback--nav-bar__link--background-color--alt2;
     }
 
-    .nav-bar .subnav__link:hover,
-    .nav-bar .subnav__link:focus,
-    .nav-bar .subnav__link:active {
+    .nav-bar .subnav__link[href] :hover,
+    .nav-bar .subnav__link[href] :focus,
+    .nav-bar .subnav__link[href] :active {
         color: $fallback--sub-nav__link--color--alt;
         background-color: $fallback--sub-nav__link--background-color--alt;
     }
@@ -669,7 +669,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             border-right-width: $fallback--nav-bar__link--border-width;
         }
 
-        .js-nav-bar .nav-bar__link + .subnav__control {
+        .js.nav-bar .nav-bar__link[href]  + .subnav__control {
             border-style: $fallback--sub-nav__link--border-style;
             border-color: $fallback--sub-nav__link--border-color;
             border-top-width: 0;
@@ -684,14 +684,14 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         */
         .js-nav-bar .nav-bar__title,
         .js-nav-bar .nav-bar__item,
-        .js-nav-bar .nav-bar__link,
-        .js-nav-bar .subnav__link,
+        .js.nav-bar .nav-bar__link[href] ,
+        .js-nav-bar .subnav__link[href] ,
         .js-nav-bar .subnav__heading {
             white-space: nowrap;
             float: left;
         }
         
-        .js-nav-bar .subnav__items--stacked .subnav__link {
+        .js-nav-bar .subnav__items--stacked .subnav__link[href]  {
             float: none;
         }
 
