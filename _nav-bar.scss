@@ -420,10 +420,11 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         margin: 0;
         float: left;
     }
-    
-        
+
+
     .nav-bar .subnav__items--stacked .subnav__item {
         float: none;
+        margin-left: $fallback--nav-bar--height / 2;
     }
 
     // This is to turn off Start-CSS's custom bullets:
@@ -462,12 +463,12 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
     }
 
     // This is to turn off Start-CSS's hover border:
-    .nav-bar .nav-bar__link[href] :hover,
-    .nav-bar .nav-bar__link[href] :active,
-    .nav-bar .nav-bar__link[href] :focus,
-    .nav-bar .subnav__link[href] :hover,
-    .nav-bar .subnav__link[href] :active,
-    .nav-bar .subnav__link[href] :focus {
+    .nav-bar .nav-bar__link[href]:hover,
+    .nav-bar .nav-bar__link[href]:active,
+    .nav-bar .nav-bar__link[href]:focus,
+    .nav-bar .subnav__link[href]:hover,
+    .nav-bar .subnav__link[href]:active,
+    .nav-bar .subnav__link[href]:focus {
         border: 0;
     }
 
@@ -513,21 +514,21 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         submenu heading links)
     */
 
-    .nav-bar .nav-bar__link[href] :hover,
-    .nav-bar .nav-bar__link[href] :active,
+    .nav-bar .nav-bar__link[href]:hover,
+    .nav-bar .nav-bar__link[href]:active,
     .nav-bar .nav-bar__link[href] [aria-expanded="true"] {
         color: $fallback--nav-bar__link--color--alt;
         background-color: $fallback--nav-bar__link--background-color--alt;
     }
 
-    .nav-bar .nav-bar__link[href] :focus {
+    .nav-bar .nav-bar__link[href]:focus {
         color: $fallback--nav-bar__link--color--alt;
         background-color: $fallback--nav-bar__link--background-color--alt2;
     }
 
-    .nav-bar .subnav__link[href] :hover,
-    .nav-bar .subnav__link[href] :focus,
-    .nav-bar .subnav__link[href] :active {
+    .nav-bar .subnav__link[href]:hover,
+    .nav-bar .subnav__link[href]:focus,
+    .nav-bar .subnav__link[href]:active {
         color: $fallback--sub-nav__link--color--alt;
         background-color: $fallback--sub-nav__link--background-color--alt;
     }
@@ -690,7 +691,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             white-space: nowrap;
             float: left;
         }
-        
+
         .js-nav-bar .subnav__items--stacked .subnav__link[href]  {
             float: none;
         }
@@ -768,6 +769,10 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 
         .js-nav-bar .subnav__items {
             float: left;
+        }
+
+        .js-nav-bar .nav-bar .subnav__items--stacked .subnav__item {
+            margin-left: 0;
         }
 
 
