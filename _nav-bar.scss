@@ -685,8 +685,8 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         */
         .js-nav-bar .nav-bar__title,
         .js-nav-bar .nav-bar__item,
-        .js-nav-bar .nav-bar__link[href] ,
-        .js-nav-bar .subnav__link[href] ,
+        .js-nav-bar .nav-bar__link[href],
+        .js-nav-bar .subnav__link[href],
         .js-nav-bar .subnav__heading {
             white-space: nowrap;
             float: left;
