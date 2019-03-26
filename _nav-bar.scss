@@ -420,10 +420,11 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         margin: 0;
         float: left;
     }
-    
-        
+
+
     .nav-bar .subnav__items--stacked .subnav__item {
         float: none;
+        margin-left: $fallback--nav-bar--height / 2;
     }
 
     // This is to turn off Start-CSS's custom bullets:
@@ -669,7 +670,7 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
             border-right-width: $fallback--nav-bar__link--border-width;
         }
 
-        .js.nav-bar .nav-bar__link[href]  + .subnav__control {
+        .js-nav-bar .nav-bar__link[href]  + .subnav__control {
             border-style: $fallback--sub-nav__link--border-style;
             border-color: $fallback--sub-nav__link--border-color;
             border-top-width: 0;
@@ -684,13 +685,13 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
         */
         .js-nav-bar .nav-bar__title,
         .js-nav-bar .nav-bar__item,
-        .js.nav-bar .nav-bar__link[href] ,
-        .js-nav-bar .subnav__link[href] ,
+        .js-nav-bar .nav-bar__link[href],
+        .js-nav-bar .subnav__link[href],
         .js-nav-bar .subnav__heading {
             white-space: nowrap;
             float: left;
         }
-        
+
         .js-nav-bar .subnav__items--stacked .subnav__link[href]  {
             float: none;
         }
@@ -768,6 +769,10 @@ $fallback--nav-bar__title--height:                (($fallback--base-line-height 
 
         .js-nav-bar .subnav__items {
             float: left;
+        }
+
+        .js-nav-bar .nav-bar .subnav__items--stacked .subnav__item {
+            margin-left: 0;
         }
 
 
